@@ -1,5 +1,8 @@
 <resources>
-    <string name="app_name">CSI-KJSCE Official</string>
+    <string name="app_name">CSI-KJSCE</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
     <!-- Temporary sample data as JSON string -->
     <string name="demo_event_list">
         {"event_list": [ { "eventid":"1701",
@@ -53,5 +56,8 @@
                            ]
         }
     </string>
+
+
+
 
 </resources>
