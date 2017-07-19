@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.csikjsce.csi_kjsceofficial.Splashscreen"
+     android:background="@color/colorPrimary">
+
+
+    <ImageView
+        android:id="@+id/splash_imageview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/header_img_na_size"
+        android:layout_marginLeft="@dimen/splashImg"
+        android:src="@drawable/csi_ic_splash_screen" />
+</LinearLayout>

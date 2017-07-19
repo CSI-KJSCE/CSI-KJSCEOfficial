@@ -7,4 +7,6 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="header_img_na_size">20dp</dimen>
     <dimen name="slider_top">60dp</dimen>
+    <dimen name="splashImg">82dp</dimen>
+
 </resources>

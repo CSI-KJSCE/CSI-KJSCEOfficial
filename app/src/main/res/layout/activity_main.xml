@@ -12,6 +12,16 @@
         android:layout_height="40dp"
         android:layout_width="match_parent"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="22dp"
+        android:gravity="center_vertical"
+        android:text="Upcoming events"
+
+        android:textColor="#000000"
+        android:backgroundTint="@color/colorPrimary"
+        android:textSize="18dp"
+        />
 
     <include
         layout="@layout/app_bar_main"
