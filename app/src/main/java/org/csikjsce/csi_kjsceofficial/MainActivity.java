@@ -25,21 +25,10 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Utils EventJson=new Utils(this);
+    Utils EventJson;
     JSONArray Eventdetails;
     JSONObject Events;
 
-    {
-        try {
-            Events = EventJson.fetchData("event_list");
-
-            Eventdetails = Events.getJSONArray("event_list");
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-        }
-    }
 
     RecyclerView card1;
     RecyclerView.Adapter ev_adapter;
@@ -67,6 +56,16 @@ public class MainActivity extends AppCompatActivity
 
         //toggle.setHomeAsUpIndicator(R.drawable.csi_ic_actionbar);
         toggle.syncState();
+        EventJson = new Utils(this);
+        try {
+            Events = EventJson.fetchData("event_list");
+            Log.e("MainActivity","Events:"+Events);
+            Eventdetails = Events.getJSONArray("event_list");
+            Log.e("MainActivity","Eventdetails:"+Eventdetails);
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);

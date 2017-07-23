@@ -8,10 +8,10 @@ import org.json.JSONObject;
  */
 
 public class Utils {
-    private static Context context;
+    private Context context;
     String response =new String();
     public Utils(Context context){
-        context = this.context;
+        this.context = context;
     }
     public  JSONObject fetchData(String tablename) throws org.json.JSONException{
 

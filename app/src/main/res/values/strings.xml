@@ -5,56 +5,56 @@
 
     <!-- Temporary sample data as JSON string -->
     <string name="demo_event_list">
-        {"event_list": [ { "eventid":"1701",
-                            "title":"Handover Ceremony",
-                            "img_url":"http://csikjsce.org/wp-content/uploads/2017/01/IMG_20160927_171256-1024x766.jpg"
-                            "event_dt":"2017-07-15 16:15:00"},
-                          { "eventid":"1702",
-                            "title":"Career Guidance Session",
-                            "img_url":"http://csikjsce.org/wp-content/uploads/2016/12/mlsem2-300x225.jpg"
-                            "event_dt":"2017-07-31 17:15:00"}
+        {\"event_list\": [ { \"eventid\":\"1701\",
+                            \"title\":\"Handover Ceremony\",
+                            \"img_url\":\"http://csikjsce.org/wp-content/uploads/2017/01/IMG_20160927_171256-1024x766.jpg\",
+                            \"event_dt\":\"2017-07-15\"},
+                          { \"eventid\":\"1702\",
+                            \"title\":\"Career Guidance Session\",
+                            \"img_url\":\"http://csikjsce.org/wp-content/uploads/2016/12/mlsem2-300x225.jpg\",
+                            \"event_dt\":\"2017-07-31\"}
                         ]
         }
     </string>
     <string name="demo_event_details">
-        {"event_details": [ { "eventid":"1701",
-                            "description":"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
-                            "reg_link":"https://www.google.com"},
-                          { "eventid":"1701",
-                            "description":"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)",
-                            "reg_link":"https://www.facebook.com"}
+        {\"event_details\": [ { \"eventid\":\"1701\",
+                            \"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\ s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",
+                            \"reg_link\":\"https://www.google.com\"},
+                           { \"eventid\":\"1701\",
+                            \"description\":\"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using  \Content here, content here\ , making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \ lorem ipsum\  will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)\",
+                            \"reg_link\":\"https://www.facebook.com\"}
                         ]
         }
     </string>
     <string name="demo_feedback">
-    {"feedback": [ { "eventid":"1701",
-                       "link":"https://www.google.com",
-                        "Text":"Guidance"
-                       "accepting":"1"},
-                     { "eventid":"1701",
-                        "Text":"ML",
-                       "link":"https://www.facebook.com",
-                       "accepting":"0"}
+    {\"feedback\": [ { \"eventid\":\"1701\",
+                       \"link\":\"https://www.google.com\",
+                        \"Text\":\"Guidance\"
+                       \"accepting\":\"1\"},
+                     { \"eventid\":\"1701\",
+                        \"Text\":\"ML\",
+                       \"link\":\"https://www.facebook.com\",
+                       \"accepting\":\"0\"}
                    ]
     }
     </string>
     <string name="demo_councils">
-    {"councils": [ { "acad_yr":"2016-17",
-                     "current":"N"},
-                   { "acad_yr":"2017-18",
-                     "current":"Y"}
+    {\"councils\": [ { \"acad_yr\":\"2016-17\",
+                     \"current\":\"N\"},
+                   { \"acad_yr\":\"2017-18\",
+                     \"current\":\"Y\"}
                  ]
     }
     </string>
     <string name="demo_council_members">
-        {"council_members":[ { "name":"Sarfaraz Iraqui",
-                               "post":"Tech Head",
-                               "pic_url":"https://avatars5.githubusercontent.com/u/15617657?v=4&amp;s=400",
-                               "acad_yr":"2017-18"},
-                             {"name":"Devika Shanbhag",
-                              "post":Tech Head",
-                              "pic_url":"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAApLAAAAJDAyM2ZlMDYzLTRmNmQtNGM3OS05NDM3LWYyMjZkNDMwYjEwMA.jpg",
-                              "acad_yr":"2016-17"}
+        {\"council_members\":[ { \"name\":\"Sarfaraz Iraqui\",
+                               \"post\":\"Tech Head\",
+                               \"pic_url\":\"https://avatars5.githubusercontent.com/u/15617657?v=4&amp;s=400\",
+                               \"acad_yr\":\"2017-18\"},
+                             {\"name\":\"Devika Shanbhag\",
+                              \"post\":Tech Head\",
+                              \"pic_url\":\"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAApLAAAAJDAyM2ZlMDYzLTRmNmQtNGM3OS05NDM3LWYyMjZkNDMwYjEwMA.jpg\",
+                              \"acad_yr\":\"2016-17\"}
                            ]
         }
     </string>
