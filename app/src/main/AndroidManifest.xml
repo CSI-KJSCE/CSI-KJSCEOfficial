@@ -27,7 +27,11 @@
             >
         </activity>
         <activity android:name=".Feedback" />
-        <activity android:name=".Council"></activity>
+        <activity android:name=".Council" />
+        <activity
+            android:name=".Event_details"
+            android:label="@string/title_activity_event_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

@@ -29,8 +29,10 @@
     <string name="demo_feedback">
     {"feedback": [ { "eventid":"1701",
                        "link":"https://www.google.com",
+                        "Text":"Guidance"
                        "accepting":"1"},
                      { "eventid":"1701",
+                        "Text":"ML",
                        "link":"https://www.facebook.com",
                        "accepting":"0"}
                    ]
@@ -56,6 +58,7 @@
                            ]
         }
     </string>
+    <string name="title_activity_event_details">Event_details</string>
 
 
 </resources>

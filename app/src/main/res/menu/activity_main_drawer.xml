@@ -4,7 +4,7 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_camera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/csi_ic_home"
             android:title="Home" />
         <item
             android:id="@+id/nav_gallery"

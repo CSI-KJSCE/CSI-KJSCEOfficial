@@ -9,11 +9,12 @@ import org.json.JSONObject;
 
 public class Utils {
     private static Context context;
+    String response =new String();
     public Utils(Context context){
         context = this.context;
     }
-    public static JSONObject fetchData(String tablename) throws org.json.JSONException{
-        String response = null;
+    public  JSONObject fetchData(String tablename) throws org.json.JSONException{
+
 
         switch(tablename){
             case "event_list":

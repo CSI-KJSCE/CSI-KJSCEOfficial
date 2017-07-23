@@ -32,30 +32,8 @@ public class Splashscreen extends AppCompatActivity {
         newthread.start();
     }
 
-    /**
-     * Dispatch onResume() to fragments.  Note that for better inter-operation
-     * with older versions of the platform, at the point of this call the
-     * fragments attached to the activity are <em>not</em> resumed.  This means
-     * that in some cases the previous state may still be saved, not allowing
-     * fragment transactions that modify the state.  To correctly interact
-     * with fragments in their proper state, you should instead override
-     * {@link #onResumeFragments()}.
-     */
-   /* @Override
-    protected void onResume() {
-        super.onResume();
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                // finish the splash activity so it can't be returned to
-                Splashscreen.this.finish();
-                // create an Intent that will start the second activity
-                Intent mainIntent = new Intent(Splashscreen.this, MainActivity.class);
-                Splashscreen.this.startActivity(mainIntent);
-            }
-        }, 3000); // 3000 millisecond
-    }
-*/
+
+
 
 }
 

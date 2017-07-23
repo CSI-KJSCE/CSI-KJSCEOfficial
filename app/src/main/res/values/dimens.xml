@@ -8,5 +8,6 @@
     <dimen name="header_img_na_size">20dp</dimen>
     <dimen name="slider_top">60dp</dimen>
     <dimen name="splashImg">82dp</dimen>
+    <dimen name="textheadsize">32dp</dimen>
 
 </resources>

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.csikjsce.csi_kjsceofficial.Event_details">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <include layout="@layout/content_event_details" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/Event_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="250dp" />
+        <TextView
+            android:id="@+id/eventhead_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="This an example"
+            android:textSize="@dimen/textheadsize"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/eventdate_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12/7/2017"
+            android:gravity="right"/>
+
+        <TextView
+            android:id="@+id/eventdetails_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="shafvhfvdhvvdjvhbhdvbhjbdhsbhdvjhvdh"
+            android:textColor="#000000"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:textSize="@dimen/fab_margin"/>
+
+
+
+    </LinearLayout>
+
+
+
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        app:srcCompat="@drawable/csi_ic_register" />
+
+</android.support.design.widget.CoordinatorLayout>

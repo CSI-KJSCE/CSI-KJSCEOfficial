@@ -4,6 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,16 +16,42 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    Utils EventJson=new Utils(this);
+    JSONArray Eventdetails;
+    JSONObject Events;
 
+    {
+        try {
+            Events = EventJson.fetchData("event_list");
+
+            Eventdetails = Events.getJSONArray("event_list");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        }
+    }
+
+    RecyclerView card1;
+    RecyclerView.Adapter ev_adapter;
+    RecyclerView.LayoutManager lm;
     ViewPager viewPager;
     SwipeCustomAdapter adapter;
+    ArrayList<EventCard> list= new ArrayList<EventCard>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         viewPager=(ViewPager)findViewById(R.id.View_pager);
         adapter = new SwipeCustomAdapter(this);
@@ -41,6 +70,32 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        String[] date = new String[Eventdetails.length()],name = new String[Eventdetails.length()];
+        try {
+            for(int i=0;i<Eventdetails.length();i++) {
+                date[i] = Eventdetails.getJSONObject(i).getString("event_dt");
+                name[i]=Eventdetails.getJSONObject(i).getString("title");
+            }
+            } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        int count=0;
+        for(int i=0;i<Eventdetails.length();i++){
+            EventCard eventcard;
+            eventcard= new EventCard(name[count],date[count]);
+            count++;
+            list.add(eventcard);
+        }
+        card1=(RecyclerView)findViewById(R.id.eventcard_recycle);
+        lm=new LinearLayoutManager(this);
+        card1.setLayoutManager(lm);
+        card1.setHasFixedSize(true);
+
+        ev_adapter = new EventsAdapter(list);
+        card1.setAdapter(ev_adapter);
+
+
+
     }
     boolean doubleBackToExitPressedOnce=false;
     @Override

@@ -6,12 +6,64 @@ package org.csikjsce.csi_kjsceofficial;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
 
 public class Feedback extends AppCompatActivity {
+    Utils FeedJson=new Utils(this);
+    JSONArray Feeddetails;
+    JSONObject Feeds;
+
+    {
+        try {
+            Feeds = FeedJson.fetchData("feedback");
+            Feeddetails = Feeds.getJSONArray("feedback");
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+
+        }
+    }
+    RecyclerView feedbackcard;
+    RecyclerView.Adapter fd_adapter;
+    RecyclerView.LayoutManager lmf;
+    ArrayList<FeedbackCard> list= new ArrayList<FeedbackCard>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+        String[] Title = new String[Feeddetails.length()];
+        try {
+            for(int i=0;i<Feeddetails.length();i++) {
+
+                Title[i]=Feeddetails.getJSONObject(i).getString("Text");
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        int count=0;
+        for(int i=0;i<Feeddetails.length();i++){
+            FeedbackCard feedcard;
+            feedcard= new FeedbackCard(Title[count]);
+            count++;
+            list.add(feedcard);
+        }
+
+        feedbackcard=(RecyclerView)findViewById(R.id.feedback_recyclerview);
+        lmf=new LinearLayoutManager(this);
+        feedbackcard.setLayoutManager(lmf);
+        feedbackcard.setHasFixedSize(true);
+
+        fd_adapter = new Feedbackcard_adapter(list);
+        feedbackcard.setAdapter(fd_adapter);
+
     }
 }
