@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity
         //toggle.setHomeAsUpIndicator(R.drawable.csi_ic_actionbar);
         toggle.syncState();
         EventJson = new Utils(this);
+
         try {
             Events = EventJson.fetchData("event_list");
             Log.e("MainActivity","Events:"+Events);

@@ -29,7 +29,7 @@
     <string name="demo_feedback">
     {\"feedback\": [ { \"eventid\":\"1701\",
                        \"link\":\"https://www.google.com\",
-                        \"Text\":\"Guidance\"
+                        \"Text\":\"Guidance\",
                        \"accepting\":\"1\"},
                      { \"eventid\":\"1701\",
                         \"Text\":\"ML\",

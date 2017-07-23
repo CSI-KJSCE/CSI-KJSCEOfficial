@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -16,20 +17,11 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 public class Feedback extends AppCompatActivity {
-    Utils FeedJson=new Utils(this);
+
     JSONArray Feeddetails;
     JSONObject Feeds;
+    Utils FeedJson;
 
-    {
-        try {
-            Feeds = FeedJson.fetchData("feedback");
-            Feeddetails = Feeds.getJSONArray("feedback");
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-        }
-    }
     RecyclerView feedbackcard;
     RecyclerView.Adapter fd_adapter;
     RecyclerView.LayoutManager lmf;
@@ -40,6 +32,21 @@ public class Feedback extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
+         FeedJson =new Utils(this);
+        Log.e("MainActivity","Eventdetails:"+FeedJson);
+
+            try {
+                Feeds = FeedJson.fetchData("feedback");
+                Log.e("MainActivity","Eventdetails:"+Feeds);
+                Feeddetails = Feeds.getJSONArray("feedback");
+                Log.e("MainActivity","Eventdetails:"+Feeddetails);
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+
+            }
+
+
         String[] Title = new String[Feeddetails.length()];
         try {
             for(int i=0;i<Feeddetails.length();i++) {

@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_alignBottom="@id/upcoming_textview"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp">
     <android.support.v7.widget.CardView
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/events_card_view"
+        app:contentPaddingBottom="0dp"
         >
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -17,7 +19,7 @@
             <ImageView
                 android:id="@+id/event_card1_imageview"
                 android:layout_width="match_parent"
-                android:layout_height="124dp" />
+                android:layout_height="224dp" />
             <TextView
                 android:id="@+id/eventname_textview"
                 android:layout_width="match_parent"

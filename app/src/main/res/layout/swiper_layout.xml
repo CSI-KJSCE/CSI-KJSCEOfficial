@@ -6,7 +6,6 @@
 
     <ImageView
         android:layout_marginTop="@dimen/slider_top"
-
         android:id="@+id/swiper_imageview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
