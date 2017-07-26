@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
         adapter = new SwipeCustomAdapter(this);
         viewPager.setAdapter(adapter);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity
                 date[i] = Eventdetails.getJSONObject(i).getString("event_dt");
                 name[i]=Eventdetails.getJSONObject(i).getString("title");
             }
-            } catch (JSONException e) {
+        } catch (JSONException e) {
             e.printStackTrace();
         }
         int count=0;
@@ -91,7 +91,7 @@ public class MainActivity extends AppCompatActivity
         card1.setLayoutManager(lm);
         card1.setHasFixedSize(true);
 
-        ev_adapter = new EventsAdapter(list);
+        ev_adapter = new EventsAdapter(list,this);
         card1.setAdapter(ev_adapter);
 
 
@@ -118,7 +118,7 @@ public class MainActivity extends AppCompatActivity
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
-        }
+    }
 
 
     @SuppressWarnings("StatementWithEmptyBody")

@@ -4,11 +4,15 @@ package org.csikjsce.csi_kjsceofficial;
  * Created by sumit on 18/7/17.
  */
 
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.MenuItem;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,23 +32,29 @@ public class Feedback extends AppCompatActivity {
     ArrayList<FeedbackCard> list= new ArrayList<FeedbackCard>();
 
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback);
-         FeedJson =new Utils(this);
+
+        //setActionBar(tool);
+
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        FeedJson =new Utils(this);
         Log.e("MainActivity","Eventdetails:"+FeedJson);
 
-            try {
-                Feeds = FeedJson.fetchData("feedback");
-                Log.e("MainActivity","Eventdetails:"+Feeds);
-                Feeddetails = Feeds.getJSONArray("feedback");
-                Log.e("MainActivity","Eventdetails:"+Feeddetails);
+        try {
+            Feeds = FeedJson.fetchData("feedback");
+            Log.e("MainActivity","Eventdetails:"+Feeds);
+            Feeddetails = Feeds.getJSONArray("feedback");
+            Log.e("MainActivity","Eventdetails:"+Feeddetails);
 
-            } catch (JSONException e) {
-                e.printStackTrace();
+        } catch (JSONException e) {
+            e.printStackTrace();
 
-            }
+        }
 
 
         String[] Title = new String[Feeddetails.length()];
@@ -72,5 +82,12 @@ public class Feedback extends AppCompatActivity {
         fd_adapter = new Feedbackcard_adapter(list);
         feedbackcard.setAdapter(fd_adapter);
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==android.R.id.home);
+        finish();
+        return super.onOptionsItemSelected(item);
     }
 }
