@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        int [] image={R.drawable.handover,R.drawable.handover,R.drawable.handover};
         String[] date = new String[Eventdetails.length()],name = new String[Eventdetails.length()];
         try {
             for(int i=0;i<Eventdetails.length();i++) {
@@ -82,7 +83,7 @@ public class MainActivity extends AppCompatActivity
         int count=0;
         for(int i=0;i<Eventdetails.length();i++){
             EventCard eventcard;
-            eventcard= new EventCard(name[count],date[count]);
+            eventcard= new EventCard(image[count],name[count],date[count]);
             count++;
             list.add(eventcard);
         }

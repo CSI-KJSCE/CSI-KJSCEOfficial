@@ -76,6 +76,7 @@ public class EventsAdapter extends RecyclerView.Adapter<EventsAdapter.Eventholde
             EventCard eventss=this.eventss.get(position);
             Intent intent=new Intent(this.ctx,Event_details.class);
             intent.putExtra("Title",eventss.getEvent_name());
+            intent.putExtra("Image",eventss.getImage_id());
             this.ctx.startActivity(intent);
         }
     }

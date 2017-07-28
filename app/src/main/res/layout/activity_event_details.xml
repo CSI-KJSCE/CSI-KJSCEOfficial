@@ -28,10 +28,14 @@
         >
 
         <ImageView
+            android:layout_marginTop="62dp"
             android:id="@+id/Event_imageview"
             android:layout_width="match_parent"
             android:layout_height="250dp" />
         <TextView
+            android:paddingLeft="12dp"
+
+            android:paddingRight="3dp"
             android:id="@+id/eventhead_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -39,6 +43,7 @@
             android:textSize="@dimen/textheadsize"
             android:textStyle="bold"/>
         <TextView
+            android:padding="2dp"
             android:id="@+id/eventdate_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -46,6 +51,9 @@
             android:gravity="right"/>
 
         <TextView
+
+            android:paddingLeft="16dp"
+            android:gravity="center_vertical"
             android:id="@+id/eventdetails_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

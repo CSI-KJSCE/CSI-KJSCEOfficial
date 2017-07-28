@@ -19,13 +19,13 @@
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/View_pager"
-                android:layout_height="272dp"
+                android:layout_height="230dp"
                 android:layout_width="match_parent"/>
 
 
         <TextView
 
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:gravity="center"
             android:text="Upcoming events"

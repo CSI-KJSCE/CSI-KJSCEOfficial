@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.json.JSONArray;
@@ -22,6 +23,7 @@ public class Event_details extends AppCompatActivity {
     JSONObject obj;
 
     TextView head,date,details;
+    ImageView eventimg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +42,11 @@ public class Event_details extends AppCompatActivity {
             }
         });
         String title=getIntent().getStringExtra("Title");
-
+        int img=getIntent().getIntExtra("Image",0);
         head=(TextView) findViewById(R.id.eventhead_textview);
         date=(TextView) findViewById(R.id.eventdate_textview);
         details=(TextView) findViewById(R.id.eventdetails_textview);
+        eventimg=(ImageView)findViewById(R.id.Event_imageview);
         EventJson= new Utils(this);
 
         try {
@@ -63,7 +66,7 @@ public class Event_details extends AppCompatActivity {
                     head.setText(obj.getString("title"));
                     date.setText(obj.getString("event_dt"));
                     details.setText(obj.getString("description"));
-
+                    eventimg.setImageResource(img);
 
                 }
             } catch (JSONException e) {

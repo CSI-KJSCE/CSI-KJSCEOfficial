@@ -10,7 +10,7 @@ public class EventCard {
     String event_name,Date;
     int image_id;
 
-    EventCard( String event_name,String Date){
+    EventCard( int image_id,String event_name,String Date){
 
         this.setImage_id(image_id);
         this.setEvent_name(event_name);
