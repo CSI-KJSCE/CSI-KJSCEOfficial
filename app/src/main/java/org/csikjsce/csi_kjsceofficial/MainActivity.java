@@ -21,7 +21,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,7 +37,11 @@ public class MainActivity extends AppCompatActivity
     RecyclerView.Adapter ev_adapter;
     RecyclerView.LayoutManager lm;
     ViewPager viewPager;
+    private int currentPage=0;
     SwipeCustomAdapter adapter;
+    CircleIndicator indicate;
+    private static final Integer[] images= {R.drawable.csi_ic_splash_screen,R.drawable.csi_ic_splash_screen};
+    private ArrayList<Integer> imgarray=new ArrayList<Integer>();
     ArrayList<EventCard> list= new ArrayList<EventCard>();
 
     @Override
@@ -42,9 +49,32 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        for(int i=0;i<images.length;i++)
+            imgarray.add(images[i]);
         viewPager=(ViewPager)findViewById(R.id.View_pager);
-        adapter = new SwipeCustomAdapter(this);
+        indicate=(CircleIndicator) findViewById(R.id.indicator);
+        indicate.setViewPager(viewPager);
+        adapter = new SwipeCustomAdapter(MainActivity.this,imgarray);
         viewPager.setAdapter(adapter);
+
+
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == images.length) {
+                    currentPage = 0;
+                }
+                viewPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 5000, 5000);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
