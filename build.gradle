@@ -15,6 +15,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        // Maven repository to fetch firebaseUI sdk
+        maven {
+            url 'https://maven.fabric.io/public'
+        }
     }
 }
 task clean(type: Delete) {
