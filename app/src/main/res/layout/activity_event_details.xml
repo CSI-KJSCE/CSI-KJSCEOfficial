@@ -43,10 +43,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="This an example"
-            android:textSize="@dimen/textheadsize"
+            android:textSize="26dp"
             android:textStyle="bold"/>
         <TextView
             android:padding="2dp"
+            android:layout_marginRight="16dp"
             android:id="@+id/eventdate_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
