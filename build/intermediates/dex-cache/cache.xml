@@ -3,12 +3,219 @@
 
     <item
         is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/39d7deaa03fc1887e35ba7100165dfebfc65d237/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6f68018b5ddc2493f5e5cecc5601c05d0539281a">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_9bb7632badb9e2cd354d073ba002aa0625bfd628.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.0.2/43eeae0b9fb087bb3194ba59ab63a38a32fbf3e/retrofit-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="043eeae0b9fb087bb3194ba59ab63a38a32fbf3e">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/retrofit-2.0.2_5ea3fbe4b11086ff9a58a6c8505a384e1d9d2d54.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/6d6178b5f97c050a0aaf1a94416fc6e7f2f980f5/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a10ed1f1cff990ef081263ad33f13dc6c207eb4e">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_610d3e091aeef7e87ce8551f4b4f4236a889e6ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/home/sziraqui/.android/build-cache/45473fde498feb5cd64a56c755538f47766583f1/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="1db6784d006818fee2591f13b0bf09ac31a3d49a">
         <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/sumit-local/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_665a6275e9e5b007cf25bf2e99c91a47acaa5961.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/d5b467e66a067936e9f70136de9a6a37418fddc3/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7308fa2037dac339ea04b90cdd17e87f835ea294">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_a7f20e5bd7069d4bce701cf7ffad3c70a75fcdde.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/8a394c316b8478fc6ceb10812999ffe24c2aae31/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4e7ccc1d51d89540ea7ad426a1934204b674939b">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_32c09a3170bc89db8353e9f708c05080cb92df36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/dc5141d02153cc2714d73fc1395df01d7d3db9c1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="73591df4ec047e55db9415034d1dfab617fa9f3c">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_5ae428fdc67c356e2dcb927cb9e1f9b84a888cbc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.6.1/b9d63507329a7178e026fc334f87587ee5070ac5/gson-2.6.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="b9d63507329a7178e026fc334f87587ee5070ac5">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/gson-2.6.1_f411c125460ef6bc7bce974839119a71f844e616.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/44cfade8b04fcf70cc4b91039fb13a6c957f5530/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e2185aff89caeb337b1ffc36d5e525d8318e7cfe">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_eda3e4b5f33ba8203b35f0b38b08a59b6d110993.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/648f4807c490a580362fe2ef7d1b706d2ad3c54c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dd39827d2067497e60e21da48a7926000b6d4b0c">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_d06624aebca52ba759cee1179084f5e277c85b9b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.2.0/f7873a2ebde246a45c2a8d6f3247108b4c88a879/okhttp-3.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f7873a2ebde246a45c2a8d6f3247108b4c88a879">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/okhttp-3.2.0_db6e151a46f65c7a1df29f669c09146f031fd623.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/e7a11b08e97e286160bb8a65e73028c2153c3fed/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a319fd4d548ba4cc9511561d37109ba922bfbf6a">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_3fa584a95027f3ed72e21ff784a7ee835ccaa74b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.twitter/twitter-text/1.13.0/78415b95ae3184c5926d593feab64bfc0b73b2dd/twitter-text-1.13.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="78415b95ae3184c5926d593feab64bfc0b73b2dd">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/twitter-text-1.13.0_1dae8aa8341f657afd553bc2ef185e579467fb17.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/3cde1d10ecae58531a1ced7ddf35da95c5de663b/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="895c63ba9782b04f0c5da69205216f6ec87119eb">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_f0acfa48c4ea186e73126dfd881fbef7c5a77ff0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/1fad67f16fef665e8a072906c6e778739d44c47c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cf8c0b6ec17f059cf61ecd101296e16c38562196">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_dcf842aa377a9b1e8954b35604e565fd27d7d9a0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/ea8a50e8e94be59e8d010b2add37f61936394d8c/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e96c6974cf924e7ee3b230e6847d5731423388c9">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_92974113734c269472fe2237652023607599eee3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.0.2/f8d87f15b94b8d74e7ccf61d7eedb558811cdb30/converter-gson-2.0.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f8d87f15b94b8d74e7ccf61d7eedb558811cdb30">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/converter-gson-2.0.2_72c5e1dffeae59d2f18f9d8248662f1a87a024dc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.6.0/98476622f10715998eacf9240d6b479f12c66143/okio-1.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="98476622f10715998eacf9240d6b479f12c66143">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/okio-1.6.0_c461bcece5e717e80b0d7b0bc3e23c3c741396f1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/907c38174c21bae2f876b8ccbe4de419c2161cd1/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8bdf5cd702d3d860cd85783a776c26605f557882">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_acb6d17ba158e7d47f7409f9a2f981c0d8199dbe.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/picasso-2.5.2_68b6949c3a8e276e5bc48334411c6cf515ca8194.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/af8d73594e75bf9f25c616e512e7fac711962c9d/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="43a08f2cc1bc8e9678b5a1740f3b91b50ab50ac6">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_916ca55dac78b79ba8e1686d2c14010e33ed905f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/ab38369223a954763e3bfc5131c35cb67c181ae6/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="9aea94e7aa8a8ed235566a120aa52d8ace3d9fe4">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_be53999324de6210db6014ad82dc76ab9fd4875e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/b620a92f006960edd2f594a08eaf75917ff10e33/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="343ad59d9fb3bbf6ab99baafad859eb4b0fecc02">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_42becfb28372c69d3e5efc014ac9cb7b17181860.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/sziraqui/.android/build-cache/39947eeb72b17c593adbe1f76047716e2b5cf476/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="09cf6aa1390f95157e8295d02be7868f568825fc">
+        <dex dex="/home/sziraqui/AndroidStudioProjects/csi-kjsce/CSI-KJSCEOfficial/app/build/intermediates/pre-dexed/debug/classes_cf3b3a0956e571f6aeaa7361c8ac48822478d17e.jar" />
     </item>
 
 </items>

@@ -16,6 +16,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -28,14 +31,7 @@ import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Utils EventJson;
-    JSONArray Eventdetails;
-    JSONObject Events;
 
-
-    RecyclerView card1;
-    RecyclerView.Adapter ev_adapter;
-    RecyclerView.LayoutManager lm;
     ViewPager viewPager;
     private int currentPage=0;
     SwipeCustomAdapter adapter;
@@ -47,8 +43,11 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+        //connectingh to firebase database
+        FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference dbRef = csiDatabase.getReference();
+
         for(int i=0;i<images.length;i++)
             imgarray.add(images[i]);
         viewPager=(ViewPager)findViewById(R.id.View_pager);
@@ -86,44 +85,10 @@ public class MainActivity extends AppCompatActivity
 
         //toggle.setHomeAsUpIndicator(R.drawable.csi_ic_actionbar);
         toggle.syncState();
-        EventJson = new Utils(this);
-
-        try {
-            Events = EventJson.fetchData("event_list");
-            Log.e("MainActivity","Events:"+Events);
-            Eventdetails = Events.getJSONArray("event_list");
-            Log.e("MainActivity","Eventdetails:"+Eventdetails);
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        int [] image={R.drawable.handover,R.drawable.handover,R.drawable.handover};
-        String[] date = new String[Eventdetails.length()],name = new String[Eventdetails.length()];
-        try {
-            for(int i=0;i<Eventdetails.length();i++) {
-                date[i] = Eventdetails.getJSONObject(i).getString("event_dt");
-                name[i]=Eventdetails.getJSONObject(i).getString("title");
-            }
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        int count=0;
-        for(int i=0;i<Eventdetails.length();i++){
-            EventCard eventcard;
-            eventcard= new EventCard(image[count],name[count],date[count]);
-            count++;
-            list.add(eventcard);
-        }
-        card1=(RecyclerView)findViewById(R.id.eventcard_recycle);
-        lm=new LinearLayoutManager(this);
-        card1.setLayoutManager(lm);
-        card1.setHasFixedSize(true);
-
-        ev_adapter = new EventsAdapter(list,this);
-        card1.setAdapter(ev_adapter);
+        //Fetching events node from database;
 
 
 
