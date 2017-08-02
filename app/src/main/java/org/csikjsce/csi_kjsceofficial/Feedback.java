@@ -85,7 +85,4 @@ public class Feedback extends Fragment {
         liss.setAdapter(ada);
     }
 
-
-
-
 }

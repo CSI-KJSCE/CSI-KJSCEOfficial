@@ -62,6 +62,9 @@ public class MainActivity extends AppCompatActivity
         //Fetching events node from database;
 
 
+        homefragment homeFragment = new homefragment();
+        getSupportFragmentManager().beginTransaction().add(R.id.frames,homeFragment).commit();
+
 
     }
     //The back press exit

@@ -30,7 +30,7 @@ public class Council extends Fragment {
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+
         Log.d(TAG,"In onActivityCreated");
         ArrayList<CouncilMember> members = new ArrayList<CouncilMember>();
         for (int i = 0; i < 10; i++) {
@@ -38,11 +38,8 @@ public class Council extends Fragment {
         }
         ListView membersListView;
         membersListView = (ListView)view.findViewById(R.id.listView2);
-        Log.d(TAG,"In onActivityCreateds"+ members);
         CouncilAdapter mListAdapter = new CouncilAdapter(getActivity(),members);
-
         membersListView.setAdapter(mListAdapter);
-        Log.d(TAG,"In onActivityCreated"+mListAdapter);
 
 
     }}

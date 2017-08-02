@@ -85,8 +85,8 @@ public class homefragment extends Fragment {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("Event Details","In onItemClick");
-                Toast.makeText(getApplicationContext(),"Clicked",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getApplicationContext(),Event_details.class));
+                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getActivity(),Event_details.class));
             }
         });
 
