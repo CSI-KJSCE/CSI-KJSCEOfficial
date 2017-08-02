@@ -10,6 +10,13 @@ public class CouncilMember {
     private String pic_url;
     private String acad_yr;
 
+    CouncilMember(){}
+    CouncilMember(String name, String post, String pic_url, String acad_yr){
+        this.name = name;
+        this.post = post;
+        this.pic_url = pic_url;
+        this.acad_yr = acad_yr;
+    }
     public String getName() {
         return name;
     }
