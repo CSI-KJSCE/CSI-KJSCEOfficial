@@ -1,16 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d3d3d3"
+    android:orientation="vertical"
     tools:context="org.csikjsce.csi_kjsceofficial.Feedback">
 
-    <android.support.v7.widget.RecyclerView
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/feedback_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/feedback_recyclerview"
-        ></android.support.v7.widget.RecyclerView>
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+         />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="495dp"
+        android:id="@+id/feedback_listview"
+        android:paddingTop="8dp"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="4dp"
+        tools:layout_editor_absoluteY="8dp"
+        tools:layout_editor_absoluteX="8dp">
+
+    </ListView>
 
 
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

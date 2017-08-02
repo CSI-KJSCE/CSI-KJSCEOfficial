@@ -1,9 +1,11 @@
 package org.csikjsce.csi_kjsceofficial;
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,50 +16,28 @@ import java.util.ArrayList;
  * Created by sumit on 23/7/17.
  */
 
-public class Feedbackcard_adapter extends RecyclerView.Adapter<Feedbackcard_adapter.Feedbackholder> {
+public class Feedbackcard_adapter extends ArrayAdapter<FeedbackCard> {
 
+    public Feedbackcard_adapter(Context context, ArrayList<FeedbackCard> feedCards) {
+        super(context, 0, feedCards);
+    }
 
-public Feedbackcard_adapter(ArrayList<FeedbackCard> eventss){
-
-        this.eventss=eventss;
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        // Check if an existing view is being reused, otherwise inflate the view
+        View listItemView = convertView;
+        if (listItemView == null) {
+            listItemView = LayoutInflater.from(getContext()).inflate(
+                    R.layout.feedback_card, parent, false);
         }
+        TextView Title = (TextView)listItemView.findViewById(R.id.feedback_title_textview);
+        TextView submit = (TextView)listItemView.findViewById(R.id.submit_textview);
+        ImageView image = (ImageView)listItemView.findViewById(R.id.feedback_imageview);
 
-        ArrayList<FeedbackCard> eventss = new ArrayList<FeedbackCard>();
-@Override
-public Feedbackholder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.feedback_card,parent,false);
-        Feedbackholder hold= new Feedbackholder(view);
-        return hold;
-        }
-
-@Override
-public void onBindViewHolder(Feedbackholder holder, int position) {
-
-        FeedbackCard ev = eventss.get(position);
-        holder.image.setImageResource(ev.getImage_id());
-        holder.eventname.setText(ev.getTitle());
-        holder.submit.setText("Submit");
-
-        }
-
-@Override
-public int getItemCount() {
-        return eventss.size();
-        }
-
-public static class Feedbackholder extends RecyclerView.ViewHolder{
-    ImageView image;
-    TextView eventname;
-    Button submit;
-
-    public Feedbackholder(View itemView) {
-        super(itemView);
-
-        image= (ImageView) itemView.findViewById(R.id.feedback_imageview);
-        eventname=(TextView)itemView.findViewById(R.id.feedback_title_textview);
-        submit=(Button)itemView.findViewById(R.id.submit_button);
-
-
+        Title.setText(getItem(position).getTitle());
+        submit.setText("Give Feedback");
+        image.setImageResource(getItem(position).getImage_id());
+        return listItemView;
     }
 }
-}
+

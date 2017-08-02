@@ -5,14 +5,20 @@ package org.csikjsce.csi_kjsceofficial;
  */
 
 import android.os.Build;
+import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,29 +26,28 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Feedback extends AppCompatActivity {
+public class Feedback extends Fragment {
 
     JSONArray Feeddetails;
     JSONObject Feeds;
     Utils FeedJson;
-
-    RecyclerView feedbackcard;
-    RecyclerView.Adapter fd_adapter;
-    RecyclerView.LayoutManager lmf;
+    ListView liss;
     ArrayList<FeedbackCard> list= new ArrayList<FeedbackCard>();
+    private View view ;
+    private final String TAG = "FeedbackListFragment";
 
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Nullable
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_feedback);
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        view= inflater.inflate(R.layout.activity_feedback, container, false);
+        return view;
+    }
 
-        //setActionBar(tool);
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-        FeedJson =new Utils(this);
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        FeedJson =new Utils(this.getContext());
         Log.e("MainActivity","Eventdetails:"+FeedJson);
 
         try {
@@ -74,20 +79,13 @@ public class Feedback extends AppCompatActivity {
             list.add(feedcard);
         }
 
-        feedbackcard=(RecyclerView)findViewById(R.id.feedback_recyclerview);
-        lmf=new LinearLayoutManager(this);
-        feedbackcard.setLayoutManager(lmf);
-        feedbackcard.setHasFixedSize(true);
 
-        fd_adapter = new Feedbackcard_adapter(list);
-        feedbackcard.setAdapter(fd_adapter);
-
+       liss =(ListView)view.findViewById(R.id.feedback_listview);
+        Feedbackcard_adapter ada= new Feedbackcard_adapter(getActivity(),list);
+        liss.setAdapter(ada);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==android.R.id.home);
-        finish();
-        return super.onOptionsItemSelected(item);
-    }
+
+
+
 }

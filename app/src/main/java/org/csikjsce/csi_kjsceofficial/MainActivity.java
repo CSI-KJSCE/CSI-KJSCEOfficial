@@ -1,8 +1,10 @@
 package org.csikjsce.csi_kjsceofficial;
 
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +16,9 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -27,18 +32,9 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
-    ViewPager viewPager;
-    private int currentPage=0;
-    SwipeCustomAdapter adapter;
-    CircleIndicator indicate;
-    private static final Integer[] images= {R.drawable.csi_ic_splash_screen,R.drawable.csi_ic_splash_screen};
-    private ArrayList<Integer> imgarray=new ArrayList<Integer>();
-    ArrayList<EventCard> list= new ArrayList<EventCard>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,32 +43,7 @@ public class MainActivity extends AppCompatActivity
         //connectingh to firebase database
         FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = csiDatabase.getReference();
-
-        for(int i=0;i<images.length;i++)
-            imgarray.add(images[i]);
-        viewPager=(ViewPager)findViewById(R.id.View_pager);
-        indicate=(CircleIndicator) findViewById(R.id.indicator);
-        indicate.setViewPager(viewPager);
-        adapter = new SwipeCustomAdapter(MainActivity.this,imgarray);
-        viewPager.setAdapter(adapter);
-
-
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == images.length) {
-                    currentPage = 0;
-                }
-                viewPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        Timer swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 5000, 5000);
+        //Swiper layout
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -93,6 +64,7 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+    //The back press exit
     boolean doubleBackToExitPressedOnce=false;
     @Override
     public void onBackPressed() {
@@ -117,26 +89,39 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+
+
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         Intent i;
         int id = item.getItemId();
-
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-            i=new Intent(this,Council.class);
-            startActivity(i);
-
-        } else if (id == R.id.nav_slideshow) {
-            i=new Intent(this,Feedback.class);
-            startActivity(i);
+        Fragment frag= null;
+        switch(id)
+        {
+            case R.id.nav_home:
+                frag = new homefragment();
+                break;
+            case R.id.nav_council:
+                frag =new Council();
+                break;
+            case R.id.nav_feedback:
+                frag= new Feedback();
+                break;
         }
 
+        if (frag != null){
+            android.support.v4.app.FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.frames,frag);
+            ft.commit();
+
+        }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
+
         return true;
     }
 }

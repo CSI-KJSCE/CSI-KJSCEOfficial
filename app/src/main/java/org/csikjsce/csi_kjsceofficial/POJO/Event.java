@@ -16,6 +16,8 @@ public class Event {
         img_url = url;
     }
 
+    public Event(){}
+
     public int getEventid() {
         return eventid;
     }
