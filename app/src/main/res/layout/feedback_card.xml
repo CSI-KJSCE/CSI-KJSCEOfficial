@@ -28,7 +28,7 @@
                 android:id="@+id/feedback_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="180dp"
-                android:background="#000"
+                android:background="#40e0d0"
                 />
 
             <TextView

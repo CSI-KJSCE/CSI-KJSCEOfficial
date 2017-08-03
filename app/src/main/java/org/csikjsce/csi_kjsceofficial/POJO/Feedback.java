@@ -9,7 +9,13 @@ public class Feedback {
     private String link;
     private String message;
     private boolean acceptingResponse;
-
+    Feedback(){}
+    Feedback(int id, String url, String msg, boolean accepting){
+        eventid = id;
+        link = url;
+        message = msg;
+        acceptingResponse = accepting;
+    }
     public int getEventid() {
         return eventid;
     }
