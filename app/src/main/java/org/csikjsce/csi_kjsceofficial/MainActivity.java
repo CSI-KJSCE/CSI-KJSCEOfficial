@@ -16,37 +16,66 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
+import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    Utils EventJson;
-    JSONArray Eventdetails;
-    JSONObject Events;
 
-
-    RecyclerView card1;
-    RecyclerView.Adapter ev_adapter;
-    RecyclerView.LayoutManager lm;
     ViewPager viewPager;
+    private int currentPage=0;
     SwipeCustomAdapter adapter;
+    CircleIndicator indicate;
+    private static final Integer[] images= {R.drawable.csi_ic_splash_screen,R.drawable.csi_ic_splash_screen};
+    private ArrayList<Integer> imgarray=new ArrayList<Integer>();
     ArrayList<EventCard> list= new ArrayList<EventCard>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_main);
+        //connectingh to firebase database
+        FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference dbRef = csiDatabase.getReference();
+
+        for(int i=0;i<images.length;i++)
+            imgarray.add(images[i]);
         viewPager=(ViewPager)findViewById(R.id.View_pager);
-        adapter = new SwipeCustomAdapter(this);
+        indicate=(CircleIndicator) findViewById(R.id.indicator);
+        indicate.setViewPager(viewPager);
+        adapter = new SwipeCustomAdapter(MainActivity.this,imgarray);
         viewPager.setAdapter(adapter);
+
+
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == images.length) {
+                    currentPage = 0;
+                }
+                viewPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 5000, 5000);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-       setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -56,43 +85,10 @@ public class MainActivity extends AppCompatActivity
 
         //toggle.setHomeAsUpIndicator(R.drawable.csi_ic_actionbar);
         toggle.syncState();
-        EventJson = new Utils(this);
-
-        try {
-            Events = EventJson.fetchData("event_list");
-            Log.e("MainActivity","Events:"+Events);
-            Eventdetails = Events.getJSONArray("event_list");
-            Log.e("MainActivity","Eventdetails:"+Eventdetails);
-        } catch (JSONException e) {
-            e.printStackTrace();
-
-        }
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String[] date = new String[Eventdetails.length()],name = new String[Eventdetails.length()];
-        try {
-            for(int i=0;i<Eventdetails.length();i++) {
-                date[i] = Eventdetails.getJSONObject(i).getString("event_dt");
-                name[i]=Eventdetails.getJSONObject(i).getString("title");
-            }
-            } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        int count=0;
-        for(int i=0;i<Eventdetails.length();i++){
-            EventCard eventcard;
-            eventcard= new EventCard(name[count],date[count]);
-            count++;
-            list.add(eventcard);
-        }
-        card1=(RecyclerView)findViewById(R.id.eventcard_recycle);
-        lm=new LinearLayoutManager(this);
-        card1.setLayoutManager(lm);
-        card1.setHasFixedSize(true);
-
-        ev_adapter = new EventsAdapter(list);
-        card1.setAdapter(ev_adapter);
+        //Fetching events node from database;
 
 
 
@@ -118,7 +114,7 @@ public class MainActivity extends AppCompatActivity
                 doubleBackToExitPressedOnce=false;
             }
         }, 2000);
-        }
+    }
 
 
     @SuppressWarnings("StatementWithEmptyBody")

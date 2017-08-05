@@ -9,32 +9,6 @@
     tools:openDrawer="start">
 
 
-         <android.support.v4.view.ViewPager
-             android:id="@+id/View_pager"
-             android:layout_height="40dp"
-             android:layout_width="match_parent"
-             />
-         <TextView
-
-             android:layout_width="match_parent"
-             android:layout_height="22dp"
-             android:gravity="center_vertical"
-             android:text="Upcoming events"
-             android:id="@+id/upcoming_textview"
-             android:textColor="#000000"
-             android:backgroundTint="@color/colorPrimary"
-             android:textSize="18dp"
-             />
-
-
-
-         <android.support.v7.widget.RecyclerView
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
-             android:id="@+id/eventcard_recycle"
-
-             ></android.support.v7.widget.RecyclerView>
-
 
 
 
@@ -48,7 +22,7 @@
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="false"

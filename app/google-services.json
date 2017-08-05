@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "513953007272",
+    "firebase_url": "https://csi-kjsce.firebaseio.com",
+    "project_id": "csi-kjsce",
+    "storage_bucket": "csi-kjsce.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513953007272:android:90df38996ec4a93f",
+        "android_client_info": {
+          "package_name": "org.csikjsce.csi_kjsceofficial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "513953007272-rpgorgguaiv35q0v5crj993st4j2qjlm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.csikjsce.csi_kjsceofficial",
+            "certificate_hash": "75a1d70b493c764d677baf0c89cca5d9be064a4b"
+          }
+        },
+        {
+          "client_id": "513953007272-287pfoo3of10ooam6envuts7771p4fq5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgE4-6fvHOYI_NrwjhmpW0cHz-Mm9riDQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "513953007272-287pfoo3of10ooam6envuts7771p4fq5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
