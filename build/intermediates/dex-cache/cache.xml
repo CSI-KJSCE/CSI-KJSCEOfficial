@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial (copy)/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="d7a5d2ed22b0cb0dff732f4160fee8928696b89a">
-        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3f927934d7e95b32102ddde385412afc84bfd8ba/classes.dex" />
+        sha1="60f7dd39d49795389d37af65a8cfb7f0be51993c">
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial (copy)/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_f9889f972a096d2a5379747f8f5a27b79019c496/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial (copy)/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ed03bf382df4f0ea0cf0db3270846d764db98fa4/classes.dex" />
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial (copy)/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_4a9eea4f81e81147a685e583eb8883548a166d48/classes.dex" />
     </item>
 
 </items>
