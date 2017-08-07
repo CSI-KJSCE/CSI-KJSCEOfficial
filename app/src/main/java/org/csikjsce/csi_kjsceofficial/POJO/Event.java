@@ -55,11 +55,10 @@ public class Event {
             return true;
         if(!( o instanceof Event))
             return false;
-        else {
+
             Event f = (Event) o;
-            if(eventid == f.getEventid())
+            if(this.eventid == f.getEventid())
                 return true;
-        }
         return false;
     }
 }

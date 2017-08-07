@@ -17,10 +17,18 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
 import org.csikjsce.csi_kjsceofficial.adapters.EventRecycleViewAdapter;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -42,7 +50,10 @@ public class homefragment extends Fragment {
     private int currentPage=0;
     private ArrayList<Integer> imgarray=new ArrayList<Integer>();
     ArrayList<Event> list= new ArrayList<>();
-
+    DatabaseReference dbRef;
+    DatabaseReference eventsDb;
+    Set<Event> uniqueEvents;
+    EventRecycleViewAdapter ed;
     private FragmentTransaction fragmentTransaction;
     public homefragment(){
 
@@ -51,6 +62,8 @@ public class homefragment extends Fragment {
         this.fragmentTransaction = fragmentTransaction;
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        dbRef = FirebaseDatabase.getInstance().getReference();
+        eventsDb = dbRef.child("event");
         view =  inflater.inflate(R.layout.content_main,container,false);
         return view;
     }
@@ -71,6 +84,7 @@ public class homefragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        //Populate viewpager
         for(int i=0;i<images.length;i++)
             imgarray.add(images[i]);
         viewPager=(ViewPager)view.findViewById(R.id.View_pager);
@@ -78,16 +92,6 @@ public class homefragment extends Fragment {
         indicate.setViewPager(viewPager);
         adapter = new SwipeCustomAdapter(getActivity(),imgarray);
         viewPager.setAdapter(adapter);
-        eventlists=(RecyclerView)view.findViewById(R.id.eventcard_listview);
-        for(int i=0;i<5;i++){
-            list.add(new Event(i,"Title","1/7/2017","url"));
-
-
-        }
-        EventRecycleViewAdapter ed = new EventRecycleViewAdapter(getContext(),list);
-        eventlists.setLayoutManager( new LinearLayoutManager(getContext()));
-        eventlists.setAdapter(ed);
-
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
@@ -104,6 +108,48 @@ public class homefragment extends Fragment {
                 handler.post(Update);
             }
         }, 5000, 5000);
+        //Populate Events
+        eventlists = (RecyclerView)view.findViewById(R.id.eventcard_listview);
+        uniqueEvents = new HashSet<>();
+       /* for(int i=0;i<5;i++){
+            uniqueEvents.add(new Event(1,"Title","1/7/2017","url"));
+        }*/
+        list.addAll(uniqueEvents);
+        ed = new EventRecycleViewAdapter(getContext(),list);
+        eventlists.setLayoutManager( new LinearLayoutManager(getContext()));
+        eventlists.setAdapter(ed);
+        eventsDb.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Event event = dataSnapshot.getValue(Event.class);
+                Log.d("ChildEventListener","Event: "+event.getTitle());
+                uniqueEvents.add(event);
+                list.clear();
+                Log.d("HomeFragment","onResume(): uniqueEvents.size():  "+uniqueEvents.size());
+                list.addAll(uniqueEvents);
+                ed.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 }
 

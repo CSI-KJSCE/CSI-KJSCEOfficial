@@ -29,6 +29,7 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
         titleTv = (TextView)itemView.findViewById(R.id.eventname_textview);
         eventdtTv = (TextView)itemView.findViewById(R.id.date_textview);
         img = (ImageView)itemView.findViewById(R.id.event_card1_imageview);
+        img.setOnClickListener(this);
     }
     public void bindEvent(Event event){
         titleTv.setText(event.getTitle());
