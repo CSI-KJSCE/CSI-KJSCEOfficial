@@ -9,7 +9,7 @@ public class Event {
     private String title;
     private String eventdt;
     private String img_url;
-    Event(int eid,String name, String edt, String url){
+    public Event(int eid,String name, String edt, String url){
         eventid = eid;
         title = name;
         eventdt = edt;

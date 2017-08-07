@@ -7,6 +7,8 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +16,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import org.csikjsce.csi_kjsceofficial.POJO.Event;
+import org.csikjsce.csi_kjsceofficial.adapters.EventRecycleViewAdapter;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -28,7 +33,7 @@ import static com.facebook.FacebookSdk.getApplicationContext;
  */
 public class homefragment extends Fragment {
     private View view;
-    ListView eventlists;
+    RecyclerView eventlists;
     ViewPager viewPager;
 
     SwipeCustomAdapter adapter;
@@ -36,7 +41,7 @@ public class homefragment extends Fragment {
     private static final Integer[] images= {R.drawable.csi_ic_splash_screen,R.drawable.csi_ic_splash_screen};
     private int currentPage=0;
     private ArrayList<Integer> imgarray=new ArrayList<Integer>();
-    ArrayList<EventCard> list= new ArrayList<EventCard>();
+    ArrayList<Event> list= new ArrayList<>();
 
     private FragmentTransaction fragmentTransaction;
     public homefragment(){
@@ -73,22 +78,15 @@ public class homefragment extends Fragment {
         indicate.setViewPager(viewPager);
         adapter = new SwipeCustomAdapter(getActivity(),imgarray);
         viewPager.setAdapter(adapter);
-        eventlists=(ListView)view.findViewById(R.id.eventcard_listview);
+        eventlists=(RecyclerView)view.findViewById(R.id.eventcard_listview);
         for(int i=0;i<5;i++){
-            list.add(new EventCard(R.drawable.handover,"Title","1/7/2017"));
+            list.add(new Event(i,"Title","1/7/2017","url"));
 
 
         }
-        EventsAdapter ed =new EventsAdapter(getActivity(),list);
+        EventRecycleViewAdapter ed = new EventRecycleViewAdapter(getContext(),list);
+        eventlists.setLayoutManager( new LinearLayoutManager(getContext()));
         eventlists.setAdapter(ed);
-        eventlists.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("Event Details","In onItemClick");
-                Toast.makeText(getActivity(),"Clicked",Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(getActivity(),Event_details.class));
-            }
-        });
 
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
@@ -106,7 +104,6 @@ public class homefragment extends Fragment {
                 handler.post(Update);
             }
         }, 5000, 5000);
-
     }
 }
 
