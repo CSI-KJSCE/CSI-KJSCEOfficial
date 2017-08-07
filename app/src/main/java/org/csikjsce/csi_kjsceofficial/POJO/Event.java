@@ -49,4 +49,17 @@ public class Event {
     public void setImg_url(String img_url) {
         this.img_url = img_url;
     }
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+        if(!( o instanceof Event))
+            return false;
+        else {
+            Event f = (Event) o;
+            if(eventid == f.getEventid())
+                return true;
+        }
+        return false;
+    }
 }

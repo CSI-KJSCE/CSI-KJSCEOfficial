@@ -43,4 +43,17 @@ public class Feedback {
     public boolean isAcceptingResponse() {
         return acceptingResponse;
     }
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+        if(!( o instanceof Feedback))
+            return false;
+        else {
+            Feedback f = (Feedback) o;
+            if(eventid == f.getEventid())
+                return true;
+        }
+        return false;
+    }
 }

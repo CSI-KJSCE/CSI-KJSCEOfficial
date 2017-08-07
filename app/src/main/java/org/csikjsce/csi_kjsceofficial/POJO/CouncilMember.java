@@ -48,4 +48,17 @@ public class CouncilMember {
     public void setAcad_yr(String acad_yr) {
         this.acad_yr = acad_yr;
     }
+    @Override
+    public boolean equals(Object o){
+        if(this == o)
+            return true;
+        if(!( o instanceof Feedback))
+            return false;
+        else {
+            CouncilMember f = (CouncilMember) o;
+            if(post == f.getPost())
+                return true;
+        }
+        return false;
+    }
 }
