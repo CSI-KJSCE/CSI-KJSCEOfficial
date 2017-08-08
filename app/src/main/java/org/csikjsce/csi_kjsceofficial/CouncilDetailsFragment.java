@@ -5,26 +5,22 @@ package org.csikjsce.csi_kjsceofficial;
  */
 
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
-public class Council extends Fragment {
+public class CouncilDetailsFragment extends Fragment {
 
     private View view;
     private final String TAG = "MemberListFragment";
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        view = inflater.inflate(R.layout.council_member_list,container,false);
+        view = inflater.inflate(R.layout.council_details_fragment,container,false);
         return view;
     }
     @Override

@@ -1,6 +1,5 @@
 package org.csikjsce.csi_kjsceofficial;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -13,9 +12,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -34,12 +30,10 @@ import java.util.TimerTask;
 
 import me.relex.circleindicator.CircleIndicator;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
-
 /**
  * Created by sumit on 2/8/17.
  */
-public class homefragment extends Fragment {
+public class HomeFragment extends Fragment {
     private View view;
     RecyclerView eventlists;
     ViewPager viewPager;
@@ -55,32 +49,19 @@ public class homefragment extends Fragment {
     Set<Event> uniqueEvents;
     EventRecycleViewAdapter ed;
     private FragmentTransaction fragmentTransaction;
-    public homefragment(){
+    public HomeFragment(){
 
     }
-    homefragment (FragmentTransaction fragmentTransaction){
+    HomeFragment(FragmentTransaction fragmentTransaction){
         this.fragmentTransaction = fragmentTransaction;
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         dbRef = FirebaseDatabase.getInstance().getReference();
         eventsDb = dbRef.child("event");
-        view =  inflater.inflate(R.layout.content_main,container,false);
+        view =  inflater.inflate(R.layout.home_fragment,container,false);
         return view;
     }
 
-    /**
-     * Called when the fragment's activity has been created and this
-     * fragment's view hierarchy instantiated.  It can be used to do final
-     * initialization once these pieces are in place, such as retrieving
-     * views or restoring state.  It is also useful for fragments that use
-     * {@link #setRetainInstance(boolean)} to retain their instance,
-     * as this callback tells the fragment when it is fully associated with
-     * the new activity instance.  This is called after {@link #onCreateView}
-     * and before {@link #onViewStateRestored(Bundle)}.
-     *
-     * @param savedInstanceState If the fragment is being re-created from
-     *                           a previous saved state, this is the state.
-     */
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);

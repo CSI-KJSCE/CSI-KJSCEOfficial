@@ -6,18 +6,14 @@
     android:background="#d3d3d3"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.csikjsce.csi_kjsceofficial.MainActivity"
-    tools:showIn="@layout/app_bar_main"
+    tools:showIn="@layout/toolbar"
     android:id="@+id/main">
-
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/contain"
-
-        >
+        android:id="@+id/contain">
 
         <android.support.v4.view.ViewPager
             android:id="@+id/View_pager"

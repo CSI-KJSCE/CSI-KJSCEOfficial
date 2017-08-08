@@ -26,8 +26,7 @@
                 android:id="@+id/event_card1_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/csi_ic_splash_screen"
-                />
+                app:srcCompat="@drawable/csi_ic_splash_screen" />
             <LinearLayout
                 android:id="@+id/article_text_container"
                 android:layout_width="match_parent"

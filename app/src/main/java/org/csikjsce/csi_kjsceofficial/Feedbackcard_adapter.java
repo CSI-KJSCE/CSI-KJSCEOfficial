@@ -35,7 +35,7 @@ public class Feedbackcard_adapter extends ArrayAdapter<FeedbackCard> {
         ImageView image = (ImageView)listItemView.findViewById(R.id.feedback_imageview);
 
         Title.setText(getItem(position).getTitle());
-        submit.setText("Give Feedback");
+        submit.setText("Give FeedbackFragment");
         image.setImageResource(getItem(position).getImage_id());
         return listItemView;
     }

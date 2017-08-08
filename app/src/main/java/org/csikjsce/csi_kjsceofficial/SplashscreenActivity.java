@@ -11,7 +11,7 @@ import android.os.Bundle;
 
 import static java.lang.Thread.sleep;
 
-public class Splashscreen extends AppCompatActivity {
+public class SplashscreenActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class Event_details extends AppCompatActivity {
+public class EventDetailsActivity extends AppCompatActivity {
 
     Utils EventJson;
     JSONObject Event;

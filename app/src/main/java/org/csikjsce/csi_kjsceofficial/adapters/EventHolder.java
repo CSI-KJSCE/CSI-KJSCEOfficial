@@ -7,10 +7,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import org.csikjsce.csi_kjsceofficial.Event_details;
+import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
 import org.csikjsce.csi_kjsceofficial.R;
-import org.w3c.dom.Text;
 
 /**
  * Created by sziraqui on 7/8/17.
@@ -38,7 +37,7 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
 
     @Override
     public void onClick(View v) {
-        Intent i = new Intent(context, Event_details.class);
+        Intent i = new Intent(context, EventDetailsActivity.class);
         context.startActivity(i);
     }
 }

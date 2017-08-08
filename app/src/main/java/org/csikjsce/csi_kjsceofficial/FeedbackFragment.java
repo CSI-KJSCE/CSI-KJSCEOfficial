@@ -4,18 +4,11 @@ package org.csikjsce.csi_kjsceofficial;
  * Created by sumit on 18/7/17.
  */
 
-import android.os.Build;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
@@ -26,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class Feedback extends Fragment {
+public class FeedbackFragment extends Fragment {
 
     JSONArray Feeddetails;
     JSONObject Feeds;
@@ -40,7 +33,7 @@ public class Feedback extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view= inflater.inflate(R.layout.activity_feedback, container, false);
+        view= inflater.inflate(R.layout.fragment_feedback, container, false);
         return view;
     }
 

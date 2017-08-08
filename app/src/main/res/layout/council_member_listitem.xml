@@ -6,9 +6,6 @@
     android:layout_height="wrap_content"
     android:paddingBottom="8dp">
 
-
-
-
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/member_pic"
         android:layout_width="72dp"
@@ -21,7 +18,8 @@
         android:layout_marginBottom="8dp"
         app:layout_constraintVertical_bias="0.0"
         android:scaleType="centerCrop"
-        tools:layout_editor_absoluteY="32dp" />
+        tools:layout_editor_absoluteY="32dp"
+        android:src="@drawable/csi_ic_splash_screen"/>
 
     <TextView
         android:id="@+id/member_name"
@@ -56,6 +54,5 @@
         app:layout_constraintTop_toBottomOf="@+id/member_post"
         android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="@+id/member_name" />
-
 
 </android.support.constraint.ConstraintLayout>

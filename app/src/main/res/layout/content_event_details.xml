@@ -6,73 +6,73 @@
     android:layout_height="wrap_content"
     android:background="#d3d3d3"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="org.csikjsce.csi_kjsceofficial.Event_details"
+    tools:context="org.csikjsce.csi_kjsceofficial.EventDetailsActivity"
     tools:showIn="@layout/activity_event_details">
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="8dp"
+        android:id="@+id/scrollView2"></ScrollView>
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:paddingTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <ImageView
+            android:id="@+id/Event_imageview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:paddingTop="8dp"
+            android:layout_height="250dp"
+            android:background="#000"
+            android:elevation="12dp"
             android:paddingBottom="4dp"
-            android:paddingLeft="8dp"
-            android:paddingRight="8dp"
-            >
+            android:paddingTop="4dp"
+            android:src="@drawable/handover" />
 
-            <ImageView
+        <TextView
+            android:id="@+id/eventhead_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="12dp"
+            android:paddingRight="3dp"
+            android:paddingTop="8dp"
+            android:text="This an example"
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
-                android:paddingBottom="4dp"
-                android:paddingTop="4dp"
-                android:id="@+id/Event_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:background="#000"
-                android:elevation="12dp"
-                android:src="@drawable/handover"/>
-            <TextView
-                android:paddingLeft="12dp"
-                android:paddingTop="8dp"
-                android:paddingRight="3dp"
-                android:id="@+id/eventhead_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="This an example"
-                android:textSize="18dp"
-                android:textStyle="bold"/>
-            <TextView
-                android:padding="2dp"
-                android:layout_marginRight="16dp"
-                android:id="@+id/eventdate_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="12/7/2017"
-                android:gravity="right"/>
+        <TextView
+            android:id="@+id/eventdate_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="16dp"
+            android:gravity="right"
+            android:padding="2dp"
+            android:text="12/7/2017" />
 
-            <TextView
+        <TextView
 
-                android:paddingLeft="16dp"
-                android:gravity="center_vertical"
-                android:id="@+id/eventdetails_textview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/holdertext"
-                android:textColor="#000000"
-                android:layout_marginTop="@dimen/fab_margin"
-                android:textSize="@dimen/fab_margin"
-                android:paddingBottom="24dp"
-                />
-
-
-
-        </LinearLayout>
-
-
-
-    </ScrollView>
-
-
+            android:id="@+id/eventdetails_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/fab_margin"
+            android:gravity="center_vertical"
+            android:paddingBottom="24dp"
+            android:paddingLeft="16dp"
+            android:text="@string/holdertext"
+            android:textColor="#000000"
+            android:textSize="@dimen/fab_margin" />
+    </LinearLayout>
 </android.support.constraint.ConstraintLayout>

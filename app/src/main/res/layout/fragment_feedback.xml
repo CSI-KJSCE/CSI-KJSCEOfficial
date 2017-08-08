@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#d3d3d3"
     android:orientation="vertical"
-    tools:context="org.csikjsce.csi_kjsceofficial.Feedback">
+    tools:context="org.csikjsce.csi_kjsceofficial.FeedbackFragment">
 
 
 

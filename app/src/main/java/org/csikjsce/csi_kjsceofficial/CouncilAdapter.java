@@ -4,14 +4,11 @@ package org.csikjsce.csi_kjsceofficial;
  * Created by sumit on 2/8/17.
  */
 import android.content.Context;
-import android.content.Intent;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -32,7 +29,7 @@ public class CouncilAdapter extends ArrayAdapter<CouncilMember> {
         View listItemView = convertView;
         if (listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.activity_council, parent, false);
+                    R.layout.council_member_listitem, parent, false);
         }
         TextView name = (TextView)listItemView.findViewById(R.id.member_name);
         TextView Post = (TextView)listItemView.findViewById(R.id.member_post);
