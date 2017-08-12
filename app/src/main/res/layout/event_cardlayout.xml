@@ -9,6 +9,7 @@
     android:layout_marginTop="2dp"
     >
     <android.support.v7.widget.CardView
+
         android:layout_height="match_parent"
         android:layout_width="match_parent"
         app:cardElevation="2dp"
@@ -26,7 +27,7 @@
                 android:id="@+id/event_card1_imageview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/csi_ic_splash_screen" />
+                app:srcCompat="@drawable/handover" />
             <LinearLayout
                 android:id="@+id/article_text_container"
                 android:layout_width="match_parent"
