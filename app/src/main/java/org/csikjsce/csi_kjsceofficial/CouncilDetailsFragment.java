@@ -12,6 +12,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import org.csikjsce.csi_kjsceofficial.POJO.CouncilMember;
+
 import java.util.ArrayList;
 
 public class CouncilDetailsFragment extends Fragment {
