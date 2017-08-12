@@ -38,7 +38,7 @@
             android:elevation="3dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="Upcoming events"
+            android:text="Events"
             android:textColor="#ffffff"
             android:textSize="22dp" />
 

@@ -52,7 +52,7 @@
                     <TextView
                         android:id="@+id/date_textview"
                         style="@style/article_author_name_text_appearance"
-                        android:text="Yash Rathi" />
+                         />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
