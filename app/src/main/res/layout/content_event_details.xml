@@ -38,11 +38,9 @@
                 android:src="@drawable/handover" />
             <LinearLayout
                 android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingRight="24dp"
+                style="@style/text_preview"
                 android:layout_marginBottom="4dp"
-                android:paddingLeft="8dp">
+                >
                 <TextView
                     android:id="@+id/eventhead_textview"
                     android:layout_width="match_parent"
