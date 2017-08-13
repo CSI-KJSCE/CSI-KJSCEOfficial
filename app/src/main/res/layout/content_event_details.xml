@@ -21,7 +21,7 @@
             android:layout_height="495dp"
             android:orientation="vertical"
             android:paddingBottom="4dp"
-            android:paddingTop="8dp"
+
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="8dp"
@@ -34,7 +34,7 @@
                 android:background="#000"
                 android:elevation="8dp"
                 android:paddingBottom="4dp"
-                android:paddingTop="4dp"
+
                 android:src="@drawable/handover" />
             <LinearLayout
                 android:orientation="vertical"
