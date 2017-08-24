@@ -3,12 +3,12 @@
 
     <item
         is-multidex="true"
-        jar="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jar="/home/sumit/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/disklrucache/4.0.0/d88059003509074dd59fa226c822724bcf5ec0ca/disklrucache-4.0.0.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.3"
-        sha1="fb473dfb80e66901ee36dfacb0677c7eeb62f27c">
-        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3f927934d7e95b32102ddde385412afc84bfd8ba/classes.dex" />
+        sha1="d88059003509074dd59fa226c822724bcf5ec0ca">
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10/disklrucache-4.0.0_12d21e79807e9352b6e594cbf1ebffa727fa145e/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -18,6 +18,42 @@
         revision="25.0.3"
         sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
         <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_ed03bf382df4f0ea0cf0db3270846d764db98fa4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/sumit/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/annotations/4.0.0/f80192e6fd828d41c7da6f3552b0bef5d89cb26e/annotations-4.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f80192e6fd828d41c7da6f3552b0bef5d89cb26e">
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10/annotations-4.0.0_f5871d269bb101dcea593320c8be324f59f44e34/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/sumit/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/4.0.0/dff931af436f0a2815d0109ab2258bbce2d6275d/glide-4.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="dff931af436f0a2815d0109ab2258bbce2d6275d">
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10/glide-4.0.0_40d5c8d75148987211756be4b27b2b50ee1ab13b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/sumit/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/gifdecoder/4.0.0/47c487cc4e64e6ab127a517669ca9a7b49f8c61d/gifdecoder-4.0.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="47c487cc4e64e6ab127a517669ca9a7b49f8c61d">
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10/gifdecoder-4.0.0_1e7109da6c7559b3854731088d26ffedda4f8cf2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.3"
+        sha1="fb473dfb80e66901ee36dfacb0677c7eeb62f27c">
+        <dex dex="/home/sumit/AndroidStudioProjects/CSI-KJSCEOfficial/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_3f927934d7e95b32102ddde385412afc84bfd8ba/classes.dex" />
     </item>
 
 </items>
