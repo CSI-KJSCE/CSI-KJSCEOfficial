@@ -3,9 +3,13 @@ package org.csikjsce.csi_kjsceofficial.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
 
 import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
@@ -33,6 +37,8 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
     public void bindEvent(Event event){
         titleTv.setText(event.getTitle());
         eventdtTv.setText(event.getEventdt());
+        Glide.with(context).load(event.getImg_url()).into(img);
+        Log.d("EventHolder:","bindEvent(): imgurl = "+event.getImg_url());
     }
 
     @Override

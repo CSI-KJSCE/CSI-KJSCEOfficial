@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+
 import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.CouncilMember;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
@@ -34,6 +36,8 @@ public class CouncilMemberHolder extends RecyclerView.ViewHolder implements View
     public void bindEvent(CouncilMember member){
         nameTv.setText(member.getName());
         postTv.setText(member.getPost());
+        Glide.with(context).load(member.getPic_url()).into(img);
+        Toast.makeText(context,member.getPic_url(),Toast.LENGTH_SHORT);
     }
 
     @Override
