@@ -1,5 +1,6 @@
 package org.csikjsce.csi_kjsceofficial;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -39,8 +40,8 @@ public class EventDetailsActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent j =new Intent(getApplicationContext(),Register_webview.class);
+                startActivity(j);
             }
         });
         String title=getIntent().getStringExtra("Title");
@@ -90,7 +91,11 @@ public class EventDetailsActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.home)
             finish();
-        else if(item.getItemId()==R.id.feedback){}
+        else if(item.getItemId()==R.id.feedback){
+            Intent i =new Intent(this,Feedback_webview.class);
+            startActivity(i);
+
+        }
         return super.onOptionsItemSelected(item);
     }
 }

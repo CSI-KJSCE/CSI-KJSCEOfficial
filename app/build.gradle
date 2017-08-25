@@ -34,9 +34,11 @@ dependencies {
     compile 'com.firebaseui:firebase-ui:1.1.1'
     compile 'com.firebaseui:firebase-ui-database:1.1.1'
     compile 'com.github.bumptech.glide:glide:4.0.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
     testCompile 'junit:junit:4.12'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
 }
+
+
 
 
 apply plugin: 'com.google.gms.google-services'
