@@ -3,13 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     tools:context="org.csikjsce.csi_kjsceofficial.Feedback_webview">
+
+        <FrameLayout
+            android:id="@+id/framelayout_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="@android:color/transparent">
+            <ProgressBar
+                android:id="@+id/progressBarfeedback"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="8dp"
+                android:background="@android:color/transparent"
+                android:layout_marginTop="-3dp"
+                android:progressDrawable="@drawable/custom_progressbar"
+                android:layout_gravity="top"
+                android:progress="20"
+                />
+        </FrameLayout>
 
     <WebView
         android:layout_width="match_parent"
         android:id="@+id/feedback_webview"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        />
+
 </LinearLayout>

@@ -1,63 +1,61 @@
 package org.csikjsce.csi_kjsceofficial;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.WebChromeClient;
-import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 public class Register_webview extends AppCompatActivity {
-
-    private WebView registerweb;
-    private FrameLayout framelayout;
-    private ProgressBar bar;
+    private static final String urladd ="https://www.google.co.in/";
+    private WebView webView;
+    private FrameLayout frameLayout;
+    private ProgressBar progressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register_webview);
-        framelayout=(FrameLayout)findViewById(R.id.framelayout_register);
-        bar=(ProgressBar)findViewById(R.id.progressBar2);
-        registerweb=(WebView)findViewById(R.id.register_webview);
-        bar.setMax(100);
+        frameLayout =(FrameLayout)findViewById(R.id.framelayout_register);
+        progressBar=(ProgressBar)findViewById(R.id.progressBar2);
 
+        progressBar.setMax(100);
+        webView=(WebView)findViewById(R.id.register_webview);
 
-        registerweb.setWebViewClient(new HelpClient());
-        registerweb.setWebChromeClient(new WebChromeClient(){
+        webView.setWebViewClient(new HelpClient());
+        webView.setWebChromeClient(new WebChromeClient(){
 
             public void onProgressChanged(WebView view,int progress){
-                framelayout.setVisibility(View.VISIBLE);
-                bar.setProgress(progress);
+                frameLayout.setVisibility(View.VISIBLE);
+                progressBar.setProgress(progress);
                 setTitle("Loading...");
                 if(progress==100)
                 {
 
-                    framelayout.setVisibility(View.GONE);
+                    frameLayout.setVisibility(View.GONE);
                     setTitle(view.getTitle());
                 }
                 super.onProgressChanged(view,progress);
 
             }
         });
-        registerweb.getSettings().setJavaScriptEnabled(true);
-        registerweb.setVerticalScrollBarEnabled(false);
-        registerweb.loadUrl("https://www.youtube.com/watch?v=Sv6dMFF_yts");
-        bar.setProgress(0);
+        webView.getSettings().setJavaScriptEnabled(true);
+        webView.setVerticalScrollBarEnabled(false);
+        webView.loadUrl(urladd);
+        progressBar.setProgress(0);
 
     }
 
     private class HelpClient extends WebViewClient {
 
         @Override
-        public boolean shouldOverrideUrlLoading(WebView view, String request) {
-            view.loadUrl("https://www.youtube.com/watch?v=Sv6dMFF_yts");
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
 
-            framelayout.setVisibility(View.VISIBLE);
+            frameLayout.setVisibility(View.VISIBLE);
 
             return true;
         }
@@ -69,9 +67,9 @@ public class Register_webview extends AppCompatActivity {
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
-            if(registerweb.canGoBack()){
+            if(webView.canGoBack()){
 
-                registerweb.goBack();
+                webView.goBack();
                 return true;
             }
 

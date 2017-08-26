@@ -17,9 +17,9 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="8dp"
-                android:progressDrawable="@drawable/custom_progressbar"
                 android:background="@android:color/transparent"
                 android:layout_marginTop="-3dp"
+                android:progressDrawable="@drawable/custom_progressbar"
                 android:layout_gravity="top"
                 android:progress="20"
                 />

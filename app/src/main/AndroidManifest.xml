@@ -35,10 +35,11 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".Feedback_webview"
-             />
-        <activity
             android:name=".Register_webview"
+            />
+
+        <activity
+            android:name=".Feedback_webview"
             />
 
     </application>
