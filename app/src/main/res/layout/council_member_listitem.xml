@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="8dp">
+    android:paddingBottom="8dp"
+    android:background="@drawable/shape"
+    android:elevation="6dp"
+
+    >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/member_pic"
@@ -23,36 +27,29 @@
 
     <TextView
         android:id="@+id/member_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/member_textview"
         android:ems="10"
         android:text="Name"
         android:textSize="18sp"
-
-        android:layout_marginTop="8dp"
+        android:paddingTop="10dp"
+        android:layout_marginLeft="16dp"
         app:layout_constraintLeft_toRightOf="@+id/member_pic"
-        android:layout_marginLeft="16dp" />
+         />
 
     <TextView
         android:id="@+id/member_post"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        style="@style/member_textview"
         android:text="Post"
-        app:layout_constraintTop_toBottomOf="@+id/member_name"
-        android:layout_marginLeft="0dp"
         android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@+id/member_name"
         app:layout_constraintLeft_toLeftOf="@+id/member_name" />
 
     <TextView
         android:id="@+id/member_year"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
+        style="@style/member_textview"
         android:text="Year"
         android:textSize="12sp"
         app:layout_constraintTop_toBottomOf="@+id/member_post"
-        android:layout_marginLeft="0dp"
         app:layout_constraintLeft_toLeftOf="@+id/member_name" />
 
 </android.support.constraint.ConstraintLayout>

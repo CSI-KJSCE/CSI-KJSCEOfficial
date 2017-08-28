@@ -19,7 +19,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-public class FeedbackFragment extends Fragment {
+public class AboutUsFragment extends Fragment {
 
 
     private View view ;
@@ -27,6 +27,7 @@ public class FeedbackFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view= inflater.inflate(R.layout.fragment_feedback, container, false);
+            ((MainActivity)getActivity()).setActionBarTitle("About Us");
         return view;
     }
 

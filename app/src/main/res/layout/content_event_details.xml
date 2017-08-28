@@ -12,8 +12,6 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="8dp"
         android:id="@+id/scrollView2">
 
         <LinearLayout
@@ -21,7 +19,6 @@
             android:layout_height="495dp"
             android:orientation="vertical"
             android:paddingBottom="4dp"
-
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="8dp"
@@ -32,9 +29,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:background="#000"
-                android:elevation="8dp"
+                android:elevation="2dp"
                 android:paddingBottom="4dp"
-
+                android:scaleType="centerCrop"
                 android:src="@drawable/handover" />
             <LinearLayout
                 android:orientation="vertical"
@@ -43,32 +40,21 @@
                 >
                 <TextView
                     android:id="@+id/eventhead_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/text_preview"
                     android:paddingTop="8dp"
                     android:text="This an example"
                     android:textSize="18dp"
                     android:textStyle="bold" />
-
                 <TextView
                     android:id="@+id/eventdate_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    style="@style/date_view"
                     android:gravity="right"
                     android:padding="2dp"
                     android:text="12/7/2017" />
-
                 <TextView
-
                     android:id="@+id/eventdetails_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center_vertical"
-                    android:paddingBottom="24dp"
-                    android:text="@string/holdertext"
-                    android:textColor="#000000"
-                    android:textSize="@dimen/fab_margin" />
-
+                    style="@style/text_preview"
+                    android:text="@string/holdertext" />
 
             </LinearLayout>
 

@@ -51,6 +51,9 @@ public class MainActivity extends AppCompatActivity
 
 
     }
+    public void setActionBarTitle(String st){
+        getSupportActionBar().setTitle(st);
+    }
     //The back press exit
     boolean doubleBackToExitPressedOnce=false;
     @Override
@@ -95,7 +98,7 @@ public class MainActivity extends AppCompatActivity
                 frag =new CouncilDetailsFragment();
                 break;
             case R.id.nav_feedback:
-                frag= new FeedbackFragment();
+                frag= new AboutUsFragment();
                 break;
         }
 

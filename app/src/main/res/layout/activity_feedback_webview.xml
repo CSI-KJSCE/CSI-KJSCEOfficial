@@ -14,14 +14,7 @@
             android:background="@android:color/transparent">
             <ProgressBar
                 android:id="@+id/progressBarfeedback"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="8dp"
-                android:background="@android:color/transparent"
-                android:layout_marginTop="-3dp"
-                android:progressDrawable="@drawable/custom_progressbar"
-                android:layout_gravity="top"
-                android:progress="20"
+                style="@style/progressbar_view"
                 />
         </FrameLayout>
 

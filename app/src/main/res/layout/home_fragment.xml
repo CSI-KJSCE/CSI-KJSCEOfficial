@@ -17,17 +17,11 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/View_pager"
-            android:background="#000000"
             android:layout_width="wrap_content"
-            android:layout_height="230dp"
-            android:elevation="6dp"/>
+            android:layout_height="260dp"
+            android:elevation="4dp"/>
 
-        <me.relex.circleindicator.CircleIndicator
-            android:id="@+id/indicator"
-            android:layout_width="match_parent"
-            android:layout_height="12dp"
-            android:layout_alignParentBottom="true"
-            android:visibility="visible" />
+
 
 
         <TextView
@@ -47,7 +41,6 @@
             android:id="@+id/eventcard_listview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
             ></android.support.v7.widget.RecyclerView>
 
     </LinearLayout>

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
 
     android:orientation="vertical"
-    tools:context="org.csikjsce.csi_kjsceofficial.FeedbackFragment">
+    tools:context="org.csikjsce.csi_kjsceofficial.AboutUsFragment">
 
 <ScrollView
     android:layout_width="match_parent"
@@ -24,13 +24,10 @@
 
             android:elevation="40dp"
             android:paddingTop="16dp"
-            android:textSize="16dp"
             style="@style/text_preview"
             android:text="@string/about_us"/>
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="16dp"
+            style="@style/text_preview"
             android:layout_marginTop="8dp"
             android:text="This is not the end"/>
 

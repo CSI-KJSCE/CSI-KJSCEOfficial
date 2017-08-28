@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -36,14 +37,21 @@ public class CouncilDetailsFragment extends Fragment {
     List<CouncilMember> list;
     RecyclerView listingsView;
     CouncilMemberAdapter adapter;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.council_details_fragment,container,false);
+        //Toolbar t=(Toolbar)container.findViewById(R.id.toolbar);
+        ((MainActivity) getActivity()).setActionBarTitle("Council");
+
+
+
         return view;
     }
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         Log.d(TAG,"In onActivityCreated");
         list = new ArrayList<>();
         adapter = new CouncilMemberAdapter(getContext(), list);

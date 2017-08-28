@@ -26,11 +26,8 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">18dp</item>
         <item name="android:paddingTop">8dp</item>
-        <item name="android:paddingBottom">4dp</item>
         <item name="android:paddingLeft">8dp</item>
         <item name="android:paddingRight">8dp</item>
-        <item name="android:gravity">start|center_vertical</item>
-        <item name="android:textColor">?attr/android:textColor</item>
     </style>
     <!-- Text style for article author name -->
     <style name="article_author_name_text_appearance" parent="TextAppearance.AppCompat">
@@ -42,7 +39,11 @@
         <item name="android:paddingLeft">4dp</item>
         <item name="android:textSize">12dp</item>
     </style>
-
+    <style name="member_textview">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
     <style name="article_imageview_style" >
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -50,12 +51,31 @@
     </style>
 
     <style name="text_preview">
-        <item name="android:paddingRight">24dp</item>
-
-        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingLeft">12dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+        <item name="android:spacing">12dp</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:textColor">#000</item>
+    </style>
 
+
+    <style name="progressbar_view" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_height">8dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:layout_marginTop">-3dp</item>
+        <item name="android:progress">20</item>
+        <item name="android:layout_gravity">top</item>
+        <item name="android:progressDrawable">@drawable/custom_progressbar</item>
+
+    </style>
+
+    <style name="date_view">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">12dp</item>
     </style>
 
 </resources>

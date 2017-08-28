@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
     private View view;
     RecyclerView eventlists;
     ViewPager viewPager;
+    Toolbar toolbar;
 
     SwipeCustomAdapter adapter;
     CircleIndicator indicate;
@@ -57,10 +59,14 @@ public class HomeFragment extends Fragment {
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         dbRef = FirebaseDatabase.getInstance().getReference();
+
         eventsDb = dbRef.child("event");
         view =  inflater.inflate(R.layout.home_fragment,container,false);
         return view;
     }
+
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -69,8 +75,8 @@ public class HomeFragment extends Fragment {
         for(int i=0;i<images.length;i++)
             imgarray.add(images[i]);
         viewPager=(ViewPager)view.findViewById(R.id.View_pager);
-        indicate=(CircleIndicator) view.findViewById(R.id.indicator);
-        indicate.setViewPager(viewPager);
+        //indicate=(CircleIndicator) view.findViewById(R.id.indicator);
+        //indicate.setViewPager(viewPager);
         adapter = new SwipeCustomAdapter(getActivity(),imgarray);
         viewPager.setAdapter(adapter);
         final Handler handler = new Handler();
