@@ -22,7 +22,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
-public class EventDetailsActivity extends AppCompatActivity {
+public class EventDetailsActivity extends AppCompatActivity implements View.OnClickListener{
+    String TAG = "EventDetailsActivity";
     Event event;
     TextView eventTitle;
     TextView eventDate;
@@ -45,14 +46,7 @@ public class EventDetailsActivity extends AppCompatActivity {
         Intent intent = getIntent();
         event = intent.getParcelableExtra("Event");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent j = new Intent(getApplicationContext(),Register_webview.class);
-                j.putExtra("registerionLink",event.getRegister());
-                startActivity(j);
-            }
-        });
+        fab.setOnClickListener(this);
         eventTitle = (TextView)findViewById(R.id.eventhead_textview);
         eventDate = (TextView)findViewById(R.id.eventdate_textview);
         eventDescrip = (TextView)findViewById(R.id.eventdetails_textview);
@@ -78,10 +72,23 @@ public class EventDetailsActivity extends AppCompatActivity {
         if(item.getItemId()==R.id.home)
             finish();
         else if(item.getItemId()==R.id.feedback){
-            Intent i =new Intent(this,Feedback_webview.class);
+            Intent i = new Intent(this,Feedback_webview.class);
+            Log.d(TAG, "feedback: "+event.getFeedback());
+            i.putExtra("link",event.getFeedback());
             startActivity(i);
-
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent;
+        switch(v.getId()){
+            case R.id.fab :
+                intent = new Intent(this,Register_webview.class);
+                intent.putExtra("link",event.getRegister());
+                break;
+            default : Log.d(TAG,"onClick() Error");
+        }
     }
 }

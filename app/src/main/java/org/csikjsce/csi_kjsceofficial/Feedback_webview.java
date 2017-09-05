@@ -1,5 +1,6 @@
 package org.csikjsce.csi_kjsceofficial;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -11,7 +12,7 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
 public class Feedback_webview extends AppCompatActivity {
-    private static final String urladd ="https://www.google.co.in/";
+    private static String urladd;
     private WebView webView;
     private FrameLayout framelayout;
     private ProgressBar progressBar;
@@ -19,6 +20,8 @@ public class Feedback_webview extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feedback_webview);
+        Intent intent = getIntent();
+        urladd = intent.getStringExtra("link");
         framelayout =(FrameLayout)findViewById(R.id.framelayout_feedback);
         progressBar=(ProgressBar)findViewById(R.id.progressBarfeedback);
 
