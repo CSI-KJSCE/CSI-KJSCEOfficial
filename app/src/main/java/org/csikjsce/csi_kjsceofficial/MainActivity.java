@@ -93,12 +93,15 @@ public class MainActivity extends AppCompatActivity
         {
             case R.id.nav_home:
                 frag = new HomeFragment();
+                setActionBarTitle("CSI KJSCE");
                 break;
             case R.id.nav_council:
                 frag =new CouncilDetailsFragment();
+                setActionBarTitle("The Council");
                 break;
             case R.id.nav_feedback:
                 frag= new AboutUsFragment();
+                setActionBarTitle("About Us");
                 break;
         }
 
