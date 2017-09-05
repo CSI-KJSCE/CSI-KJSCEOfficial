@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.csikjsce.csi_kjsceofficial.EventDetailsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        >
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="495dp"
+        android:orientation="vertical"
+        android:paddingBottom="4dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintRight_toRightOf="parent">
+
+    <ImageView
+        android:id="@+id/Eureka_imageview"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#000"
+        android:elevation="2dp"
+        android:paddingBottom="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/handover" />
+    <LinearLayout
+        android:orientation="vertical"
+        style="@style/text_preview"
+        android:layout_marginBottom="4dp"
+        >
+    <TextView
+        android:id="@+id/eurekahead_textview"
+        style="@style/text_preview"
+        android:paddingTop="8dp"
+        android:text="This an example"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/eureka_textview"
+        style="@style/text_preview"
+        android:text="@string/holdertext"/>
+    </LinearLayout>
+    </LinearLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/eureka_fab"
+        android:onClick="onClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:src="@drawable/csi_ic_register" />
+
+</android.support.design.widget.CoordinatorLayout>

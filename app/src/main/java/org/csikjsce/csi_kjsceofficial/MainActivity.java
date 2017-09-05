@@ -99,6 +99,10 @@ public class MainActivity extends AppCompatActivity
                 frag =new CouncilDetailsFragment();
                 setActionBarTitle("The Council");
                 break;
+            case R.id.nav_eureka:
+                frag=new EurekaFragment();
+                setActionBarTitle("Eureka");
+                break;
             case R.id.nav_feedback:
                 frag= new AboutUsFragment();
                 setActionBarTitle("About Us");

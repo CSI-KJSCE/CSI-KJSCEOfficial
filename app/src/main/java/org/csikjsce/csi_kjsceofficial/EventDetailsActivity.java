@@ -3,7 +3,6 @@ package org.csikjsce.csi_kjsceofficial;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -17,11 +16,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
-import org.csikjsce.csi_kjsceofficial.POJO.Event;
 public class EventDetailsActivity extends AppCompatActivity implements View.OnClickListener{
     String TAG = "EventDetailsActivity";
     Event event;
@@ -72,7 +67,7 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         if(item.getItemId()==R.id.home)
             finish();
         else if(item.getItemId()==R.id.feedback){
-            Intent i = new Intent(this,Feedback_webview.class);
+            Intent i = new Intent(this,Webview_activity.class);
             Log.d(TAG, "feedback: "+event.getFeedback());
             i.putExtra("link",event.getFeedback());
             startActivity(i);
@@ -83,12 +78,10 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         Intent intent;
-        switch(v.getId()){
-            case R.id.fab :
-                intent = new Intent(this,Register_webview.class);
-                intent.putExtra("link",event.getRegister());
-                break;
-            default : Log.d(TAG,"onClick() Error");
-        }
+        intent = new Intent(this,Webview_activity.class);
+        intent.putExtra("link",event.getRegister());
+        startActivity(intent);
+
+
     }
 }
