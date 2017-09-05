@@ -27,7 +27,7 @@
             <ImageView
                 android:id="@+id/event_card1_imageview"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/handover" />
             <LinearLayout

@@ -18,24 +18,21 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/View_pager"
             android:layout_width="wrap_content"
-            android:layout_height="260dp"
+            android:layout_height="180dp"
             android:elevation="4dp"/>
 
-
-
-
         <TextView
-
             android:id="@+id/upcoming_textview"
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:elevation="3dp"
             android:background="@color/colorPrimary"
             android:gravity="center"
-            android:text="Events"
+            android:text="EVENTS"
             android:textColor="#ffffff"
-            android:textSize="22dp" />
-
+            android:textSize="18sp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/eventcard_listview"
@@ -44,9 +41,5 @@
             ></android.support.v7.widget.RecyclerView>
 
     </LinearLayout>
-
-
-
-
 
 </LinearLayout>

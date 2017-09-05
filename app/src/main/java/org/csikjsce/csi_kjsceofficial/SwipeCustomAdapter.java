@@ -20,7 +20,7 @@ public class SwipeCustomAdapter extends  PagerAdapter {
     private Context ctx;
     private LayoutInflater inflater;
     private ArrayList<Integer> imgs;
-    private int[] images= new int[]{R.drawable.csi_ic_splash_screen,R.drawable.csi_ic_splash_screen};
+    private int[] images= new int[]{R.drawable.handover,R.drawable.csi_ic_splash_screen};
     SwipeCustomAdapter(Context ctx,ArrayList<Integer> imgs){
 
         this.ctx=ctx;

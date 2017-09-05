@@ -42,7 +42,7 @@ public class HomeFragment extends Fragment {
 
     SwipeCustomAdapter adapter;
     CircleIndicator indicate;
-    private static final Integer[] images= {R.drawable.csi_ic_splash_screen,R.drawable.csi_ic_splash_screen};
+    private static final Integer[] images= {R.drawable.handover,R.drawable.csi_ic_splash_screen};
     private int currentPage=0;
     private ArrayList<Integer> imgarray=new ArrayList<Integer>();
     ArrayList<Event> list= new ArrayList<>();
@@ -64,9 +64,6 @@ public class HomeFragment extends Fragment {
         view =  inflater.inflate(R.layout.home_fragment,container,false);
         return view;
     }
-
-
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
