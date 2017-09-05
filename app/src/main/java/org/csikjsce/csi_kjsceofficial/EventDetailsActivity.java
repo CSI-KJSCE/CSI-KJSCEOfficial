@@ -14,20 +14,20 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import org.csikjsce.csi_kjsceofficial.POJO.Event;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import org.csikjsce.csi_kjsceofficial.POJO.Event;
 public class EventDetailsActivity extends AppCompatActivity {
-
-    Utils EventJson;
-    JSONObject Event;
-    JSONArray EventA;
-    JSONObject obj;
-
-    TextView head,date,details;
-    ImageView eventimg;
-
+    Event event;
+    TextView eventTitle;
+    TextView eventDate;
+    TextView eventDescrip;
+    ImageView eventImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,48 +36,34 @@ public class EventDetailsActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Intent intent = getIntent();
+        event = intent.getParcelableExtra("Event");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent j =new Intent(getApplicationContext(),Register_webview.class);
+                Intent j = new Intent(getApplicationContext(),Register_webview.class);
+                j.putExtra("registerionLink",event.getRegister());
                 startActivity(j);
             }
         });
-        String title=getIntent().getStringExtra("Title");
-        int img=getIntent().getIntExtra("Image",0);
-        head=(TextView) findViewById(R.id.eventhead_textview);
-        date=(TextView) findViewById(R.id.eventdate_textview);
-        details=(TextView) findViewById(R.id.eventdetails_textview);
-        eventimg=(ImageView)findViewById(R.id.Event_imageview);
-        EventJson= new Utils(this);
+        eventTitle = (TextView)findViewById(R.id.eventhead_textview);
+        eventDate = (TextView)findViewById(R.id.eventdate_textview);
+        eventDescrip = (TextView)findViewById(R.id.eventdetails_textview);
+        eventImage = (ImageView)findViewById(R.id.Event_imageview);
 
-        try {
-            Event=EventJson.fetchData("event_details");
-            Log.e("Details", "onCreate: "+Event );
-            EventA=Event.getJSONArray("event_details");
-            Log.e("Details", "onCreate: "+EventA );
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        int i=0;
-        for(;i<EventA.length();i++){
-            try {
-                 obj=EventA.getJSONObject(i);
-                Log.e("Details", "onCreate: "+EventA );
-                if(obj.getString("title").equals(title)){
-                    head.setText(obj.getString("title"));
-                    date.setText(obj.getString("event_dt"));
-                    details.setText(obj.getString("description"));
-                    eventimg.setImageResource(img);
-
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-
-
+        eventTitle.setText(event.getTitle());
+        eventDate.setText(event.getEventdt());
+        eventDescrip.setText(event.getDesc());
+        Glide.with(this)
+                .load(event.getImg_url())
+                .into(eventImage);
     }
 
     @Override

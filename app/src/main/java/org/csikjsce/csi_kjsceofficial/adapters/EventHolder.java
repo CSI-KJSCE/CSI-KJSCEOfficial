@@ -25,7 +25,8 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
     ImageView img;
     TextView eventdtTv;
     Context context;
-
+    Event event;
+    final String TAG = "EventHolder";
     public EventHolder(Context context, View itemView) {
         super(itemView);
         this.context = context;
@@ -35,15 +36,18 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
         img.setOnClickListener(this);
     }
     public void bindEvent(Event event){
+        this.event = event;
         titleTv.setText(event.getTitle());
         eventdtTv.setText(event.getEventdt());
         Glide.with(context).load(event.getImg_url()).into(img);
-        Log.d("EventHolder:","bindEvent(): imgurl = "+event.getImg_url());
+        Log.d(TAG,"bindEvent(): imgurl = "+event.getImg_url());
     }
 
     @Override
     public void onClick(View v) {
         Intent i = new Intent(context, EventDetailsActivity.class);
+        i.putExtra("Event",event);
+        Log.e(TAG, "onClick() : "+event.getTitle());
         context.startActivity(i);
     }
 }
