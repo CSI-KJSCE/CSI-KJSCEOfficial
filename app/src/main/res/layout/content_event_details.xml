@@ -21,7 +21,6 @@
             android:paddingBottom="4dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
             app:layout_constraintRight_toRightOf="parent">
 
             <ImageView
@@ -38,6 +37,7 @@
                 style="@style/text_preview"
                 android:layout_marginBottom="4dp"
                 >
+
                 <TextView
                     android:id="@+id/eventhead_textview"
                     style="@style/text_preview"
@@ -55,7 +55,9 @@
                     android:id="@+id/eventdetails_textview"
                     style="@style/text_preview"
                     android:text="@string/holdertext" />
-
+                <android.support.v4.widget.Space
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp" />
             </LinearLayout>
 
         </LinearLayout>
