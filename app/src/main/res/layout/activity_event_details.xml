@@ -19,6 +19,7 @@
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
             app:titleTextColor="#fff"
+            app:title="Event Details"
             app:popupTheme="@style/AppTheme.PopupOverlay"
             app:menu="@menu/activity_eventdetail_menu"
             />
