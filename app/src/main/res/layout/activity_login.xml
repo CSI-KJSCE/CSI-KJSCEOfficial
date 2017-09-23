@@ -1,0 +1,107 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login_parent_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="org.csikjsce.csi_kjsceofficial.LoginActivity">
+
+    <!-- Login progress -->
+
+    <ProgressBar
+        android:id="@+id/login_progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign in with SVV or G+"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:padding="16dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal">
+        <ImageView
+            android:id="@+id/svv_logo_iv"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
+            app:srcCompat="@drawable/svv_logo" />
+        <ImageView
+            android:id="@+id/google_logo_iv"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:padding="16dp"
+            app:srcCompat="@drawable/google_plus_logo" />
+    </LinearLayout>
+
+    <ScrollView
+        android:id="@+id/login_form"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/email_login_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/profile_pic_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:visibility="gone"/>
+            <TextView
+                android:id="@+id/email_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="someone@example.com"
+                android:visibility="gone">
+            </TextView>
+
+            <TextView
+                android:id="@+id/google_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Someone Sumsurname"
+                android:visibility="gone">
+            </TextView>
+
+            <com.google.android.gms.common.SignInButton
+                android:id="@+id/btn_sign_in"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp">
+
+            </com.google.android.gms.common.SignInButton>
+
+            <Button
+                android:id="@+id/btn_signout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Sign out" />
+
+            <Button
+                android:id="@+id/btn_revoke_access"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Revoke Access" />
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
