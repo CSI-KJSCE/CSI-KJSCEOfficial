@@ -90,17 +90,6 @@
 
             </com.google.android.gms.common.SignInButton>
 
-            <Button
-                android:id="@+id/btn_signout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign out" />
-
-            <Button
-                android:id="@+id/btn_revoke_access"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Revoke Access" />
 
         </LinearLayout>
     </ScrollView>

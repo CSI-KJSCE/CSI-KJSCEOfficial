@@ -66,10 +66,7 @@ public class LoginActivity extends AppCompatActivity implements
     private static final int RC_SIGNIN = 007;
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignin;
-    private Button btnSignout, btnRevokeAccess;
     private LinearLayout parentLayout;
-    private TextView nameTv, emailTv;
-    private ImageView profilepic;
     private ProgressDialog mProgressDialog;
 
     @Override
@@ -79,15 +76,8 @@ public class LoginActivity extends AppCompatActivity implements
 
         parentLayout = (LinearLayout)findViewById(R.id.login_parent_layout);
         btnSignin = (SignInButton)findViewById(R.id.btn_sign_in);
-        btnSignout = (Button)findViewById(R.id.btn_signout);
-        btnRevokeAccess = (Button)findViewById(R.id.btn_revoke_access);
-        nameTv = (TextView)findViewById(R.id.google_name);
-        emailTv = (TextView)findViewById(R.id.email_tv);
-        profilepic = (ImageView)findViewById(R.id.profile_pic_iv);
 
         btnSignin.setOnClickListener(this);
-        btnSignout.setOnClickListener(this);
-        btnRevokeAccess.setOnClickListener(this);
 
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -148,12 +138,6 @@ public class LoginActivity extends AppCompatActivity implements
         switch(v.getId()){
             case R.id.btn_sign_in:
                 signIn();
-                break;
-            case R.id.btn_signout:
-                signOut();
-                break;
-            case R.id.btn_revoke_access:
-                revokeAccess();
                 break;
         }
     }

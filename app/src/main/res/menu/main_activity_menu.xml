@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/logout_opt"
+        android:icon="@drawable/ic_logout"
+        android:title="Logout"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/disconnect_acc"
+        android:icon="@drawable/ic_logout"
+        android:title="Disconnect Account"
+        app:showAsAction="never"/>
+</menu>

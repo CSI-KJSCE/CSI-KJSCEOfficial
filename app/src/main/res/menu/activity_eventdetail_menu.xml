@@ -8,6 +8,4 @@
         android:title="Feedback"
         app:showAsAction="always"/>
 
-
-
 </menu>
