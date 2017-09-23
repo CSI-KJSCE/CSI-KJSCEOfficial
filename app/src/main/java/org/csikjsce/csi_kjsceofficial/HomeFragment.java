@@ -86,7 +86,7 @@ public class HomeFragment extends Fragment {
                     currentPage = 0;
                 }
                 viewPager.setCurrentItem(currentPage++, true);
-            }
+                 }
         };
         Timer swipeTimer = new Timer();
         swipeTimer.schedule(new TimerTask() {
