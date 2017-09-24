@@ -9,6 +9,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -168,6 +169,7 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.disconnect_acc:
                 revokeAccess();
+                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
