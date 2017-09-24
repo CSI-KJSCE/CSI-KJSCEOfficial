@@ -82,6 +82,6 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-
+    <string name="USER_INFO">org.csikjsce.csikjsceofficial.PREF_USER_INFO</string>
 
 </resources>

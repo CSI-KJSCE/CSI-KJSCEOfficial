@@ -1,6 +1,7 @@
 package org.csikjsce.csi_kjsceofficial;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -29,17 +30,26 @@ import com.google.android.gms.common.api.Status;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.File;
+import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         GoogleApiClient.OnConnectionFailedListener {
     private static final String TAG = MainActivity.class.getSimpleName();
-    private ProgressDialog mProgressDialog;
+    Context context;
     private GoogleApiClient mGoogleApiClient;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        context = this;
         setContentView(R.layout.activity_main);
+        try {
+            saveLogcatToFile(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         //connectingh to firebase database
         FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = csiDatabase.getReference();
@@ -83,6 +93,7 @@ public class MainActivity extends AppCompatActivity
             drawer.closeDrawer(GravityCompat.START);
         } else  if (doubleBackToExitPressedOnce) {
             super.onBackPressed();
+            finishAffinity();
             return;
         }
 
@@ -152,14 +163,11 @@ public class MainActivity extends AppCompatActivity
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
             case R.id.logout_opt:
-                showProgressDialog();
                 signOut();
-                finishAffinity();
+                finish();
                 break;
             case R.id.disconnect_acc:
-                showProgressDialog();
                 revokeAccess();
-                finishAffinity();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -169,10 +177,9 @@ public class MainActivity extends AppCompatActivity
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(@NonNull Status status) {
-                       SharedPreferences pref = getSharedPreferences("UserInfo",0);
+                       SharedPreferences pref = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
                         pref.edit().clear();
                         Toast.makeText(getApplicationContext(),"Signed out",Toast.LENGTH_SHORT).show();
-                        hideProgressDialog();
                     }
                 }
         );
@@ -184,8 +191,7 @@ public class MainActivity extends AppCompatActivity
                     public void onResult(@NonNull Status status) {
                         SharedPreferences pref = getSharedPreferences("UserInfo",0);
                         pref.edit().clear();
-                        Toast.makeText(getApplicationContext(),"Signed out and account disconnected",Toast.LENGTH_SHORT).show();
-                        hideProgressDialog();
+                        Toast.makeText(getApplicationContext(),"Account disconnected",Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -206,19 +212,10 @@ public class MainActivity extends AppCompatActivity
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Log.e(TAG,"onConnectionFailed: "+connectionResult);
     }
-    private void showProgressDialog() {
-        if (mProgressDialog == null) {
-            mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setMessage("Authenticating...");
-            mProgressDialog.setIndeterminate(true);
-        }
-
-        mProgressDialog.show();
-    }
-
-    private void hideProgressDialog() {
-        if (mProgressDialog != null && mProgressDialog.isShowing()) {
-            mProgressDialog.hide();
-        }
+    public static void saveLogcatToFile(Context context) throws IOException {
+        String fileName = "logcat_"+System.currentTimeMillis()+".txt";
+        File outputFile = new File(context.getExternalCacheDir(),fileName);
+        @SuppressWarnings("unused")
+        Process process = Runtime.getRuntime().exec("logcat -df "+outputFile.getAbsolutePath());
     }
 }

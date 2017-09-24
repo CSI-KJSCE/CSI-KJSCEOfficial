@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -50,6 +51,8 @@ import com.google.android.gms.common.api.OptionalPendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -68,12 +71,17 @@ public class LoginActivity extends AppCompatActivity implements
     private SignInButton btnSignin;
     private LinearLayout parentLayout;
     private ProgressDialog mProgressDialog;
-
+    Context context;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+        context = this;
+        try {
+            saveLogcatToFile(this);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         parentLayout = (LinearLayout)findViewById(R.id.login_parent_layout);
         btnSignin = (SignInButton)findViewById(R.id.btn_sign_in);
 
@@ -115,18 +123,20 @@ public class LoginActivity extends AppCompatActivity implements
         );
     }
     private void handleSignInResult(GoogleSignInResult result){
+
         Log.d(TAG,"handleSignInResult():"+result.isSuccess());
         if(result.isSuccess()){
             GoogleSignInAccount account = result.getSignInAccount();
             String pname = account.getDisplayName();
             String emailid = account.getEmail();
-            String pic_url = account.getPhotoUrl().toString();
+           // String pic_url = account.getPhotoUrl().toString();
 
-            SharedPreferences userInfo = getApplicationContext().getSharedPreferences("UserInfo",0);
+            SharedPreferences userInfo = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = userInfo.edit();
             editor.putString("name",pname);
             editor.putString("email",emailid);
-            editor.putString("pic_url",pic_url);
+           // editor.putString("pic_url",pic_url);
+            editor.commit();
             updateUI(true);
         } else {
             updateUI(false);
@@ -198,6 +208,12 @@ public class LoginActivity extends AppCompatActivity implements
         if (mProgressDialog != null && mProgressDialog.isShowing()) {
             mProgressDialog.hide();
         }
+    }
+    public static void saveLogcatToFile(Context context) throws IOException {
+        String fileName = "logcat_"+System.currentTimeMillis()+".txt";
+        File outputFile = new File(context.getExternalCacheDir(),fileName);
+        @SuppressWarnings("unused")
+        Process process = Runtime.getRuntime().exec("logcat -df "+outputFile.getAbsolutePath());
     }
 }
 
