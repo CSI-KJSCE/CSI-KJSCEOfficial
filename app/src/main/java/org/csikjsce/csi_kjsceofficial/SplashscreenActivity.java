@@ -65,7 +65,7 @@ public class SplashscreenActivity extends Activity {
             public void onAnimationEnd(Animation animation) {
 
                 finish();
-                Intent i = new Intent(getBaseContext(),LoginActivity.class);
+                Intent i = new Intent(getBaseContext(),MainActivity.class);
                 startActivity(i);
             }
 
