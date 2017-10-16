@@ -35,6 +35,6 @@
         android:background="#fff"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer"
-        />
+        app:itemIconTint="@color/colorPrimary"/>
 
 </android.support.v4.widget.DrawerLayout>
