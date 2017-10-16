@@ -6,9 +6,7 @@
     android:layout_height="wrap_content"
     android:paddingBottom="8dp"
     android:background="@drawable/shape"
-    android:elevation="6dp"
-
-    >
+    android:elevation="6dp">
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/member_pic"
@@ -33,8 +31,7 @@
         android:textSize="18sp"
         android:paddingTop="10dp"
         android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toRightOf="@+id/member_pic"
-         />
+        app:layout_constraintLeft_toRightOf="@+id/member_pic" />
 
     <TextView
         android:id="@+id/member_post"

@@ -38,12 +38,11 @@ public class SwipeCustomAdapter extends  PagerAdapter {
         return (view.equals(object));
     }
 
-
     @Override
     public Object instantiateItem(ViewGroup container, int position) {
-        inflater=(LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View swiper_view=inflater.inflate(R.layout.swiper_layout,container ,false);
-        ImageView sliderimage=(ImageView)swiper_view.findViewById(R.id.swiper_imageview);
+        inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View swiper_view = inflater.inflate(R.layout.swiper_layout,container ,false);
+        ImageView sliderimage = (ImageView)swiper_view.findViewById(R.id.swiper_imageview);
 
         sliderimage.setImageResource(images[position]);
         container.addView(swiper_view,0);

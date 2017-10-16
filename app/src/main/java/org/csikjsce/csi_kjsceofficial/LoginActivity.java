@@ -1,50 +1,23 @@
 package org.csikjsce.csi_kjsceofficial;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.app.LoaderManager.LoaderCallbacks;
 
-import android.content.CursorLoader;
-import android.content.Loader;
-import android.database.Cursor;
-import android.net.Uri;
-import android.os.AsyncTask;
-
-import android.os.Build;
 import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.support.v7.widget.LinearLayoutCompat;
-import android.text.TextUtils;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.inputmethod.EditorInfo;
-import android.widget.ArrayAdapter;
-import android.widget.AutoCompleteTextView;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
-import com.google.android.gms.auth.api.signin.GoogleSignInApi;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
@@ -56,17 +29,13 @@ import com.google.android.gms.common.api.Status;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
-import static android.Manifest.permission.READ_CONTACTS;
 
 /**
  * A login screen that offers login via email/password.
  */
 public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener,
-        GoogleApiClient.OnConnectionFailedListener,ConnectivityReciever.ConnectivityReceiverListener {
+        GoogleApiClient.OnConnectionFailedListener,ConnectivityReceiver.ConnectivityReceiverListener {
 
     private static final String TAG = LoginActivity.class.getSimpleName();
     private static final int RC_SIGNIN = 007;
@@ -90,10 +59,7 @@ public class LoginActivity extends AppCompatActivity implements
         btnSignin = (SignInButton)findViewById(R.id.btn_sign_in);
         btnSignin.setOnClickListener(this);
 
-      checkConnection();
-
-
-
+        checkConnection();
 
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -107,7 +73,7 @@ public class LoginActivity extends AppCompatActivity implements
                 .build();
     }
     private void checkConnection() {
-        boolean isConnected = ConnectivityReciever.isConnected();
+        boolean isConnected = ConnectivityReceiver.isConnected();
         showSnack(isConnected);
     }
     private void showSnack(boolean isConnected) {
@@ -115,9 +81,9 @@ public class LoginActivity extends AppCompatActivity implements
         int color= Color.RED;
 
         if (isConnected) {
-
+            //do nothing
         } else {
-            message = "Sorry! Not connected to internet";
+            message = getString(R.string.msg_no_internet);
 
             Snackbar snackbar = Snackbar
                     .make(parentLayout, message, Snackbar.LENGTH_LONG);
@@ -125,21 +91,14 @@ public class LoginActivity extends AppCompatActivity implements
             TextView textView = (TextView) sbView.findViewById(android.support.design.R.id.snackbar_text);
             textView.setTextColor(color);
             snackbar.show();
-
-
         }
-
-
-       }
+    }
 
     @Override
     protected void onResume() {
        super.onResume();
-
-
         MyApplication.getInstance().setConnectivityListener(this);
     }
-
 
     @Override
     public void onNetworkConnectionChanged(boolean isConnected) {
@@ -237,8 +196,8 @@ public class LoginActivity extends AppCompatActivity implements
             Intent main = new Intent(this, MainActivity.class);
             startActivity(main);
         } else{
-            //Snackbar.make(parentLayout,"Not signed in",Snackbar.LENGTH_LONG)
-              //      .show();
+            Snackbar.make(parentLayout,"Not signed in",Snackbar.LENGTH_LONG)
+                    .show();
         }
     }
     private void showProgressDialog() {

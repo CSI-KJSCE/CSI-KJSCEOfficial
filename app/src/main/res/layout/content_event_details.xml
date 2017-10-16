@@ -35,8 +35,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 style="@style/text_preview"
-                android:layout_marginBottom="4dp"
-                >
+                android:layout_marginBottom="4dp">
 
                 <TextView
                     android:id="@+id/eventhead_textview"
@@ -53,22 +52,19 @@
                     android:text="12/7/2017" />
 
                 <TextView
-
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
                     android:drawable="@drawable/custom_textview"
-                        android:layout_gravity="right"
-                        android:textSize="12dp"
-                        android:text="FE"/>
+                    android:layout_gravity="right"
+                    android:textSize="12dp"
+                    android:text="FE"/>
 
-
-
-                    <TextView
-                        android:layout_gravity="right"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:textSize="12dp"
-                        android:text="Workshop"/>
+                <TextView
+                    android:layout_gravity="right"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:textSize="12dp"
+                    android:text="Workshop"/>
 
                 <TextView
                     android:id="@+id/eventdetails_textview"
@@ -82,9 +78,6 @@
 
         </LinearLayout>
 
-
-
     </ScrollView>
-
 
 </LinearLayout>

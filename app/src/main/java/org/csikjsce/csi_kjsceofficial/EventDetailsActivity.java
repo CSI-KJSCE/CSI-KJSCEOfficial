@@ -19,7 +19,7 @@ import com.bumptech.glide.Glide;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
 
 public class EventDetailsActivity extends AppCompatActivity implements View.OnClickListener{
-    String TAG = "EventDetailsActivity";
+    String TAG = EventDetailsActivity.class.getSimpleName();
     Event event;
     TextView eventTitle;
     TextView eventDate;
@@ -31,11 +31,10 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_event_details);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        final Drawable uparrow=getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp);
+        final Drawable uparrow = getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp);
         getSupportActionBar().setHomeAsUpIndicator(uparrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
     }
 
     @Override
@@ -70,7 +69,7 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         if(item.getItemId()==R.id.home)
             finish();
         else if(item.getItemId()==R.id.feedback){
-            Intent i = new Intent(this,Webview_activity.class);
+            Intent i = new Intent(this,WebViewActivity.class);
             Log.d(TAG, "feedback: "+event.getFeedback());
             i.putExtra("link",event.getFeedback());
             startActivity(i);
@@ -81,10 +80,8 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         Intent intent;
-        intent = new Intent(this,Webview_activity.class);
+        intent = new Intent(this,WebViewActivity.class);
         intent.putExtra("link",event.getRegister());
         startActivity(intent);
-
-
     }
 }

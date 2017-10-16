@@ -4,71 +4,12 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="holdertext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\ s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
     <string name="about_us">Computer Society of India was established in the year 1965 is today the largest IT professionals society in India. Keeping in mind the interest of IT professionals and computer users, CSI works towards, making the profession an area of choice among all sections of the society. The basic purpose of CSI is to promote IT as a profession. To fulfil this objective, CSI regularly organizes conferences, conventions, lectures and gives various awards. KJSCE\'s CSI students\' chapter was established in 2003. The CSI – KSJCE council is formed from the student members every year. They work under the guidance of their faculty advisors. There are a number of technical and non-technical activities conducted, which include Workshops, Project competitions, Technical Talks on the latest trends in industry, etc. It is one of the biggest student bodies (in terms of number of members) at K. J. Somaiya College of Engineering, Mumbai.</string>
-    <!-- Temporary sample data as JSON string -->
-    <string name="demo_event_list">
-        {\"event_list\": [ { \"eventid\":\"1701\",
-                            \"title\":\"Handover Ceremony\",
-                            \"img_url\":\"http://csikjsce.org/wp-content/uploads/2017/01/IMG_20160927_171256-1024x766.jpg\",
-                            \"event_dt\":\"2017-07-15\"},
-                          { \"eventid\":\"1702\",
-                            \"title\":\"Career Guidance Session\",
-                            \"img_url\":\"http://csikjsce.org/wp-content/uploads/2016/12/mlsem2-300x225.jpg\",
-                            \"event_dt\":\"2017-07-31\"},
-                            { \"eventid\":\"1703\",
-                            \"title\":\"Machine learning\",
-                            \"img_url\":\"http://csikjsce.org/wp-content/uploads/2016/12/mlsem2-300x225.jpg\",
-                            \"event_dt\":\"2017-08-10\"}
-                        ]
-        }
-    </string>
-    <string name="demo_event_details">
-        {\"event_details\": [ { \"eventid\":\"1701\",
-                                \"event_dt\": \"15/7/2017\",
-                                \"title\":\"Handover Ceremony\",
-                            \"description\":\"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\ s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.\",
-                            \"reg_link\":\"https://www.google.com\"},
-                           { \"eventid\":\"1701\",
-                                  \"event_dt\": \"31/7/2017\",
-                            \"title\":\"Career Guidance Session\",
-                            \"description\":\"It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using  \Content here, content here\ , making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for \ lorem ipsum\  will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like)\",
-                            \"reg_link\":\"https://www.facebook.com\"}
-                        ]
-        }
-    </string>
-    <string name="demo_feedback">
-    {\"feedback\": [ { \"eventid\":\"1701\",
-                       \"link\":\"https://www.google.com\",
-                        \"Text\":\"Guidance\",
-                       \"accepting\":\"1\"},
-                     { \"eventid\":\"1701\",
-                        \"Text\":\"ML\",
-                       \"link\":\"https://www.facebook.com\",
-                       \"accepting\":\"0\"}
-                   ]
-    }
-    </string>
-    <string name="demo_councils">
-    {\"councils\": [ { \"acad_yr\":\"2016-17\",
-                     \"current\":\"N\"},
-                   { \"acad_yr\":\"2017-18\",
-                     \"current\":\"Y\"}
-                 ]
-    }
-    </string>
-    <string name="demo_council_members">
-        {\"council_members\":[ { \"name\":\"Sarfaraz Iraqui\",
-                               \"post\":\"Tech Head\",
-                               \"pic_url\":\"https://avatars5.githubusercontent.com/u/15617657?v=4&amp;s=400\",
-                               \"acad_yr\":\"2017-18\"},
-                             {\"name\":\"Devika Shanbhag\",
-                              \"post\":Tech Head\",
-                              \"pic_url\":\"https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAApLAAAAJDAyM2ZlMDYzLTRmNmQtNGM3OS05NDM3LWYyMjZkNDMwYjEwMA.jpg\",
-                              \"acad_yr\":\"2016-17\"}
-                           ]
-        }
-    </string>
+
     <string name="title_activity_event_details">Event_details</string>
     <string name="title_activity_login">Sign in</string>
+    <string name="title_about_us">About Us</string>
+    <string name="title_council">Council</string>
+    <string name="title_eureka">Eureka</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">Email</string>
@@ -83,5 +24,10 @@
         completions."
     </string>
     <string name="USER_INFO">org.csikjsce.csikjsceofficial.PREF_USER_INFO</string>
+    <string name="msg_no_internet">No internet connection</string>
+    <string name="msg_back_press">Press back again to exit</string>
+    <string name="msg_sign_in_with">Sign in with SVV or G+</string>
+    <string name="default_email">someone@example.com</string>
+    <string name="default_full_name">Someone Sumsurname</string>
 
 </resources>

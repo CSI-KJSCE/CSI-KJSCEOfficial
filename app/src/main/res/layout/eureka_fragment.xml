@@ -9,8 +9,7 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        >
+        android:theme="@style/AppTheme.AppBarOverlay">
 
     </android.support.design.widget.AppBarLayout>
 
@@ -36,15 +35,14 @@
     <LinearLayout
         android:orientation="vertical"
         style="@style/text_preview"
-        android:layout_marginBottom="4dp"
-        >
+        android:layout_marginBottom="4dp">
     <TextView
         android:id="@+id/eurekahead_textview"
         style="@style/text_preview"
         android:paddingTop="8dp"
         android:text="This an example"
         android:textSize="18dp"
-        android:textStyle="bold" />
+        android:textStyle="bold"/>
 
     <TextView
         android:id="@+id/eureka_textview"

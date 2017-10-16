@@ -20,7 +20,6 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 
 
-
 public class SplashscreenActivity extends Activity {
 
     @Override

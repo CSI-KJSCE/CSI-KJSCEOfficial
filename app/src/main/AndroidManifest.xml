@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <receiver
-            android:name=".ConnectivityReciever"
+            android:name=".ConnectivityReceiver"
             android:enabled="true">
             <intent-filter>
                 <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
@@ -50,7 +50,7 @@
             android:label="@string/title_activity_event_details"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Webview_activity" />
+        <activity android:name=".WebViewActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"></activity>

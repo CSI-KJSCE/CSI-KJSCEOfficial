@@ -31,7 +31,7 @@ import java.util.List;
 public class CouncilDetailsFragment extends Fragment {
 
     private View view;
-    private final String TAG = "CouncilDetailsFragment";
+    private final String TAG = CouncilDetailsFragment.class.getSimpleName();
     private final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
     private final DatabaseReference cmDb = dbRef.child("councilmember");
     List<CouncilMember> list;
@@ -41,10 +41,7 @@ public class CouncilDetailsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         view = inflater.inflate(R.layout.council_details_fragment,container,false);
-        //Toolbar t=(Toolbar)container.findViewById(R.id.toolbar);
-        ((MainActivity) getActivity()).setActionBarTitle("Council");
-
-
+        ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.title_council));
 
         return view;
     }

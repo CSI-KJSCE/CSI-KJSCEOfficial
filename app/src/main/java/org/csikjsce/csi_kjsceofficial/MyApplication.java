@@ -20,8 +20,8 @@ public class MyApplication extends Application {
         return mInstance;
     }
 
-    public void setConnectivityListener(ConnectivityReciever.ConnectivityReceiverListener listener) {
-        ConnectivityReciever.connectivityReceiverListener = listener;
+    public void setConnectivityListener(ConnectivityReceiver.ConnectivityReceiverListener listener) {
+        ConnectivityReceiver.connectivityReceiverListener = listener;
     }
 }
 

@@ -10,12 +10,12 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
-public class ConnectivityReciever
+public class ConnectivityReceiver
         extends BroadcastReceiver {
 
     public static ConnectivityReceiverListener connectivityReceiverListener;
 
-    public ConnectivityReciever() {
+    public ConnectivityReceiver() {
         super();
     }
 

@@ -4,11 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,7 +37,6 @@ public class HomeFragment extends Fragment {
     private View view;
     RecyclerView eventlists;
     ViewPager viewPager;
-    Toolbar toolbar;
     ProgressBar progress;
 
     SwipeCustomAdapter adapter;
@@ -52,13 +49,10 @@ public class HomeFragment extends Fragment {
     DatabaseReference eventsDb;
     Set<Event> uniqueEvents;
     EventRecycleViewAdapter ed;
-    private FragmentTransaction fragmentTransaction;
     public HomeFragment(){
 
     }
-    HomeFragment(FragmentTransaction fragmentTransaction){
-        this.fragmentTransaction = fragmentTransaction;
-    }
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         dbRef = FirebaseDatabase.getInstance().getReference();
         eventsDb = dbRef.child("event");
@@ -98,9 +92,7 @@ public class HomeFragment extends Fragment {
         //Populate Events
         eventlists = (RecyclerView)view.findViewById(R.id.eventcard_listview);
         uniqueEvents = new HashSet<>();
-       /* for(int i=0;i<5;i++){
-            uniqueEvents.add(new Event(1,"Title","1/7/2017","url"));
-        }*/
+
         list.addAll(uniqueEvents);
         ed = new EventRecycleViewAdapter(getContext(),list);
         eventlists.setLayoutManager( new LinearLayoutManager(getContext()));

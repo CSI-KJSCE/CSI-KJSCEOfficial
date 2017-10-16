@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //connectingh to firebase database
+        //connecting to firebase database
         FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
         DatabaseReference dbRef = csiDatabase.getReference();
         //Swiper layout
@@ -99,20 +99,16 @@ public class MainActivity extends AppCompatActivity
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click back again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, R.string.msg_back_press, Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                doubleBackToExitPressedOnce=false;
+                doubleBackToExitPressedOnce = false;
             }
         }, 2000);
     }
-
-
-
-
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override

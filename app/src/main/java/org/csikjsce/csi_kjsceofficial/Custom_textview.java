@@ -15,10 +15,6 @@ import android.widget.TextView;
 
 public class Custom_textview extends android.support.v7.widget.AppCompatTextView {
 
-
-
-
-
         public Custom_textview(Context context) {
             super(context);
             Typeface face=Typeface.createFromAsset(context.getAssets(), "fonts/msyi.ttf");

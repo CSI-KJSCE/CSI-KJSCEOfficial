@@ -11,7 +11,7 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 
-public class Webview_activity extends AppCompatActivity {
+public class WebViewActivity extends AppCompatActivity {
     private static String urladd;
     private WebView webView;
     private FrameLayout frameLayout;
