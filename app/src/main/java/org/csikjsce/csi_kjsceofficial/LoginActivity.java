@@ -176,13 +176,13 @@ public class LoginActivity extends AppCompatActivity implements
             GoogleSignInAccount account = result.getSignInAccount();
             String pname = account.getDisplayName();
             String emailid = account.getEmail();
-           // String pic_url = account.getPhotoUrl().toString();
+            String pic_url = ""+account.getPhotoUrl();
 
             SharedPreferences userInfo = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = userInfo.edit();
             editor.putString("name",pname);
             editor.putString("email",emailid);
-           // editor.putString("pic_url",pic_url);
+            editor.putString("pic_url",pic_url);
             editor.commit();
             updateUI(true);
         } else {
