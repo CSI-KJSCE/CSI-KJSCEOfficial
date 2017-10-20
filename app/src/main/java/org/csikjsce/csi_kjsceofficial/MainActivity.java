@@ -20,8 +20,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -70,6 +74,22 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        //Load profile picture and name of signed in use
+        View navHeader = navigationView.getHeaderView(0);
+        ImageView profilePic = (ImageView)navHeader.findViewById(R.id.user_dp_iv);
+        TextView nameTv = (TextView)navHeader.findViewById(R.id.user_name_tv);
+
+        SharedPreferences sf = getSharedPreferences(getString(R.string.USER_INFO),MODE_PRIVATE);
+        String name = sf.getString("name","CSI Fan");
+        String picUrl = sf.getString("pic_url","");
+
+        nameTv.setText(name);
+        Glide
+                .with(this)
+                .load(picUrl)
+                .into(profilePic);
+
         //Fetching events node from database;
 
 
