@@ -3,6 +3,7 @@ package org.csikjsce.csi_kjsceofficial;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -21,6 +22,7 @@ import org.csikjsce.csi_kjsceofficial.POJO.Event;
 public class EventDetailsActivity extends AppCompatActivity implements View.OnClickListener{
     String TAG = EventDetailsActivity.class.getSimpleName();
     Event event;
+    CollapsingToolbarLayout collapsingToolbar;
     TextView eventTitle;
     TextView eventDate;
     TextView eventDescrip;
@@ -29,12 +31,14 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.event_details_toolbar);
         setSupportActionBar(toolbar);
         final Drawable uparrow = getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp);
         getSupportActionBar().setHomeAsUpIndicator(uparrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        collapsingToolbar = findViewById(R.id.event_details_collapsing_toolbar);
     }
 
     @Override
@@ -44,12 +48,12 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         event = intent.getParcelableExtra("Event");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
-        eventTitle = (TextView)findViewById(R.id.eventhead_textview);
+
         eventDate = (TextView)findViewById(R.id.eventdate_textview);
         eventDescrip = (TextView)findViewById(R.id.eventdetails_textview);
         eventImage = (ImageView)findViewById(R.id.Event_imageview);
 
-        eventTitle.setText(event.getTitle());
+        collapsingToolbar.setTitle(event.getTitle());
         eventDate.setText(event.getEventdt());
         eventDescrip.setText(event.getDesc());
         Glide.with(this)

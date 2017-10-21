@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
     <include
-        android:id="@+id/toolbar"
+        android:id="@+id/event_details_toolbar"
         layout="@layout/toolbar" />
     <FrameLayout
         android:layout_width="match_parent"

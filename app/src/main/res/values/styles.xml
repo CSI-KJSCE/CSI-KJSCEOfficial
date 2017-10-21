@@ -58,7 +58,7 @@
         <item name="android:paddingLeft">12dp</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:spacing">12dp</item>
+        <item name="android:spacing">12dp</item>values
         <item name="android:fontFamily">serif-monospace</item>
         <item name="android:textSize">14dp</item>
         <item name="android:textColor">#000</item>

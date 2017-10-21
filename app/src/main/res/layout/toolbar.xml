@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v7.widget.Toolbar android:id="@+id/toolbar"
+<android.support.v7.widget.Toolbar android:id="@+id/event_details_toolbar"
     android:layout_width="match_parent"
     android:elevation="8dp"
     app:titleTextColor="@android:color/white"
