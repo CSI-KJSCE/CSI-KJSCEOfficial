@@ -28,8 +28,8 @@ public class SplashscreenActivity extends Activity {
         setContentView(R.layout.activity_splashscreen);
 
         final ImageView imageView = (ImageView) findViewById(R.id.splash_imageview);
-        final Animation animation_1 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.slide_in_right);
-        final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.slide_out_left);
+        final Animation animation_1 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fui_slide_in_right);
+        final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fui_slide_out_left);
 
         imageView.startAnimation(animation_2);
 
