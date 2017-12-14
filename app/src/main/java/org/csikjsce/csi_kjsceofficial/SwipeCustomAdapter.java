@@ -4,32 +4,37 @@ package org.csikjsce.csi_kjsceofficial;
  * Created by sumit on 18/7/17.
  */
 import android.content.Context;
+import android.content.Intent;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+
+import com.bumptech.glide.Glide;
+
+import org.csikjsce.csi_kjsceofficial.POJO.Event;
 
 import java.util.ArrayList;
 
-import javax.security.auth.Destroyable;
-
 public class SwipeCustomAdapter extends  PagerAdapter {
-    private Context ctx;
+    public static final String TAG = SwipeCustomAdapter.class.getSimpleName();
+    private Context context;
     private LayoutInflater inflater;
-    private ArrayList<Integer> imgs;
-    private int[] images= new int[]{R.drawable.handover,R.drawable.csi_ic_splash_screen};
-    SwipeCustomAdapter(Context ctx,ArrayList<Integer> imgs){
+    private ArrayList<Event> events;
 
-        this.ctx=ctx;
-        this.imgs=imgs;
-        inflater=LayoutInflater.from(ctx);
+    SwipeCustomAdapter(Context context, ArrayList<Event> majorEvents){
+
+        this.context = context;
+        events = majorEvents;
+        inflater=LayoutInflater.from(context);
     }
+
     @Override
     public int getCount() {
-        return imgs.size();
+        return events.size();
     }
 
     @Override
@@ -39,13 +44,24 @@ public class SwipeCustomAdapter extends  PagerAdapter {
     }
 
     @Override
-    public Object instantiateItem(ViewGroup container, int position) {
-        inflater = (LayoutInflater) ctx.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    public Object instantiateItem(ViewGroup container, final int position) {
+        inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View swiper_view = inflater.inflate(R.layout.swiper_layout,container ,false);
         ImageView sliderimage = (ImageView)swiper_view.findViewById(R.id.swiper_imageview);
-
-        sliderimage.setImageResource(images[position]);
+        Glide
+                .with(context)
+                .load(events.get(position).getImg_url())
+                .into(sliderimage);
         container.addView(swiper_view,0);
+        swiper_view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(context, EventDetailsActivity.class);
+                i.putExtra("Event",events.get(position));
+                Log.e(TAG, "onClick() : "+events.get(position).getTitle());
+                context.startActivity(i);
+            }
+        });
         return swiper_view;
     }
 

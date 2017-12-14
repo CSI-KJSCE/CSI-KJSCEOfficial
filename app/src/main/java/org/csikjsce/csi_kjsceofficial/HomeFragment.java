@@ -28,27 +28,30 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import me.relex.circleindicator.CircleIndicator;
-
 /**
  * Created by sumit on 2/8/17.
  */
 public class HomeFragment extends Fragment {
+    public static final String TAG = HomeFragment.class.getName();
     private View view;
-    RecyclerView eventlists;
-    ViewPager viewPager;
+    RecyclerView eventsRecyclerView;
+    DatabaseReference dbRef;
     ProgressBar progress;
 
+    ViewPager viewPager;
     SwipeCustomAdapter adapter;
-    CircleIndicator indicate;
-    private static final Integer[] images= {R.drawable.handover,R.drawable.csi_ic_splash_screen};
-    private int currentPage=0;
-    private ArrayList<Integer> imgarray=new ArrayList<Integer>();
-    ArrayList<Event> list= new ArrayList<>();
-    DatabaseReference dbRef;
-    DatabaseReference eventsDb;
-    Set<Event> uniqueEvents;
+    private ArrayList<Event> majorEvents = new ArrayList<>();
+    private int majorEventsCount;
+    DatabaseReference majorEventsDb;
+    private int currentPage;
+    private final int SWIPE_DELAY = 2000;
+    private final int SWIPE_PERIOD = 5000;
+
     EventRecycleViewAdapter ed;
+    DatabaseReference eventsDb;
+    ArrayList<Event> list = new ArrayList<>();
+    Set<Event> uniqueEvents;
+
     public HomeFragment(){
 
     }
@@ -56,6 +59,7 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         dbRef = FirebaseDatabase.getInstance().getReference();
         eventsDb = dbRef.child("event");
+        majorEventsDb = dbRef.child("major-events");
         view =  inflater.inflate(R.layout.home_fragment,container,false);
         return view;
     }
@@ -63,22 +67,52 @@ public class HomeFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
         //Populate viewpager
-        for(int i=0;i<images.length;i++)
-            imgarray.add(images[i]);
         viewPager=(ViewPager)view.findViewById(R.id.View_pager);
+        adapter = new SwipeCustomAdapter(getActivity(), majorEvents);
+        viewPager.setAdapter(adapter);
+        majorEventsCount = 1;
+        majorEventsDb.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                Event event = dataSnapshot.getValue(Event.class);
+                majorEvents.add(event);
+                majorEventsCount = majorEvents.size();
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                majorEventsCount = majorEvents.size();
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildRemoved(DataSnapshot dataSnapshot) {
+                majorEventsCount = majorEvents.size();
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                majorEventsCount = majorEvents.size();
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.getDetails());
+            }
+        });
+
         progress=(ProgressBar)view.findViewById(R.id.center_progressbar);
 
-        //indicate=(CircleIndicator) view.findViewById(R.id.indicator);
-        //indicate.setViewPager(viewPager);
-        adapter = new SwipeCustomAdapter(getActivity(),imgarray);
-        viewPager.setAdapter(adapter);
+        currentPage = 0;
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
             public void run() {
-             if (currentPage == images.length) {
-                    currentPage = 0;
-                }
+                currentPage%=majorEventsCount;
                 viewPager.setCurrentItem(currentPage++, true);
                  }
         };
@@ -88,23 +122,23 @@ public class HomeFragment extends Fragment {
             public void run() {
                 handler.post(Update);
             }
-        }, 5000, 5000);
+        }, SWIPE_DELAY, SWIPE_PERIOD);
         //Populate Events
-        eventlists = (RecyclerView)view.findViewById(R.id.eventcard_listview);
+        eventsRecyclerView = (RecyclerView)view.findViewById(R.id.eventcard_listview);
         uniqueEvents = new HashSet<>();
 
         list.addAll(uniqueEvents);
         ed = new EventRecycleViewAdapter(getContext(),list);
-        eventlists.setLayoutManager( new LinearLayoutManager(getContext()));
-        eventlists.setAdapter(ed);
+        eventsRecyclerView.setLayoutManager( new LinearLayoutManager(getContext()));
+        eventsRecyclerView.setAdapter(ed);
         eventsDb.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                 Event event = dataSnapshot.getValue(Event.class);
-                Log.d("ChildEventListener","Event: "+event.getTitle());
+                Log.d(TAG,"Event: "+event.getTitle());
                 uniqueEvents.add(event);
                 list.clear();
-                Log.d("HomeFragment","onResume(): uniqueEvents.size():  "+uniqueEvents.size());
+                Log.d(TAG,"onResume(): uniqueEvents.size():  "+uniqueEvents.size());
                 list.addAll(uniqueEvents);
                 ed.notifyDataSetChanged();
                 progress.setVisibility(View.GONE);
@@ -127,7 +161,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
+                Log.e(TAG,databaseError.getDetails());
             }
         });
     }
