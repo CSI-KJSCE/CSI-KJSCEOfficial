@@ -1,39 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="match_parent">
 
-    android:orientation="vertical"
-    tools:context="org.csikjsce.csi_kjsceofficial.AboutUsFragment">
-
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <ImageView
+        android:theme="@style/AppTheme.AppBarOverlay">
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/aboutus_imageview"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:background="#000"
+                android:paddingBottom="4dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/csi_ic_splash_screen" />
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/event_details_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:popupTheme="@style/AppTheme.PopupOverlay"
+                android:background="@color/fui_transparent"
+                app:menu="@menu/main_activity_menu"
+                app:layout_collapseMode="pin">
+            </android.support.v7.widget.Toolbar>
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/aboutus_scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:scaleType="centerCrop"
-            android:src="@drawable/csi_ic_splash_screen" />
-        <TextView
-            android:elevation="40dp"
-            android:paddingTop="16dp"
-            style="@style/text_preview"
-            android:text="@string/about_us"/>
-        <TextView
-            style="@style/text_preview"
-            android:layout_marginTop="8dp"
-            android:text="This is not the end"/>
+            android:orientation="vertical"
+            android:padding="16dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/aboutus_head_textview"
+                android:text="This an example"
+                android:textSize="@dimen/titleLargeText"
+                android:textStyle="bold"/>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/aboutus_textview"
+                android:textSize="@dimen/bodyText"
+                android:text="@string/holdertext"/>
+        </LinearLayout>
 
-    </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 
-</ScrollView>
-
-
-
-
-</LinearLayout>
+</android.support.design.widget.CoordinatorLayout>

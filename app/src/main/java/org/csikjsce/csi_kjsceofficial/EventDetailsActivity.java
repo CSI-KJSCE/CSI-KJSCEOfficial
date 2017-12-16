@@ -23,22 +23,27 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     String TAG = EventDetailsActivity.class.getSimpleName();
     Event event;
     CollapsingToolbarLayout collapsingToolbar;
+    Toolbar toolbar;
     TextView eventTitle;
     TextView eventDate;
+    TextView eventCategory;
+    TextView eventAudience;
     TextView eventDescrip;
     ImageView eventImage;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.event_details_toolbar);
+        toolbar = (Toolbar) findViewById(R.id.event_details_toolbar);
+        collapsingToolbar = findViewById(R.id.event_details_collapsing_toolbar);
+        collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.fui_transparent));
         setSupportActionBar(toolbar);
+
         final Drawable uparrow = getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp);
         getSupportActionBar().setHomeAsUpIndicator(uparrow);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        collapsingToolbar = findViewById(R.id.event_details_collapsing_toolbar);
     }
 
     @Override
@@ -49,13 +54,18 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(this);
 
-        eventDate = (TextView)findViewById(R.id.eventdate_textview);
+        eventDate = (TextView)findViewById(R.id.event_date_textview);
         eventDescrip = (TextView)findViewById(R.id.eventdetails_textview);
         eventImage = (ImageView)findViewById(R.id.Event_imageview);
-
-        collapsingToolbar.setTitle(event.getTitle());
+        eventTitle = (TextView)findViewById(R.id.event_title_textview);
+        eventCategory = (TextView)findViewById(R.id.category_tag);
+        eventAudience = (TextView)findViewById(R.id.audience_tag);
+        toolbar.setTitle(event.getTitle());
+        eventTitle.setText(event.getTitle());
         eventDate.setText(event.getEventdt());
         eventDescrip.setText(event.getDesc());
+        eventCategory.setText(event.getCategory());
+        eventAudience.setText(event.getAudience());
         Glide.with(this)
                 .load(event.getImg_url())
                 .into(eventImage);

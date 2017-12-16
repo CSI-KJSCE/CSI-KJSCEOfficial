@@ -20,10 +20,12 @@ import org.csikjsce.csi_kjsceofficial.R;
  */
 
 public class EventHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
-  //  TextView eventidTv;
+
     TextView titleTv;
     ImageView img;
     TextView eventdtTv;
+    TextView eventCategoryTv;
+    TextView eventAudienceTv;
     Context context;
     Event event;
     final String TAG = "EventHolder";
@@ -31,14 +33,18 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
         super(itemView);
         this.context = context;
         titleTv = (TextView)itemView.findViewById(R.id.eventname_textview);
-        eventdtTv = (TextView)itemView.findViewById(R.id.date_textview);
+        eventdtTv = (TextView)itemView.findViewById(R.id.event_date_textview);
+        eventCategoryTv = (TextView)itemView.findViewById(R.id.category_tag);
+        eventAudienceTv = (TextView)itemView.findViewById(R.id.audience_tag);
         img = (ImageView)itemView.findViewById(R.id.event_card1_imageview);
-        img.setOnClickListener(this);
+        itemView.setOnClickListener(this);
     }
     public void bindEvent(Event event){
         this.event = event;
         titleTv.setText(event.getTitle());
         eventdtTv.setText(event.getEventdt());
+        eventCategoryTv.setText(event.getCategory());
+        eventAudienceTv.setText(event.getAudience());
         Glide.with(context).load(event.getImg_url()).into(img);
         Log.d(TAG,"bindEvent(): imgurl = "+event.getImg_url());
     }

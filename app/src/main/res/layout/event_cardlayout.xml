@@ -3,23 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
+    android:layout_height="wrap_content">
 
-    android:layout_height="wrap_content"
-    android:layout_marginBottom="10dp"
-    android:layout_marginTop="2dp">
     <android.support.v7.widget.CardView
-
-        android:layout_height="match_parent"
+        android:id="@+id/event_card_view"
         android:layout_width="match_parent"
-        app:cardElevation="2dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginBottom="4dp"
-        android:id="@+id/event_card_view">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+
+        app:cardElevation="8dp"
+        app:cardCornerRadius="8dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="4dp"
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/event_card1_imageview"
@@ -27,29 +26,73 @@
                 android:layout_height="180dp"
                 android:scaleType="centerCrop"
                 app:srcCompat="@drawable/handover" />
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="16dp" />
             <LinearLayout
-                android:id="@+id/article_text_container"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+                android:orientation="horizontal"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
                 <TextView
-                    android:id="@+id/eventname_textview"
-                    style="@style/article_title_text_appeareance"/>
-                <LinearLayout
-                    android:orientation="horizontal"
-                    android:id="@+id/article_author_container"
+                    android:id="@+id/audience_tag"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="left"
+                    android:textSize="@dimen/smallText"
+                    android:text="FE"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/tag_background"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/category_tag"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:layout_gravity="left"
+                    android:textSize="@dimen/smallText"
+                    android:text="workshop"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/tag_background"
+                    android:paddingTop="1dp"
+                    android:paddingBottom="1dp"
+                    android:paddingLeft="4dp"
+                    android:paddingRight="4dp"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="16dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/event_date_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:id="@+id/date_textview"
-                        style="@style/article_author_name_text_appearance"
-                        android:fontFamily="serif-monospace" />
-                </LinearLayout>
+                    android:textSize="@dimen/smallText"
+                    android:text="12/07/2017"
+                    android:gravity="end"/>
             </LinearLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
+            <TextView
+                android:id="@+id/eventname_textview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="Event Name"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/titleText" />
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="8dp" />
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

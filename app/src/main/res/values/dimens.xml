@@ -10,4 +10,12 @@
     <dimen name="splashImg">82dp</dimen>
     <dimen name="textheadsize">32dp</dimen>
 
+    <!-- Text sizes -->
+    <dimen name="tinyText">8sp</dimen>
+    <dimen name="smallText">10sp</dimen>
+    <dimen name="regularText">12sp</dimen>
+    <dimen name="bodyText">14sp</dimen>
+    <dimen name="titleText">18sp</dimen>
+    <dimen name="titleLargeText">24sp</dimen>
+
 </resources>

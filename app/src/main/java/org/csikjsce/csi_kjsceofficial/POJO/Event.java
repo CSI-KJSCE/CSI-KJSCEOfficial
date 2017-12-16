@@ -13,6 +13,7 @@ public class Event implements Parcelable{
     private String eventdt;
     private String img_url;
     private String category;
+    private String audience;
     private String desc;
     private String register;
     private String feedback;
@@ -64,6 +65,8 @@ public class Event implements Parcelable{
         return category;
     }
 
+    public String getAudience(){ return audience; }
+
     public String getDesc() {
         return desc;
     }
@@ -99,6 +102,7 @@ public class Event implements Parcelable{
         title = parcel.readString();
         img_url = parcel.readString();
         category = parcel.readString();
+        audience = parcel.readString();
         desc = parcel.readString();
         register = parcel.readString();
         feedback = parcel.readString();
@@ -126,6 +130,7 @@ public class Event implements Parcelable{
         dest.writeString(title);
         dest.writeString(img_url);
         dest.writeString(category);
+        dest.writeString(audience);
         dest.writeString(desc);
         dest.writeString(register);
         dest.writeString(feedback);

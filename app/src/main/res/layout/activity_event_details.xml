@@ -17,18 +17,16 @@
     <android.support.design.widget.CollapsingToolbarLayout
         android:id="@+id/event_details_collapsing_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         app:layout_scrollFlags="scroll|exitUntilCollapsed"
         app:contentScrim="?attr/colorPrimary"
-        app:expandedTitleMarginStart="16dp"
-        app:expandedTitleMarginEnd="16dp"
         app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
+        app:collapsedTitleTextAppearance="@color/fui_transparent"
         android:fitsSystemWindows="true">
         <ImageView
             android:id="@+id/Event_imageview"
             android:layout_width="match_parent"
-            android:layout_height="256dp"
-            android:layout_marginBottom="4dp"
+            android:layout_height="220dp"
             android:scaleType="centerCrop"
             android:src="@drawable/handover"
             app:layout_collapseMode="parallax"
@@ -37,10 +35,10 @@
             android:id="@+id/event_details_toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+            app:popupTheme="@style/AppTheme.PopupOverlay"
+            android:background="@color/fui_transparent"
             app:menu="@menu/activity_eventdetail_menu"
             app:layout_collapseMode="pin">
-
         </android.support.v7.widget.Toolbar>
     </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -52,54 +50,97 @@
         android:id="@+id/scrollView2"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <LinearLayout
-                android:orientation="vertical"
-                style="@style/text_preview"
-                android:layout_marginBottom="4dp">
-
-                <TextView
-                    android:id="@+id/eventdate_textview"
-                    style="@style/date_view"
-                    android:gravity="right"
-                    android:padding="2dp"
-                    android:text="12/7/2017" />
-
-                <TextView
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:drawable="@drawable/custom_textview"
-                    android:layout_gravity="left"
-                    android:textSize="12dp"
-                    android:text="FE"/>
-
-                <TextView
-                    android:layout_gravity="left"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:textSize="12dp"
-                    android:text="Workshop"/>
-
-                <TextView
-                    android:id="@+id/eventdetails_textview"
-                    style="@style/text_preview"
-                    android:text="@string/holdertext" />
-
-                <android.support.v4.widget.Space
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardElevation="8dp"
+                android:layout_margin="16dp"
+                android:fadingEdgeLength="16dp">
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="48dp" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <TextView
+                        android:id="@+id/event_title_textview"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Event Title"
+                        android:textSize="@dimen/titleLargeText"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:paddingTop="16dp"
+                        android:paddingBottom="16dp">
+                        <TextView
+                            android:id="@+id/audience_tag"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="left"
+                            android:textSize="@dimen/smallText"
+                            android:text="FE"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/tag_background"
+                            android:paddingTop="1dp"
+                            android:paddingBottom="1dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"/>
+                        <android.support.v4.widget.Space
+                            android:layout_width="16dp"
+                            android:layout_height="wrap_content" />
+                        <TextView
+                            android:id="@+id/category_tag"
+                            android:layout_height="wrap_content"
+                            android:layout_width="wrap_content"
+                            android:layout_gravity="left"
+                            android:textSize="@dimen/smallText"
+                            android:text="workshop"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:background="@drawable/tag_background"
+                            android:paddingTop="1dp"
+                            android:paddingBottom="1dp"
+                            android:paddingLeft="4dp"
+                            android:paddingRight="4dp"/>
+                        <android.support.v4.widget.Space
+                            android:layout_width="16dp"
+                            android:layout_height="0dp" />
+                        <TextView
+                            android:id="@+id/event_date_textview"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textSize="@dimen/regularText"
+                            android:text="12/07/2017"
+                            android:gravity="end"/>
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/bodyText"
+                        android:id="@+id/eventdetails_textview"
+                        android:text="@string/holdertext" />
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
-        android:onClick="onClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
-        android:src="@drawable/csi_ic_register"
-        app:layout_anchor="@id/event_details_appbar"
-        app:layout_anchorGravity="bottom|right|end"/>
+        android:onClick="onClick"
+        android:src="@drawable/fab_ic_register"
+        app:backgroundTint="@android:color/white"
+        app:elevation="16dp"
+        app:layout_anchor="@id/scrollView2"
+        app:layout_anchorGravity="bottom|right|end" />
 
 </android.support.design.widget.CoordinatorLayout>
