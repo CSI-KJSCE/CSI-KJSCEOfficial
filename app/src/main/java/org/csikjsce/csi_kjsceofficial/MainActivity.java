@@ -38,7 +38,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        GoogleApiClient.OnConnectionFailedListener {
+        GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
     Context context;
     private GoogleApiClient mGoogleApiClient;
@@ -79,14 +79,20 @@ public class MainActivity extends AppCompatActivity
 
         SharedPreferences sf = getSharedPreferences(getString(R.string.USER_INFO),MODE_PRIVATE);
         String name = sf.getString("name","CSI Fan");
-        String picUrl = sf.getString("pic_url","");
+        String picUrl = sf.getString("pic_url","default");
 
         nameTv.setText(name);
-        Glide
-                .with(this)
-                .load(picUrl)
-                .into(profilePic);
-
+        profilePic.setOnClickListener(this);
+        if(!picUrl.contains("http")){
+            if(picUrl.equalsIgnoreCase("female"))
+                profilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_default_female_avatar));
+        }
+        else {
+            Glide
+                    .with(this)
+                    .load(picUrl)
+                    .into(profilePic);
+        }
         //Fetching events node from database;
 
 
@@ -99,6 +105,16 @@ public class MainActivity extends AppCompatActivity
                 .build();
 
     }
+
+    @Override
+    public void onClick(View v) {
+        switch(v.getId()){
+            case R.id.user_dp_iv:
+                startActivity(new Intent(this, ProfileActivity.class));
+                break;
+        }
+    }
+
     public void setActionBarTitle(String st){
         getSupportActionBar().setTitle(st);
     }
@@ -204,7 +220,7 @@ public class MainActivity extends AppCompatActivity
                 new ResultCallback<Status>() {
                     @Override
                     public void onResult(@NonNull Status status) {
-                        SharedPreferences pref = getSharedPreferences("UserInfo",0);
+                        SharedPreferences pref = getSharedPreferences(getResources().getString(R.string.USER_INFO),0);
                         pref.edit().clear();
                         Toast.makeText(getApplicationContext(),"Account disconnected",Toast.LENGTH_SHORT).show();
                     }

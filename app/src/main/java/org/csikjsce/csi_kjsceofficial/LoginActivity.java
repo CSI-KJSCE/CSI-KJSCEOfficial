@@ -16,6 +16,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -139,13 +140,18 @@ public class LoginActivity extends AppCompatActivity implements
             Uri pic_uri = account.getPhotoUrl();
             String pic_url;
             if(pic_uri==null)
-                pic_url = "file:///android_asset/raw/alien_face.png";
+                pic_url = "default";
             else pic_url = pic_uri.toString();
             SharedPreferences userInfo = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = userInfo.edit();
             editor.putString("name",pname);
-            editor.putString("email",emailid);
+            if(emailid.contains("somaiya.edu"))
+                editor.putString("svv_mail",emailid);
+            if(!emailid.contains("somaiya.edu"))
+                editor.putString("email",emailid);
             editor.putString("pic_url",pic_url);
+
+
             editor.commit();
             updateUI(true);
         } else {
@@ -196,10 +202,18 @@ public class LoginActivity extends AppCompatActivity implements
         Log.e(TAG,"onConnectionFailed: "+connectionResult);
     }
     private void updateUI(boolean isSignedIn){
+        boolean profileComplete = Utils.isProfileComplete(this);
+        Intent intent;
         if(isSignedIn){
-            Intent main = new Intent(this, MainActivity.class);
-            startActivity(main);
-        } else{
+            if(profileComplete)
+                intent = new Intent(this, MainActivity.class);
+            else {
+                intent = new Intent(this, ProfileActivity.class);
+                Toast.makeText(this,"Kindly complete your profile",Toast.LENGTH_SHORT)
+                        .show();
+            }
+            startActivity(intent);
+        } else {
             Snackbar.make(parentLayout,"Not signed in",Snackbar.LENGTH_LONG)
                     .show();
         }

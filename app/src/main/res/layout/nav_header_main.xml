@@ -21,7 +21,7 @@
             android:layout_width="72dp"
             android:layout_height="72dp"
             android:layout_gravity="left"
-            android:src="@drawable/handover" />
+            android:src="@drawable/ic_default_male_avatar" />
         <android.support.v4.widget.Space
             android:layout_width="match_parent"
             android:layout_height="8dp" />
@@ -29,7 +29,7 @@
             android:id="@+id/user_name_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CSI_KJSCE FAN"
+            android:text="CSI FAN"
             android:layout_gravity="center"
             android:gravity="left"
             android:textColor="@android:color/white"

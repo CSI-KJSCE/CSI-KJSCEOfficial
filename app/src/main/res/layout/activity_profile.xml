@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="org.csikjsce.csi_kjsceofficial.ProfileActivity"
+    android:id="@+id/profile_root_layout">
+    <include
+        android:id="@+id/profile_toolbar"
+        layout="@layout/toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+    <ImageView
+        android:id="@+id/coverImageView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/side_nav_bar" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_pic_iv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        android:src="@drawable/ic_default_male_avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="12dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/profile_pic_iv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:overScrollMode="always">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/large_space"
+                android:paddingLeft="@dimen/large_space"
+                android:paddingTop="@dimen/small_space"
+                android:paddingBottom="@dimen/small_space">
+                <ImageView
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:src="@drawable/ic_person_name"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center_vertical"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/large_space"
+                    android:layout_height="0dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintAnimationEnabled="true"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/full_name_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:hint="Full name"
+                        android:inputType="textPersonName"
+                        android:textSize="@dimen/regularText"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/large_space"
+                android:paddingLeft="@dimen/large_space"
+                android:paddingTop="@dimen/small_space"
+                android:paddingBottom="@dimen/small_space">
+                <ImageView
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:src="@drawable/ic_genders"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center_vertical"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/large_space"
+                    android:layout_height="0dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintAnimationEnabled="true"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/sex_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:hint="Sex"
+                        android:inputType="textAutoCorrect"
+                        android:textSize="@dimen/regularText"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/small_space"
+                android:paddingLeft="@dimen/large_space"
+                android:paddingRight="@dimen/large_space"
+                android:paddingTop="@dimen/small_space">
+
+                <ImageView
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_svv_mail" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/large_space"
+                    android:layout_height="0dp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/svv_email_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:hint="Somaiya Email"
+                        android:inputType="textEmailAddress"
+                        android:textSize="@dimen/regularText" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingRight="@dimen/large_space"
+                android:paddingLeft="@dimen/large_space"
+                android:paddingTop="@dimen/small_space"
+                android:paddingBottom="@dimen/small_space">
+                <ImageView
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:src="@drawable/ic_personal_email"
+                    android:scaleType="fitXY"
+                    android:layout_gravity="center_vertical"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/large_space"
+                    android:layout_height="0dp" />
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintAnimationEnabled="true"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/personal_email_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:hint="Personal Email"
+                        android:textSize="@dimen/regularText"
+                        android:inputType="textEmailAddress"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingBottom="@dimen/small_space"
+                android:paddingLeft="@dimen/large_space"
+                android:paddingRight="@dimen/large_space"
+                android:paddingTop="@dimen/small_space">
+
+                <ImageView
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:layout_gravity="center_vertical"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_phone" />
+
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/large_space"
+                    android:layout_height="0dp" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:textColorHint="@color/colorPrimary"
+                    app:hintAnimationEnabled="true">
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/phone_number_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/large_icon"
+                        android:hint="Phone number"
+                        android:textSize="@dimen/regularText"
+                        android:inputType="phone"/>
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+        <Button
+            android:id="@+id/profile_save_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SAVE"
+            android:gravity="center"
+            android:textColor="@android:color/white"
+            android:background="@color/colorPrimary"
+            android:layout_marginLeft="@dimen/large_space"
+            android:layout_marginRight="@dimen/large_space"
+            android:layout_marginBottom="@dimen/regular_space"
+            android:layout_marginTop="@dimen/regular_space"/>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="600dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>

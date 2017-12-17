@@ -3,10 +3,13 @@ package org.csikjsce.csi_kjsceofficial;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.customtabs.CustomTabsIntent;
 import android.util.Log;
 import android.widget.Toast;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 /**
@@ -37,5 +40,22 @@ public class Utils {
            Toast.makeText(context, "Action not supported",Toast.LENGTH_SHORT);
        }
 
+    }
+    public static boolean isProfileComplete(Context context){
+        SharedPreferences sf = context.getSharedPreferences(context.getString(R.string.USER_INFO),MODE_PRIVATE);
+
+        String fullname = sf.getString("name","NA");
+        String sex = sf.getString("sex","NA");
+        String svvMail = sf.getString("svv_mail","NA");
+        String email = sf.getString("email","NA");
+        String phone = sf.getString("phone","NA");
+
+        if(fullname.contentEquals("NA") ||
+                sex.equals("NA") ||
+                svvMail.equals("NA") ||
+                email.equals("NA") ||
+                phone.equals("NA"))
+            return false;
+        else return true;
     }
 }
