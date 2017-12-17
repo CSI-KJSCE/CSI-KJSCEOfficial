@@ -58,6 +58,49 @@
                 android:id="@+id/aboutus_textview"
                 android:textSize="@dimen/bodyText"
                 android:text="@string/holdertext"/>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/large_space" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="16dp"
+                android:gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="Follow us!"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/titleText" />
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/small_space"
+                    android:layout_height="0dp" />
+                <ImageView
+                    android:id="@+id/facebook_page"
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_space"
+                    android:src="@drawable/ic_facebook"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/small_space"
+                    android:layout_height="0dp" />
+                <ImageView
+                    android:id="@+id/instagram_page"
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:src="@drawable/ic_instagram"/>
+                <android.support.v4.widget.Space
+                    android:layout_width="@dimen/small_space"
+                    android:layout_height="0dp" />
+                <ImageView
+                    android:id="@+id/github_page"
+                    android:layout_width="@dimen/large_icon"
+                    android:layout_height="@dimen/large_icon"
+                    android:src="@drawable/ic_github"/>
+            </LinearLayout>
+            <android.support.v4.widget.Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/regular_space" />
         </LinearLayout>
 
     </android.support.v4.widget.NestedScrollView>

@@ -30,6 +30,9 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     TextView eventAudience;
     TextView eventDescrip;
     ImageView eventImage;
+
+    String shareAppName;
+    ImageView fbIcon, instaIcon, whatsappIcon, shareIcon;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,11 +47,21 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        fbIcon = findViewById(R.id.facebook_share);
+        instaIcon = findViewById(R.id.instagram_share);
+        whatsappIcon = findViewById(R.id.whatsapp_share);
+        shareIcon = findViewById(R.id.general_share);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+
+        fbIcon.setOnClickListener(this);
+        instaIcon.setOnClickListener(this);
+        whatsappIcon.setOnClickListener(this);
+        shareIcon.setOnClickListener(this);
         Intent intent = getIntent();
         event = intent.getParcelableExtra("Event");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -94,8 +107,31 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         Intent intent;
-        intent = new Intent(this,WebViewActivity.class);
-        intent.putExtra("link",event.getRegister());
-        startActivity(intent);
+        switch(v.getId()){
+            case R.id.fab:
+                intent = new Intent(this,WebViewActivity.class);
+                intent.putExtra("link",event.getRegister());
+                startActivity(intent);
+                break;
+            case R.id.facebook_share:
+                shareAppName = "com.facebook.katana";
+                Utils.onShareClick(this, event.getDesc(), shareAppName);
+                break;
+            case R.id.instagram_share:
+                shareAppName = "com.instagram.android";
+                Utils.onShareClick(this, event.getDesc(), shareAppName);
+                break;
+            case R.id.whatsapp_share:
+                shareAppName = "com.whatsapp";
+                Utils.onShareClick(this, event.getDesc(), shareAppName);
+                break;
+            case R.id.general_share:
+                intent = new Intent();
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, event.getDesc());
+                startActivity(intent);
+                break;
+        }
+
     }
 }

@@ -18,4 +18,13 @@
     <dimen name="titleText">18sp</dimen>
     <dimen name="titleLargeText">24sp</dimen>
 
+    <!-- Space dimensions -->
+    <dimen name="small_space">8dp</dimen>
+    <dimen name="regular_space">16dp</dimen>
+    <dimen name="large_space">32dp</dimen>
+
+    <!-- icon dimensions -->
+    <dimen name="small_icon">16dp</dimen>
+    <dimen name="regular_icon">24dp</dimen>
+    <dimen name="large_icon">36dp</dimen>
 </resources>

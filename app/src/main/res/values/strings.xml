@@ -30,4 +30,9 @@
     <string name="default_email">someone@example.com</string>
     <string name="default_full_name">Someone Sumsurname</string>
 
+    <!-- Contact info -->
+    <string name="facebook_page_link">https://www.facebook.com/csikjsomaiya</string>
+    <string name="instagram_page_link">https://www.instagram.com/csikjsce/</string>
+    <string name="github_page_link">https://github.com/CSI-KJSCE</string>
+    <string name="csi_email_id">csi-kjsce@somaiya.edu</string>
 </resources>
