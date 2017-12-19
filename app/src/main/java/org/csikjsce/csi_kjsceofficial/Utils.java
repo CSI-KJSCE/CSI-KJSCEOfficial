@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.customtabs.CustomTabsIntent;
 import android.util.Log;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -57,5 +58,15 @@ public class Utils {
                 phone.equals("NA"))
             return false;
         else return true;
+    }
+    public static void disableEditText(EditText editText){
+        editText.setFocusable(false);
+        editText.setEnabled(false);
+        editText.setFocusableInTouchMode(false);
+    }
+    public static void enableEditText(EditText editText){
+        editText.setFocusable(true);
+        editText.setEnabled(true);
+        editText.setFocusableInTouchMode(true);
     }
 }

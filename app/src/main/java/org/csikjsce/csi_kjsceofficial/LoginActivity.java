@@ -145,10 +145,14 @@ public class LoginActivity extends AppCompatActivity implements
             SharedPreferences userInfo = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = userInfo.edit();
             editor.putString("name",pname);
-            if(emailid.contains("somaiya.edu"))
-                editor.putString("svv_mail",emailid);
-            if(!emailid.contains("somaiya.edu"))
-                editor.putString("email",emailid);
+            if(emailid.contains("somaiya.edu")) {
+                editor.putString("svv_mail", emailid);
+                editor.putBoolean("signed_in_with_svv", true);
+            }
+            if(!emailid.contains("somaiya.edu")) {
+                editor.putString("email", emailid);
+                editor.putBoolean("signed_in_with_svv", false);
+            }
             editor.putString("pic_url",pic_url);
 
 

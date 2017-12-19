@@ -3,13 +3,19 @@ package org.csikjsce.csi_kjsceofficial;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
+import android.hardware.input.InputManager;
 import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -24,11 +30,13 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     Button saveProfileBtn;
     SharedPreferences sf;
     Toolbar toolbar;
-
+    private boolean editMode;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+        //prevent keybaord from popping up
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
         rootLayout = findViewById(R.id.profile_root_layout);
         toolbar = findViewById(R.id.profile_toolbar);
@@ -78,8 +86,17 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             Snackbar.make(rootLayout,"Complete your profile to continue",Snackbar.LENGTH_SHORT)
                     .show();
             saveProfileBtn.setVisibility(View.VISIBLE);
-            saveProfileBtn.setOnClickListener(this);
         }
+        saveProfileBtn.setOnClickListener(this);
+        Utils.disableEditText(nameText);
+        // disable editTexts
+        if(editMode==false){
+            Utils.disableEditText(svvText);
+            Utils.disableEditText(emailText);
+            Utils.disableEditText(sexText);
+            Utils.disableEditText(phoneText);
+        }
+
 
     }
 
@@ -89,15 +106,21 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.profile_save_btn:
                 StringBuilder missing = new StringBuilder();
                 SharedPreferences.Editor editor = sf.edit();
-                if(nameText.getText().toString().isEmpty())
+                if(nameText.getText().toString().isEmpty()) {
                     missing.append(" name |");
+                }
                 editor.putString("name",nameText.getText().toString());
-                if(sexText.getText().toString().equals("NA"))
+                if(sexText.getText().toString().equals("NA")) {
                     missing.append(" sex |");
+                }
                 editor.putString("sex",sexText.getText().toString());
-                if(svvText.getText().toString().contains("somaiya.edu"))
-                    editor.putString("svv_mail",svvText.getText().toString());
-                else missing.append(" svv mail |");
+                if(svvText.getText().toString().contains("somaiya.edu")) {
+                    editor.putString("svv_mail", svvText.getText().toString());
+                }
+                else {
+                    missing.append(" svv mail |");
+                }
+
                 if(emailText.getText().toString().isEmpty() || emailText.getText().toString().contains("NA"))
                     missing.append(" personal email |");
                 editor.putString("email",emailText.getText().toString());
@@ -105,7 +128,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     missing.append(" phone |");
                 editor.putString("phone",phoneText.getText().toString());
                 editor.commit();
-
+                editMode = true;
                 if(missing.length()>0) {
                     Snackbar.make(rootLayout, "Please provide your" + missing, Snackbar.LENGTH_LONG)
                             .show();
@@ -116,5 +139,34 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 }
                 break;
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.profile_menu, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        editMode = true;
+        getWindow()
+                .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MODE_CHANGED);
+        if(sf.getBoolean("signed_in_with_svv",true)){
+            Utils.enableEditText(emailText);
+        } else {
+            Utils.enableEditText(svvText);
+        }
+        Utils.enableEditText(sexText);
+        Utils.enableEditText(phoneText);
+        saveProfileBtn.setVisibility(View.VISIBLE);
+        getWindow()
+                .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MODE_CHANGED);
+        sexText.requestFocus();
+        // show keyboard
+        InputMethodManager inputManager = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+        inputManager.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
+
+        return super.onOptionsItemSelected(item);
     }
 }
