@@ -7,6 +7,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -76,7 +77,7 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         toolbar.setTitle(event.getTitle());
         eventTitle.setText(event.getTitle());
         eventDate.setText(event.getEventdt());
-        eventDescrip.setText(event.getDesc());
+        eventDescrip.setText(Html.fromHtml(event.getDesc()));
         eventCategory.setText(event.getCategory());
         eventAudience.setText(event.getAudience());
         Glide.with(this)
