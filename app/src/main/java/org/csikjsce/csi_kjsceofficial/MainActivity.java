@@ -156,17 +156,32 @@ public class MainActivity extends AppCompatActivity
                 frag = new HomeFragment();
                 setActionBarTitle("CSI KJSCE");
                 break;
-            case R.id.nav_council:
-                frag =new CouncilDetailsFragment();
-                setActionBarTitle("The Council");
-                break;
             case R.id.nav_eureka:
                 frag=new EurekaFragment();
                 setActionBarTitle("Eureka");
                 break;
-            case R.id.nav_feedback:
+            case R.id.nav_council:
+                frag =new CouncilDetailsFragment();
+                setActionBarTitle("The Council");
+                break;
+            case R.id.nav_aboutus:
                 frag= new AboutUsFragment();
                 setActionBarTitle("About Us");
+                break;
+            case R.id.rate_us_menu:
+                Utils.openLinkInCustomTab(context, getString(R.string.app_download_link));
+                break;
+            case R.id.share_app_menu:
+                String msg = getString(R.string.app_share_msg);
+                Utils.onShareClick(context, msg,"");
+                break;
+            case R.id.logout_drawer_opt:
+                signOut();
+                finish();
+                break;
+            case R.id.disconnect_acc_drawer_opt:
+                revokeAccess();
+                finish();
                 break;
         }
 
@@ -209,7 +224,7 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onResult(@NonNull Status status) {
                        SharedPreferences pref = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
-                        pref.edit().clear();
+                        pref.edit().clear().apply();
                         Toast.makeText(getApplicationContext(),"Signed out",Toast.LENGTH_SHORT).show();
                     }
                 }

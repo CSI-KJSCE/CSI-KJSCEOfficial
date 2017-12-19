@@ -213,6 +213,7 @@ public class LoginActivity extends AppCompatActivity implements
                 intent = new Intent(this, MainActivity.class);
             else {
                 intent = new Intent(this, ProfileActivity.class);
+                intent.putExtra("edit_mode",true);
                 Toast.makeText(this,"Kindly complete your profile",Toast.LENGTH_SHORT)
                         .show();
             }

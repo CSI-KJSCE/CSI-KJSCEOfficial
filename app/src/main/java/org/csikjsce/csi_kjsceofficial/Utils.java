@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.support.customtabs.CustomTabsIntent;
+import android.text.Html;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -31,9 +33,12 @@ public class Utils {
 
         Intent sendIntent = new Intent(Intent.ACTION_SEND);
         sendIntent.setType("text/plain");
-        sendIntent.putExtra(Intent.EXTRA_TEXT, message);
 
-       sendIntent.setPackage(appName);
+        // message might be in html form, so convert back to plain text
+        message = Html.fromHtml(message).toString();
+        sendIntent.putExtra(Intent.EXTRA_TEXT, message);
+        if(!appName.isEmpty())
+            sendIntent.setPackage(appName);
        try {
            context.startActivity(sendIntent);
        } catch(ActivityNotFoundException e){

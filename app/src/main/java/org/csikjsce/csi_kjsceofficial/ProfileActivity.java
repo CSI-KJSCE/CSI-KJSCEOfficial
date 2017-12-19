@@ -38,6 +38,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //prevent keybaord from popping up
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
+        editMode = getIntent().getBooleanExtra("edit_mode",false);
         rootLayout = findViewById(R.id.profile_root_layout);
         toolbar = findViewById(R.id.profile_toolbar);
         profileImage = findViewById(R.id.profile_pic_iv);

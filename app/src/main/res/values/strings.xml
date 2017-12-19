@@ -35,4 +35,6 @@
     <string name="instagram_page_link">https://www.instagram.com/csikjsce/</string>
     <string name="github_page_link">https://github.com/CSI-KJSCE</string>
     <string name="csi_email_id">csi-kjsce@somaiya.edu</string>
+    <string name="app_download_link">https://play.google.com</string>
+    <string name="app_share_msg">Download this app  https://play.google.com</string>
 </resources>

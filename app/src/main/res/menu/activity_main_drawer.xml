@@ -4,23 +4,40 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
-            android:icon="@drawable/csi_ic_home"
+            android:icon="@drawable/ic_csi_home"
             android:title="Home" />
         <item
-            android:id="@+id/nav_council"
-            android:icon="@drawable/ic_menu_gallery"
-            android:title="Council 17-18" />
-        <item
             android:id="@+id/nav_eureka"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_eureka"
             android:title="Eureka" />
         <item
-            android:id="@+id/nav_feedback"
-            android:icon="@drawable/ic_menu_send"
+            android:id="@+id/nav_council"
+            android:icon="@drawable/ic_group"
+            android:title="Council 17-18" />
+        <item
+            android:id="@+id/nav_aboutus"
+            android:icon="@drawable/ic_menu_about_us"
             android:title="About Us" />
-
     </group>
-
-
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/rate_us_menu"
+            android:icon="@drawable/ic_rate_us"
+            android:title="Rate this app!"/>
+        <item
+            android:id="@+id/share_app_menu"
+            android:icon="@drawable/ic_share_app"
+            android:title="Share this app"/>
+    </group>
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/logout_drawer_opt"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+        <item
+            android:id="@+id/disconnect_acc_drawer_opt"
+            android:icon="@drawable/ic_disconnect_acc"
+            android:title="Logout and Disconnect Account"/>
+    </group>
 
 </menu>
