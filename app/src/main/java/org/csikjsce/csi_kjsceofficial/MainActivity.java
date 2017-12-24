@@ -26,11 +26,14 @@ import com.bumptech.glide.Glide;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import org.csikjsce.csi_kjsceofficial.POJO.Notification;
 
 import java.io.File;
 import java.io.IOException;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         GoogleApiClient.OnConnectionFailedListener, View.OnClickListener {
     private static final String TAG = MainActivity.class.getSimpleName();
+    private static final int REQUEST_CODE = 171;
     Context context;
     private GoogleApiClient mGoogleApiClient;
     @Override
@@ -51,6 +55,17 @@ public class MainActivity extends AppCompatActivity
             saveLogcatToFile(this);
         } catch (IOException e) {
             e.printStackTrace();
+        }
+        // Ensure Google Play services framework is installed
+        int gAAResult = GoogleApiAvailability
+                .getInstance()
+                .isGooglePlayServicesAvailable(this);
+        if(gAAResult == ConnectionResult.SUCCESS){
+            Log.d(TAG, "Play services available");
+        } else {
+            GoogleApiAvailability
+                    .getInstance()
+                    .getErrorDialog(this, gAAResult, REQUEST_CODE);
         }
         //connecting to firebase database
         FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
@@ -207,6 +222,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()){
+            case R.id.notification_menu:
+                startActivity(new Intent(this, NotificationActivity.class));
+                break;
             case R.id.logout_opt:
                 signOut();
                 finish();

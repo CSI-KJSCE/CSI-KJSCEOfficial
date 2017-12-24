@@ -12,4 +12,9 @@
         android:icon="@drawable/ic_logout"
         android:title="Disconnect Account"
         app:showAsAction="never"/>
+    <item
+        android:id="@+id/notification_menu"
+        android:icon="@drawable/ic_notification"
+        android:title="Notification"
+        app:showAsAction="always"/>
 </menu>
