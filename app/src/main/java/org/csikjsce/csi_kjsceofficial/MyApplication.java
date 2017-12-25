@@ -5,6 +5,8 @@ package org.csikjsce.csi_kjsceofficial;
  */
 import android.app.Application;
 
+import com.google.firebase.database.FirebaseDatabase;
+
 public class MyApplication extends Application {
 
     private static MyApplication mInstance;
@@ -14,6 +16,7 @@ public class MyApplication extends Application {
         super.onCreate();
 
         mInstance = this;
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true);
     }
 
     public static synchronized MyApplication getInstance() {
