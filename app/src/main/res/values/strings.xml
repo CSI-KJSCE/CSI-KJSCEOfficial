@@ -35,6 +35,11 @@
     <string name="instagram_page_link">https://www.instagram.com/csikjsce/</string>
     <string name="github_page_link">https://github.com/CSI-KJSCE</string>
     <string name="csi_email_id">csi-kjsce@somaiya.edu</string>
+
     <string name="app_download_link">https://play.google.com</string>
     <string name="app_share_msg">Download this app  https://play.google.com</string>
+    <string name="about_us_para">The Computer Society Of India (CSI) which was established on 6th March 1965 is a national body representing computer professionals. It is a non-profit professional society that meets to exchange views and information to share and learn novel ideas. With a mission to facilitate research and career enhancement, the CSI not only aims at inspiring, nurturing, and assisting students to integrate them into the IT community but also yearns to percolate benefits of the IT advancements to all sections of Indian Society. CSI-KJSCE is the students’ chapter of the aforementioned renowned body and was established in 2003. The council is formed from student members every year. They work under the guidance of their faculty advisors. There are multifarious technical as well as non-technical events which include competitions, festivals, seminars and workshops based on recent technology. Indeed, it is one of the biggest student bodies in terms of number of registered members and the number of workshops, at K.J. Somaiya College Of Engineering.</string>
+    <string name="who_are_we">Who are we?</string>
+    <string name="connect_with_us">Connect with us!</string>
+    <string name="share">share</string>
 </resources>
