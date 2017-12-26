@@ -8,7 +8,6 @@ import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +21,6 @@ import com.google.firebase.database.ValueEventListener;
 
 import org.csikjsce.csi_kjsceofficial.POJO.CouncilMember;
 import org.csikjsce.csi_kjsceofficial.adapters.CouncilMemberAdapter;
-
-import org.csikjsce.csi_kjsceofficial.POJO.CouncilMember;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +37,7 @@ public class CouncilDetailsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        view = inflater.inflate(R.layout.council_details_fragment,container,false);
+        view = inflater.inflate(R.layout.fragment_council_details,container,false);
         ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.title_council));
 
         return view;
@@ -52,7 +49,7 @@ public class CouncilDetailsFragment extends Fragment {
         Log.d(TAG,"In onActivityCreated");
         list = new ArrayList<>();
         adapter = new CouncilMemberAdapter(getContext(), list);
-        listingsView = (RecyclerView)view.findViewById(R.id.council_members_listingsview);
+        listingsView = view.findViewById(R.id.council_members_listingsview);
         listingsView.setLayoutManager(new LinearLayoutManager(getContext()));
         listingsView.setAdapter(adapter);
         cmDb.addValueEventListener(new ValueEventListener() {

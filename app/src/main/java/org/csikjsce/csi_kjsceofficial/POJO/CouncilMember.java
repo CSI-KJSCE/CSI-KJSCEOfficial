@@ -52,7 +52,7 @@ public class CouncilMember {
     public boolean equals(Object o){
         if(this == o)
             return true;
-        if(!( o instanceof Feedback))
+        if(!( o instanceof CouncilMember))
             return false;
         else {
             CouncilMember f = (CouncilMember) o;

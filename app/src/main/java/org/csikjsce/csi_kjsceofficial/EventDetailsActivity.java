@@ -38,7 +38,7 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
-        toolbar = (Toolbar) findViewById(R.id.event_details_toolbar);
+        toolbar = findViewById(R.id.event_details_toolbar);
         collapsingToolbar = findViewById(R.id.event_details_collapsing_toolbar);
         collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.fui_transparent));
         setSupportActionBar(toolbar);
@@ -65,15 +65,15 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         shareIcon.setOnClickListener(this);
         Intent intent = getIntent();
         event = intent.getParcelableExtra("Event");
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
 
-        eventDate = (TextView)findViewById(R.id.event_date_textview);
-        eventDescrip = (TextView)findViewById(R.id.eventdetails_textview);
-        eventImage = (ImageView)findViewById(R.id.Event_imageview);
-        eventTitle = (TextView)findViewById(R.id.event_title_textview);
-        eventCategory = (TextView)findViewById(R.id.category_tag);
-        eventAudience = (TextView)findViewById(R.id.audience_tag);
+        eventDate = findViewById(R.id.event_date_textview);
+        eventDescrip = findViewById(R.id.eventdetails_textview);
+        eventImage = findViewById(R.id.Event_imageview);
+        eventTitle = findViewById(R.id.event_title_textview);
+        eventCategory = findViewById(R.id.category_tag);
+        eventAudience = findViewById(R.id.audience_tag);
         toolbar.setTitle(event.getTitle());
         eventTitle.setText(event.getTitle());
         eventDate.setText(event.getEventdt());

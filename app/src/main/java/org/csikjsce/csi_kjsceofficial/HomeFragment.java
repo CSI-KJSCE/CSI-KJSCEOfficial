@@ -21,6 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
 import org.csikjsce.csi_kjsceofficial.adapters.EventRecycleViewAdapter;
+import org.csikjsce.csi_kjsceofficial.adapters.SwipeCustomAdapter;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -60,7 +61,7 @@ public class HomeFragment extends Fragment {
         dbRef = FirebaseDatabase.getInstance().getReference();
         eventsDb = dbRef.child("event");
         majorEventsDb = dbRef.child("major-events");
-        view =  inflater.inflate(R.layout.home_fragment,container,false);
+        view =  inflater.inflate(R.layout.fragment_home,container,false);
         return view;
     }
 
@@ -69,7 +70,7 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
 
         //Populate viewpager
-        viewPager=(ViewPager)view.findViewById(R.id.View_pager);
+        viewPager = view.findViewById(R.id.View_pager);
         adapter = new SwipeCustomAdapter(getActivity(), majorEvents);
         viewPager.setAdapter(adapter);
         majorEventsCount = 1;
@@ -106,7 +107,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        progress=(ProgressBar)view.findViewById(R.id.center_progressbar);
+        progress = view.findViewById(R.id.center_progressbar);
 
         currentPage = 0;
         final Handler handler = new Handler();
@@ -124,7 +125,7 @@ public class HomeFragment extends Fragment {
             }
         }, SWIPE_DELAY, SWIPE_PERIOD);
         //Populate Events
-        eventsRecyclerView = (RecyclerView)view.findViewById(R.id.eventcard_listview);
+        eventsRecyclerView = view.findViewById(R.id.eventcard_listview);
         uniqueEvents = new HashSet<>();
 
         list.addAll(uniqueEvents);

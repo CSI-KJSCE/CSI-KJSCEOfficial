@@ -7,7 +7,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
@@ -32,11 +31,11 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
     public EventHolder(Context context, View itemView) {
         super(itemView);
         this.context = context;
-        titleTv = (TextView)itemView.findViewById(R.id.eventname_textview);
-        eventdtTv = (TextView)itemView.findViewById(R.id.event_date_textview);
-        eventCategoryTv = (TextView)itemView.findViewById(R.id.category_tag);
-        eventAudienceTv = (TextView)itemView.findViewById(R.id.audience_tag);
-        img = (ImageView)itemView.findViewById(R.id.event_card1_imageview);
+        titleTv = itemView.findViewById(R.id.eventname_textview);
+        eventdtTv = itemView.findViewById(R.id.event_date_textview);
+        eventCategoryTv = itemView.findViewById(R.id.category_tag);
+        eventAudienceTv = itemView.findViewById(R.id.audience_tag);
+        img = itemView.findViewById(R.id.event_card1_imageview);
         itemView.setOnClickListener(this);
     }
     public void bindEvent(Event event){

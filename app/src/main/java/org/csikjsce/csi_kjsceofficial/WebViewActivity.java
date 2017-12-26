@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 
 public class WebViewActivity extends AppCompatActivity {
     private static String urladd;
+    private static final int PROGRESS_MAX = 100;
     private WebView webView;
     private FrameLayout frameLayout;
     private ProgressBar progressBar;
@@ -22,11 +23,11 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_webview);
         Intent intent = getIntent();
         urladd = intent.getStringExtra("link");
-        frameLayout =(FrameLayout)findViewById(R.id.framelayout_register);
-        progressBar=(ProgressBar)findViewById(R.id.progressBar2);
+        frameLayout = findViewById(R.id.framelayout_register);
+        progressBar = findViewById(R.id.progressBar2);
 
-        progressBar.setMax(100);
-        webView=(WebView)findViewById(R.id.register_webview);
+        progressBar.setMax(PROGRESS_MAX);
+        webView = findViewById(R.id.register_webview);
 
         webView.setWebViewClient(new HelpClient());
         webView.setWebChromeClient(new WebChromeClient(){
@@ -35,14 +36,12 @@ public class WebViewActivity extends AppCompatActivity {
                 frameLayout.setVisibility(View.VISIBLE);
                 progressBar.setProgress(progress);
                 setTitle("Loading...");
-                if(progress==100)
+                if(progress == PROGRESS_MAX)
                 {
-
                     frameLayout.setVisibility(View.GONE);
                     setTitle(view.getTitle());
                 }
                 super.onProgressChanged(view,progress);
-
             }
         });
         webView.getSettings().setJavaScriptEnabled(true);
@@ -51,7 +50,6 @@ public class WebViewActivity extends AppCompatActivity {
         progressBar.setProgress(0);
 
     }
-
     private class HelpClient extends WebViewClient {
 
         @Override
@@ -62,11 +60,7 @@ public class WebViewActivity extends AppCompatActivity {
 
             return true;
         }
-
-
     }
-
-
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if(keyCode==KeyEvent.KEYCODE_BACK){
@@ -75,7 +69,6 @@ public class WebViewActivity extends AppCompatActivity {
                 webView.goBack();
                 return true;
             }
-
         }
 
         return super.onKeyDown(keyCode, event);

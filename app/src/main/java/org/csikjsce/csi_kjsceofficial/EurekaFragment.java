@@ -11,14 +11,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
 
 /**
  * Created by sumit on 5/9/17.
@@ -33,7 +30,7 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.eureka_fragment, container, false);
+        view = inflater.inflate(R.layout.fragment_eureka, container, false);
         ((MainActivity) getActivity()).setActionBarTitle(getString(R.string.title_eureka));
         return view;
     }

@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignin;
     private LinearLayout parentLayout;
-    Snackbar mysnackbar;
+
     private ProgressDialog mProgressDialog;
     Context context;
     @Override
@@ -112,26 +112,7 @@ public class LoginActivity extends AppCompatActivity implements
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, RC_SIGNIN);
     }
-    private void signOut(){
-        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        updateUI(false);
-                    }
-                }
-        );
-    }
-    private void revokeAccess(){
-        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(@NonNull Status status) {
-                        updateUI(false);
-                    }
-                }
-        );
-    }
+
     private void handleSignInResult(GoogleSignInResult result){
 
         Log.d(TAG,"handleSignInResult():"+result.isSuccess());

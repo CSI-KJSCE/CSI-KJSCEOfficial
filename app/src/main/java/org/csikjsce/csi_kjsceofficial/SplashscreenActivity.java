@@ -27,7 +27,7 @@ public class SplashscreenActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashscreen);
 
-        final ImageView imageView = (ImageView) findViewById(R.id.splash_imageview);
+        final ImageView imageView = findViewById(R.id.splash_imageview);
         final Animation animation_1 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fui_slide_in_right);
         final Animation animation_2 = AnimationUtils.loadAnimation(getBaseContext(),R.anim.fui_slide_out_left);
 

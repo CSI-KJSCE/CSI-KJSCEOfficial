@@ -1,4 +1,4 @@
-package org.csikjsce.csi_kjsceofficial;
+package org.csikjsce.csi_kjsceofficial.adapters;
 
 /**
  * Created by sumit on 18/7/17.
@@ -15,7 +15,9 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
+import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
+import org.csikjsce.csi_kjsceofficial.R;
 
 import java.util.ArrayList;
 
@@ -47,11 +49,12 @@ public class SwipeCustomAdapter extends  PagerAdapter {
     public Object instantiateItem(ViewGroup container, final int position) {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View swiper_view = inflater.inflate(R.layout.swiper_layout,container ,false);
-        ImageView sliderimage = (ImageView)swiper_view.findViewById(R.id.swiper_imageview);
+        ImageView sliderimage = swiper_view.findViewById(R.id.swiper_imageview);
         Glide
                 .with(context)
                 .load(events.get(position).getImg_url())
                 .into(sliderimage);
+
         container.addView(swiper_view,0);
         swiper_view.setOnClickListener(new View.OnClickListener() {
             @Override

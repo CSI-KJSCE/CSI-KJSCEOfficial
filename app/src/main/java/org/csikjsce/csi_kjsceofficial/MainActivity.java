@@ -67,15 +67,11 @@ public class MainActivity extends AppCompatActivity
                     .getInstance()
                     .getErrorDialog(this, gAAResult, REQUEST_CODE);
         }
-        //connecting to firebase database
-        FirebaseDatabase csiDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference dbRef = csiDatabase.getReference();
-        //Swiper layout
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.event_details_toolbar);
+        Toolbar toolbar = findViewById(R.id.event_details_toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -84,13 +80,13 @@ public class MainActivity extends AppCompatActivity
         //toggle.setHomeAsUpIndicator(R.drawable.csi_ic_actionbar);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
         //Load profile picture and name of signed in use
         View navHeader = navigationView.getHeaderView(0);
-        ImageView profilePic = (ImageView)navHeader.findViewById(R.id.user_dp_iv);
-        TextView nameTv = (TextView)navHeader.findViewById(R.id.user_name_tv);
+        ImageView profilePic = navHeader.findViewById(R.id.user_dp_iv);
+        TextView nameTv = navHeader.findViewById(R.id.user_name_tv);
 
         SharedPreferences sf = getSharedPreferences(getString(R.string.USER_INFO),MODE_PRIVATE);
         String name = sf.getString("name","CSI Fan");
@@ -109,8 +105,6 @@ public class MainActivity extends AppCompatActivity
                     .into(profilePic);
         }
         //Fetching events node from database;
-
-
         HomeFragment homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.frames,homeFragment).commit();
 
@@ -137,7 +131,7 @@ public class MainActivity extends AppCompatActivity
     boolean doubleBackToExitPressedOnce=false;
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else  if (doubleBackToExitPressedOnce) {
@@ -206,7 +200,7 @@ public class MainActivity extends AppCompatActivity
             ft.commit();
 
         }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
