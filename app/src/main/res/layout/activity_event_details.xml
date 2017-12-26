@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="@color/colorPrimary"
             app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
             app:collapsedTitleTextAppearance="@color/fui_transparent"
             android:fitsSystemWindows="true">
@@ -36,7 +36,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 app:popupTheme="@style/AppTheme.PopupOverlay"
-                android:background="@color/fui_transparent"
+                android:background="@drawable/primary_gradient"
                 app:menu="@menu/activity_eventdetail_menu"
                 app:layout_collapseMode="pin">
             </android.support.v7.widget.Toolbar>

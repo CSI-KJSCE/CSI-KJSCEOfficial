@@ -5,7 +5,7 @@
     android:elevation="8dp"
     app:titleTextColor="@android:color/white"
     android:layout_height="?attr/actionBarSize"
-    android:background="?attr/colorPrimary"
+    android:background="@drawable/primary_gradient"
     app:popupTheme="@style/AppTheme.PopupOverlay"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto" />
