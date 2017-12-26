@@ -33,60 +33,68 @@
                 android:orientation="horizontal"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp">
+
                 <TextView
                     android:id="@+id/audience_tag"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:textSize="@dimen/smallText"
-                    android:text="FE"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
                     android:background="@drawable/tag_background"
-                    android:paddingTop="1dp"
+                    android:fontFamily="@font/saira_condensed_semibold"
                     android:paddingBottom="1dp"
                     android:paddingLeft="4dp"
-                    android:paddingRight="4dp"/>
+                    android:paddingRight="4dp"
+                    android:paddingTop="1dp"
+                    android:text="FE"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/smallText"
+                    android:textStyle="bold" />
                 <android.support.v4.widget.Space
                     android:layout_width="16dp"
                     android:layout_height="wrap_content" />
+
                 <TextView
                     android:id="@+id/category_tag"
-                    android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_gravity="left"
-                    android:textSize="@dimen/smallText"
-                    android:text="workshop"
-                    android:textStyle="bold"
-                    android:textColor="@android:color/white"
                     android:background="@drawable/tag_background"
-                    android:paddingTop="1dp"
+                    android:fontFamily="@font/saira_condensed_semibold"
                     android:paddingBottom="1dp"
                     android:paddingLeft="4dp"
-                    android:paddingRight="4dp"/>
+                    android:paddingRight="4dp"
+                    android:paddingTop="1dp"
+                    android:text="workshop"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/smallText"
+                    android:textStyle="bold" />
                 <android.support.v4.widget.Space
                     android:layout_width="16dp"
                     android:layout_height="wrap_content" />
+
                 <TextView
                     android:id="@+id/event_date_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/smallText"
+                    android:fontFamily="@font/saira_condensed_regular"
+                    android:gravity="end"
                     android:text="12/07/2017"
-                    android:gravity="end"/>
+                    android:textSize="@dimen/smallText" />
             </LinearLayout>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="8dp" />
+
             <TextView
                 android:id="@+id/eventname_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:fontFamily="@font/saira_condensed_regular"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:text="Event Name"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
                 android:textSize="@dimen/titleText" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"

@@ -25,10 +25,11 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/msg_sign_in_with"
+        android:fontFamily="@font/saira_condensed_regular"
         android:gravity="center_horizontal"
-        android:textSize="18sp"
-        android:padding="16dp"/>
+        android:padding="16dp"
+        android:text="@string/msg_sign_in_with"
+        android:textSize="18sp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -65,27 +66,28 @@
                 android:layout_height="wrap_content"
                 android:scaleType="centerCrop"
                 android:visibility="gone"/>
+
             <TextView
                 android:id="@+id/email_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/saira_condensed_regular"
                 android:text="@string/default_email"
-                android:visibility="gone">
-            </TextView>
+                android:visibility="gone"></TextView>
 
             <TextView
                 android:id="@+id/google_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/saira_condensed_regular"
                 android:text="@string/default_full_name"
-                android:visibility="gone">
-            </TextView>
+                android:visibility="gone"></TextView>
 
             <com.google.android.gms.common.SignInButton
                 android:id="@+id/btn_sign_in"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="20dp"/>
+                android:layout_marginBottom="20dp" />
 
         </LinearLayout>
     </ScrollView>

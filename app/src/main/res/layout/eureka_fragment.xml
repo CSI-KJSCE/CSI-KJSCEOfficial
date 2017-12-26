@@ -45,33 +45,39 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
+
             <TextView
+                android:id="@+id/eurekahead_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/eurekahead_textview"
+                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/eureka_heading"
                 android:textSize="@dimen/titleLargeText"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
+
             <TextView
+                android:id="@+id/eureka_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/eureka_textview"
-                android:textSize="@dimen/bodyText"
-                android:text="@string/holdertext"/>
+                android:fontFamily="@font/saira_condensed_regular"
+                android:text="@string/holdertext"
+                android:textSize="@dimen/bodyText" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/regular_space" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/share"
                 android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/titleText" />
+                android:textSize="@dimen/titleText"
+                android:textStyle="bold" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/regular_space" />

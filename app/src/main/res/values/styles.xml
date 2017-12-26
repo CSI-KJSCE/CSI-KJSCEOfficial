@@ -9,6 +9,8 @@
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
         <!-- android:textColorSecondary is the color of the menu overflow icon (three vertical dots) -->
         <item name="android:textColorSecondary">@android:color/white</item>
+        <!-- custom font for the entire app -->
+        <item name="fontFamily">@font/saira_condensed_regular</item>
     </style>
 
     <style name="AppTheme.NoActionBar">

@@ -12,15 +12,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-    <include
-        android:id="@+id/event_details_toolbar"
-        layout="@layout/toolbar" />
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frames">
 
-    </FrameLayout>
+        <include
+            android:id="@+id/event_details_toolbar"
+            layout="@layout/toolbar" />
+
+        <FrameLayout
+            android:id="@+id/frames"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </FrameLayout>
     </LinearLayout>
 
     <android.support.design.widget.NavigationView
@@ -28,10 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="false"
         android:background="@android:color/white"
+        android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header_main"
-        app:menu="@menu/activity_main_drawer"
-        app:itemIconTint="@color/colorPrimary"/>
+        app:itemIconTint="@color/colorPrimary"
+        app:menu="@menu/activity_main_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

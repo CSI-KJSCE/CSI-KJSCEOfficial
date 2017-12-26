@@ -63,79 +63,91 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
                     android:padding="16dp">
+
                     <TextView
                         android:id="@+id/event_title_textview"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:fontFamily="@font/saira_condensed_semibold"
                         android:text="Event Title"
-                        android:textSize="@dimen/titleLargeText"/>
+                        android:textSize="@dimen/titleLargeText" />
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
                         android:paddingTop="16dp"
                         android:paddingBottom="16dp">
+
                         <TextView
                             android:id="@+id/audience_tag"
-                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:textSize="@dimen/smallText"
-                            android:text="FE"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white"
                             android:background="@drawable/tag_background"
-                            android:paddingTop="1dp"
+                            android:fontFamily="@font/saira_condensed_semibold"
                             android:paddingBottom="1dp"
                             android:paddingLeft="4dp"
-                            android:paddingRight="4dp"/>
+                            android:paddingRight="4dp"
+                            android:paddingTop="1dp"
+                            android:text="FE"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/smallText"
+                            android:textStyle="bold" />
                         <android.support.v4.widget.Space
                             android:layout_width="16dp"
                             android:layout_height="wrap_content" />
+
                         <TextView
                             android:id="@+id/category_tag"
-                            android:layout_height="wrap_content"
                             android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_gravity="left"
-                            android:textSize="@dimen/smallText"
-                            android:text="workshop"
-                            android:textStyle="bold"
-                            android:textColor="@android:color/white"
                             android:background="@drawable/tag_background"
-                            android:paddingTop="1dp"
+                            android:fontFamily="@font/saira_condensed_semibold"
                             android:paddingBottom="1dp"
                             android:paddingLeft="4dp"
-                            android:paddingRight="4dp"/>
+                            android:paddingRight="4dp"
+                            android:paddingTop="1dp"
+                            android:text="workshop"
+                            android:textColor="@android:color/white"
+                            android:textSize="@dimen/smallText"
+                            android:textStyle="bold" />
                         <android.support.v4.widget.Space
                             android:layout_width="16dp"
                             android:layout_height="0dp" />
+
                         <TextView
                             android:id="@+id/event_date_textview"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/regularText"
+                            android:fontFamily="@font/saira_condensed_regular"
+                            android:gravity="end"
                             android:text="12/07/2017"
-                            android:gravity="end"/>
+                            android:textSize="@dimen/regularText" />
                     </LinearLayout>
+
                     <TextView
+                        android:id="@+id/eventdetails_textview"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="@dimen/bodyText"
-                        android:id="@+id/eventdetails_textview"
-                        android:text="@string/holdertext" />
+                        android:fontFamily="@font/saira_condensed_light"
+                        android:text="@string/holdertext"
+                        android:textSize="@dimen/bodyText" />
                     <android.support.v4.widget.Space
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/large_space" />
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/share"
                 android:textAllCaps="true"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"
-                android:textSize="@dimen/titleText" />
+                android:textSize="@dimen/titleText"
+                android:textStyle="bold" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/regular_space" />
