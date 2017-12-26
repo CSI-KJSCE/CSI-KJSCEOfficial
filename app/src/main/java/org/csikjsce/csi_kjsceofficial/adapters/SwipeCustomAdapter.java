@@ -27,7 +27,7 @@ public class SwipeCustomAdapter extends  PagerAdapter {
     private LayoutInflater inflater;
     private ArrayList<Event> events;
 
-    SwipeCustomAdapter(Context context, ArrayList<Event> majorEvents){
+    public SwipeCustomAdapter(Context context, ArrayList<Event> majorEvents){
 
         this.context = context;
         events = majorEvents;
