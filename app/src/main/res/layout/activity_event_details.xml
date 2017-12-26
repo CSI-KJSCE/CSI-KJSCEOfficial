@@ -184,9 +184,9 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/fab_margin"
         android:onClick="onClick"
-        android:src="@drawable/fab_ic_register"
-        app:backgroundTint="@android:color/white"
-        app:elevation="16dp"
+        android:src="@drawable/ic_fab_register"
+        app:backgroundTint="@color/primary_gradient_start"
+        app:elevation="12dp"
         app:layout_anchor="@id/event_detail_scrollview"
         app:layout_anchorGravity="bottom|right|end" />
 
