@@ -25,11 +25,10 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/saira_condensed_regular"
         android:gravity="center_horizontal"
         android:padding="16dp"
         android:text="@string/msg_sign_in_with"
-        android:textSize="18sp" />
+        android:textAppearance="@style/LargeTitleTextAppearance" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -88,4 +88,67 @@
         <item name="android:textSize">12dp</item>
     </style>
 
+    <style name="TitleTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/titleText</item>
+        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="LargeTitleTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/titleLargeText</item>
+        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+    </style>
+
+    <style name="BodyTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/bodyText</item>
+        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+        <item name="android:textIsSelectable">true</item>
+    </style>
+
+    <style name="FooterTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/titleLargeText</item>
+        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="SmallTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/smallText</item>
+        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+    </style>
+
+    <style name="TinyTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/tinyText</item>
+        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:fontFamily">@font/saira_condensed_light</item>
+    </style>
+
+    <style name="ToolbarTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/titleText</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+    </style>
+
+    <style name="TagSmallTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/tinyText</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+    </style>
+
+    <style name="TagBigTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/regularText</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+    </style>
+
+    <style name="TitleLightTextAppearance" parent="TextAppearance.AppCompat">
+        <item name="android:textSize">@dimen/titleText</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+    </style>
+
 </resources>

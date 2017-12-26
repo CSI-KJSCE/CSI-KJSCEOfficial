@@ -18,7 +18,7 @@
             app:contentScrim="@color/primary_gradient_end"
             app:expandedTitleMarginStart="16dp"
             app:expandedTitleMarginEnd="16dp"
-            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:expandedTitleTextAppearance="@style/ToolbarTextAppearance"
             android:fitsSystemWindows="true">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -50,10 +50,8 @@
                 android:id="@+id/eurekahead_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/eureka_heading"
-                android:textSize="@dimen/titleLargeText"
-                android:textStyle="bold" />
+                android:textAppearance="@style/LargeTitleTextAppearance" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
@@ -62,9 +60,8 @@
                 android:id="@+id/eureka_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/saira_condensed_regular"
                 android:text="@string/holdertext"
-                android:textSize="@dimen/bodyText" />
+                android:textAppearance="@style/BodyTextAppearance" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/regular_space" />
@@ -73,11 +70,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/share"
-                android:textAllCaps="true"
-                android:textSize="@dimen/titleText"
-                android:textStyle="bold" />
+                android:textAppearance="@style/FooterTextAppearance" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/regular_space" />

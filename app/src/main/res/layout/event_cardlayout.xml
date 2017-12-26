@@ -40,15 +40,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:background="@drawable/tag_background"
-                    android:fontFamily="@font/saira_condensed_semibold"
                     android:paddingBottom="1dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingTop="1dp"
                     android:text="FE"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/smallText"
-                    android:textStyle="bold" />
+                    android:textAppearance="@style/TagSmallTextAppearance" />
                 <android.support.v4.widget.Space
                     android:layout_width="16dp"
                     android:layout_height="wrap_content" />
@@ -59,15 +56,12 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="left"
                     android:background="@drawable/tag_background"
-                    android:fontFamily="@font/saira_condensed_semibold"
                     android:paddingBottom="1dp"
                     android:paddingLeft="4dp"
                     android:paddingRight="4dp"
                     android:paddingTop="1dp"
                     android:text="workshop"
-                    android:textColor="@android:color/white"
-                    android:textSize="@dimen/smallText"
-                    android:textStyle="bold" />
+                     android:textAppearance="@style/TagSmallTextAppearance"/>
                 <android.support.v4.widget.Space
                     android:layout_width="16dp"
                     android:layout_height="wrap_content" />
@@ -76,10 +70,9 @@
                     android:id="@+id/event_date_textview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/saira_condensed_regular"
                     android:gravity="end"
                     android:text="12/07/2017"
-                    android:textSize="@dimen/smallText" />
+                    android:textAppearance="@style/SmallTextAppearance"/>
             </LinearLayout>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
@@ -91,11 +84,10 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:fontFamily="@font/saira_condensed_regular"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:text="Event Name"
-                android:textSize="@dimen/titleText" />
+                android:textAppearance="@style/TitleTextAppearance"/>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="8dp" />

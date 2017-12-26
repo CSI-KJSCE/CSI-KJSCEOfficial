@@ -31,12 +31,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:fontFamily="@font/saira_condensed_regular"
             android:gravity="left"
             android:text="CSI FAN"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textColor="@android:color/white"
-            android:textSize="14sp" />
+            android:textAppearance="@style/TitleLightTextAppearance"/>
     </LinearLayout>
 
 </LinearLayout>

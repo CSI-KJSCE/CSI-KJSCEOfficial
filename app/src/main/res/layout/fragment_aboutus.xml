@@ -18,7 +18,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="16dp"
             app:expandedTitleMarginEnd="16dp"
-            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:expandedTitleTextAppearance="@style/ToolbarTextAppearance"
             android:fitsSystemWindows="true">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -52,10 +52,8 @@
                 android:id="@+id/aboutus_head_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/who_are_we"
-                android:textSize="@dimen/titleLargeText"
-                android:textStyle="bold" />
+                android:textAppearance="@style/LargeTitleTextAppearance" />
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="16dp" />
@@ -64,9 +62,8 @@
                 android:id="@+id/aboutus_textview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/saira_condensed_regular"
                 android:text="@string/about_us_para"
-                android:textSize="@dimen/bodyText" />
+                android:textAppearance="@style/BodyTextAppearance"/>
             <android.support.v4.widget.Space
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/large_space" />
@@ -75,11 +72,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_horizontal"
-                android:fontFamily="@font/saira_condensed_semibold"
                 android:text="@string/connect_with_us"
-                android:textAllCaps="true"
-                android:textSize="@dimen/titleText"
-                android:textStyle="bold" />
+                android:textAppearance="@style/FooterTextAppearance" />
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

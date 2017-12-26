@@ -33,7 +33,7 @@
         android:background="@android:color/white"
         android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header_main"
-        app:itemIconTint="@color/colorPrimary"
+        app:itemIconTint="@color/colorLightText"
         app:menu="@menu/activity_main_drawer" />
 
 </android.support.v4.widget.DrawerLayout>

@@ -31,30 +31,29 @@
 
         <TextView
             android:id="@+id/member_name"
-            style="@style/member_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
             android:ems="10"
-            android:fontFamily="@font/saira_condensed_semibold"
             android:paddingTop="10dp"
-            android:text="Name"
-            android:textSize="18sp"
+            android:textAppearance="@style/TitleTextAppearance"
             app:layout_constraintLeft_toRightOf="@+id/member_pic" />
 
         <TextView
             android:id="@+id/member_post"
-            style="@style/member_textview"
-            android:fontFamily="@font/saira_condensed_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Post"
-            android:textSize="12sp"
+            android:textAppearance="@style/BodyTextAppearance"
             app:layout_constraintLeft_toLeftOf="@+id/member_name"
             app:layout_constraintTop_toBottomOf="@+id/member_name" />
 
         <TextView
             android:id="@+id/member_year"
-            style="@style/member_textview"
-            android:fontFamily="@font/saira_condensed_regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Year"
-            android:textSize="12sp"
+            android:textAppearance="@style/BodyTextAppearance"
             app:layout_constraintLeft_toLeftOf="@+id/member_name"
             app:layout_constraintTop_toBottomOf="@+id/member_post" />
     </android.support.constraint.ConstraintLayout>

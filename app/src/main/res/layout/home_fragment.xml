@@ -20,7 +20,7 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginStart="16dp"
             app:expandedTitleMarginEnd="16dp"
-            app:expandedTitleTextAppearance="@style/TextAppearance.AppCompat.Headline"
+            app:expandedTitleTextAppearance="@style/ToolbarTextAppearance"
             android:fitsSystemWindows="true">
             <LinearLayout
                 android:layout_width="match_parent"
@@ -55,15 +55,13 @@
             android:id="@+id/upcoming_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            android:elevation="3dp"
-            android:fontFamily="@font/saira_condensed_regular"
+            android:background="@drawable/primary_gradient"
+            android:elevation="4dp"
             android:gravity="center"
             android:paddingBottom="8dp"
             android:paddingTop="8dp"
             android:text="EVENTS"
-            android:textColor="#ffffff"
-            android:textSize="18sp" />
+            android:textAppearance="@style/TitleLightTextAppearance" />
             <ProgressBar
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
