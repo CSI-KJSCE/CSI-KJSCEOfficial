@@ -9,4 +9,6 @@
     <!-- text colors -->
     <color name="colorRegularText">#263238</color>
     <color name="colorLightText">#607D8B</color>
+
+    <color name="light_gray">#9E9E9E</color>
 </resources>

@@ -197,6 +197,7 @@ public class LoginActivity extends AppCompatActivity implements
             else {
                 intent = new Intent(this, ProfileActivity.class);
                 intent.putExtra("edit_mode",true);
+                intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
                 Toast.makeText(this,"Kindly complete your profile",Toast.LENGTH_SHORT)
                         .show();
             }
