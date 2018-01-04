@@ -72,7 +72,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="16dp"
-                android:paddingTop="16dp">
+                android:paddingTop="16dp"
+                android:nestedScrollingEnabled="false">
 
             </android.support.v7.widget.RecyclerView>
         </LinearLayout>
