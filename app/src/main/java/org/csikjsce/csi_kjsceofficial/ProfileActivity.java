@@ -77,6 +77,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         String email = sf.getString("email","NA");
         String phone = sf.getString("phone","NA");
         String picUrl = sf.getString("pic_url","default");
+        boolean signedWithSvv = sf.getBoolean("signed_in_with_svv",false);
 
         if(!picUrl.contains("http")){
             if(picUrl.equalsIgnoreCase("female"))
@@ -109,13 +110,18 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     .show();
             //saveProfileBtn.setVisibility(View.VISIBLE);
             saveProfileBtn.setBackground(getResources().getDrawable(R.drawable.button_primary_gradient));
+            saveProfileBtn.setOnClickListener(this);
         }
-        saveProfileBtn.setOnClickListener(this);
+
         Utils.disableEditText(nameText);
+        if(signedWithSvv)
+            Utils.disableEditText(svvText);
+        else
+            Utils.disableEditText(emailText);
         // disable editTexts
         if(editMode==false){
-            Utils.disableEditText(svvText);
             Utils.disableEditText(emailText);
+            Utils.disableEditText(svvText);
             Utils.disableEditText(sexText);
             Utils.disableEditText(phoneText);
         }
@@ -191,6 +197,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             Utils.enableEditText(phoneText);
            // saveProfileBtn.setVisibility(View.VISIBLE);
             saveProfileBtn.setBackground(getResources().getDrawable(R.drawable.button_primary_gradient));
+            saveProfileBtn.setOnClickListener(this);
             getWindow()
                     .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MODE_CHANGED);
             sexText.requestFocus();

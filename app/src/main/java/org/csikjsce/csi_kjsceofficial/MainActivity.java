@@ -221,11 +221,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.logout_opt:
                 signOut();
-                finish();
                 break;
             case R.id.disconnect_acc:
                 revokeAccess();
-                finish();
                 break;
         }
         return super.onOptionsItemSelected(item);
@@ -237,6 +235,7 @@ public class MainActivity extends AppCompatActivity
                     public void onResult(@NonNull Status status) {
                        SharedPreferences pref = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
                         pref.edit().clear().apply();
+                        finishAffinity();
                         Toast.makeText(getApplicationContext(),"Signed out",Toast.LENGTH_SHORT).show();
                     }
                 }
@@ -248,7 +247,8 @@ public class MainActivity extends AppCompatActivity
                     @Override
                     public void onResult(@NonNull Status status) {
                         SharedPreferences pref = getSharedPreferences(getResources().getString(R.string.USER_INFO),0);
-                        pref.edit().clear();
+                        pref.edit().clear().apply();
+                        finishAffinity();
                         Toast.makeText(getApplicationContext(),"Account disconnected",Toast.LENGTH_SHORT).show();
                     }
                 }
