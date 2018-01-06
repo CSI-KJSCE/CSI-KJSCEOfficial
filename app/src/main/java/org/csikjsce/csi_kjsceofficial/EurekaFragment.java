@@ -3,6 +3,7 @@ package org.csikjsce.csi_kjsceofficial;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +27,7 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
     TextView eureka_para_tv;
     String shareAppName, eurekaDescp="desc", registerUrl="url";
     ImageView fbIcon, instaIcon, whatsappIcon, shareIcon, posterImage;
+    FloatingActionButton fab;
     Query query;
     @Nullable
     @Override
@@ -46,12 +48,13 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
         instaIcon = view.findViewById(R.id.instagram_share);
         whatsappIcon = view.findViewById(R.id.whatsapp_share);
         shareIcon = view.findViewById(R.id.general_share);
+        fab = view.findViewById(R.id.eureka_fab);
 
         fbIcon.setOnClickListener(this);
         instaIcon.setOnClickListener(this);
         whatsappIcon.setOnClickListener(this);
         shareIcon.setOnClickListener(this);
-
+        fab.setOnClickListener(this);
         Glide
                 .with(getContext())
                 .load(getContext().getResources().getDrawable(R.drawable.eureka_poster))
@@ -96,6 +99,10 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
                 intent.putExtra(Intent.EXTRA_TEXT, msg);
                 startActivity(intent);
                 break;
+            case R.id.eureka_fab:
+                intent = new Intent(getContext(), WebViewActivity.class);
+                intent.putExtra("link",registerUrl);
+                startActivity(intent);
         }
 
     }
