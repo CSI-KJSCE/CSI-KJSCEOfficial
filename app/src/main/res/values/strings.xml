@@ -3,7 +3,6 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="holdertext">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\ s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
-    <string name="about_us">Computer Society of India was established in the year 1965 is today the largest IT professionals society in India. Keeping in mind the interest of IT professionals and computer users, CSI works towards, making the profession an area of choice among all sections of the society. The basic purpose of CSI is to promote IT as a profession. To fulfil this objective, CSI regularly organizes conferences, conventions, lectures and gives various awards. KJSCE\'s CSI students\' chapter was established in 2003. The CSI – KSJCE council is formed from the student members every year. They work under the guidance of their faculty advisors. There are a number of technical and non-technical activities conducted, which include Workshops, Project competitions, Technical Talks on the latest trends in industry, etc. It is one of the biggest student bodies (in terms of number of members) at K. J. Somaiya College of Engineering, Mumbai.</string>
 
     <string name="title_activity_event_details">Event_details</string>
     <string name="title_activity_login">Sign in</string>
@@ -12,29 +11,15 @@
     <string name="title_eureka">Eureka</string>
 
     <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <string name="prompt_password">Password (optional)</string>
-    <string name="action_sign_in">Sign in or register</string>
-    <string name="action_sign_in_short">Sign in</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
     <string name="USER_INFO">org.csikjsce.csikjsceofficial.PREF_USER_INFO</string>
     <string name="msg_no_internet">No internet connection</string>
     <string name="msg_back_press">Press back again to exit</string>
     <string name="msg_sign_in_with">Sign in with SVV or G+</string>
-    <string name="default_email">someone@example.com</string>
-    <string name="default_full_name">Someone Sumsurname</string>
 
     <!-- Contact info -->
     <string name="facebook_page_link">https://www.facebook.com/csikjsomaiya</string>
     <string name="instagram_page_link">https://www.instagram.com/csikjsce/</string>
     <string name="github_page_link">https://github.com/CSI-KJSCE</string>
-    <string name="csi_email_id">csi-kjsce@somaiya.edu</string>
 
     <string name="app_download_link">https://play.google.com</string>
     <string name="app_share_msg">Download this app  https://play.google.com</string>

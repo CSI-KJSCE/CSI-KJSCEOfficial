@@ -22,15 +22,7 @@
         <item name="color">@android:color/white</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="article_imageview_style" >
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:scaleType">centerCrop</item>
-    </style>
 
     <style name="progressbar_view" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:layout_height">8dp</item>
@@ -65,7 +57,7 @@
 
     <style name="FooterTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/titleLargeText</item>
-        <item name="android:textColor">@color/colorRegularText</item>
+        <item name="android:textColor">@color/colorLightText</item>
         <item name="android:fontFamily">@font/saira_condensed_semibold</item>
         <item name="android:textAllCaps">true</item>
     </style>

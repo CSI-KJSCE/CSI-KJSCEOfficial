@@ -52,12 +52,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
+
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardElevation="4dp"
                 android:layout_margin="16dp"
-                android:fadingEdgeLength="16dp">
+                android:fadingEdgeLength="16dp"
+                app:cardElevation="4dp">
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -70,12 +72,13 @@
                         android:layout_height="wrap_content"
                         android:text="Event Title"
                         android:textAppearance="@style/LargeTitleTextAppearance" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal"
-                        android:paddingTop="16dp"
-                        android:paddingBottom="16dp">
+                        android:paddingBottom="16dp"
+                        android:paddingTop="16dp">
 
                         <TextView
                             android:id="@+id/audience_tag"
@@ -83,12 +86,13 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="left"
                             android:background="@drawable/tag_background"
-                            android:textAppearance="@style/TagSmallTextAppearance"
                             android:paddingBottom="1dp"
                             android:paddingLeft="4dp"
                             android:paddingRight="4dp"
                             android:paddingTop="1dp"
-                            android:text="FE" />
+                            android:text="FE"
+                            android:textAppearance="@style/TagSmallTextAppearance" />
+
                         <android.support.v4.widget.Space
                             android:layout_width="16dp"
                             android:layout_height="wrap_content" />
@@ -103,8 +107,9 @@
                             android:paddingLeft="4dp"
                             android:paddingRight="4dp"
                             android:paddingTop="1dp"
-                            android:textAppearance="@style/TagSmallTextAppearance"
-                            android:text="workshop" />
+                            android:text="workshop"
+                            android:textAppearance="@style/TagSmallTextAppearance" />
+
                         <android.support.v4.widget.Space
                             android:layout_width="16dp"
                             android:layout_height="0dp" />
@@ -114,7 +119,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:gravity="end"
-                            android:textAppearance="@style/SmallTextAppearance"/>
+                            android:textAppearance="@style/SmallTextAppearance" />
                     </LinearLayout>
 
                     <TextView
@@ -122,7 +127,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@string/holdertext"
-                         android:textAppearance="@style/BodyTextAppearance"/>
+                        android:textAppearance="@style/BodyTextAppearance" />
+
                     <android.support.v4.widget.Space
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/large_space" />

@@ -6,9 +6,7 @@
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="header_img_na_size">20dp</dimen>
-    <dimen name="slider_top">60dp</dimen>
     <dimen name="splashImg">82dp</dimen>
-    <dimen name="textheadsize">32dp</dimen>
 
     <!-- Text sizes -->
     <dimen name="tinyText">10sp</dimen>
@@ -24,7 +22,6 @@
     <dimen name="large_space">32dp</dimen>
 
     <!-- icon dimensions -->
-    <dimen name="small_icon">16dp</dimen>
     <dimen name="regular_icon">24dp</dimen>
     <dimen name="large_icon">36dp</dimen>
 </resources>
