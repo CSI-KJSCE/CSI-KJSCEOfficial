@@ -18,12 +18,15 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
 import org.csikjsce.csi_kjsceofficial.adapters.EventRecycleViewAdapter;
 import org.csikjsce.csi_kjsceofficial.adapters.SwipeCustomAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.Timer;
@@ -33,7 +36,7 @@ import java.util.TimerTask;
  * Created by sumit on 2/8/17.
  */
 public class HomeFragment extends Fragment {
-    public static final String TAG = HomeFragment.class.getName();
+    public static final String TAG = HomeFragment.class.getSimpleName();
     private View view;
     RecyclerView eventsRecyclerView;
     DatabaseReference dbRef;
@@ -41,26 +44,30 @@ public class HomeFragment extends Fragment {
 
     ViewPager viewPager;
     SwipeCustomAdapter adapter;
-    private ArrayList<Event> majorEvents = new ArrayList<>();
+    private ArrayList<Event> majorEvents;
     private int majorEventsCount;
-    DatabaseReference majorEventsDb;
+    private final Query majorEventsDb = FirebaseDatabase
+            .getInstance()
+            .getReference("major-events")
+            .orderByChild("eventid");
     private int currentPage;
     private final int SWIPE_DELAY = 2000;
     private final int SWIPE_PERIOD = 5000;
 
     EventRecycleViewAdapter ed;
-    DatabaseReference eventsDb;
-    ArrayList<Event> list = new ArrayList<>();
-    Set<Event> uniqueEvents;
+    private final Query eventsDb = FirebaseDatabase
+            .getInstance()
+            .getReference("event")
+            .orderByChild("eventid");
+
+    ArrayList<Event> list;
 
     public HomeFragment(){
 
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
-        dbRef = FirebaseDatabase.getInstance().getReference();
-        eventsDb = dbRef.child("event");
-        majorEventsDb = dbRef.child("major-events");
+
         view =  inflater.inflate(R.layout.fragment_home,container,false);
         return view;
     }
@@ -69,46 +76,17 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        //Populate viewpager
         viewPager = view.findViewById(R.id.View_pager);
+        progress = view.findViewById(R.id.center_progressbar);
+        eventsRecyclerView = view.findViewById(R.id.eventcard_listview);
+
+        majorEvents = new ArrayList<>();
+        list = new ArrayList<>();
+
+        //Setup view pager
         adapter = new SwipeCustomAdapter(getActivity(), majorEvents);
         viewPager.setAdapter(adapter);
         majorEventsCount = 1;
-        majorEventsDb.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Event event = dataSnapshot.getValue(Event.class);
-                majorEvents.add(event);
-                majorEventsCount = majorEvents.size();
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-                majorEventsCount = majorEvents.size();
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                majorEventsCount = majorEvents.size();
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-                majorEventsCount = majorEvents.size();
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Log.e(TAG, databaseError.getDetails());
-            }
-        });
-
-        progress = view.findViewById(R.id.center_progressbar);
-
         currentPage = 0;
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
@@ -124,40 +102,43 @@ public class HomeFragment extends Fragment {
                 handler.post(Update);
             }
         }, SWIPE_DELAY, SWIPE_PERIOD);
-        //Populate Events
-        eventsRecyclerView = view.findViewById(R.id.eventcard_listview);
-        uniqueEvents = new HashSet<>();
 
-        list.addAll(uniqueEvents);
+        //Setup recycler view
         ed = new EventRecycleViewAdapter(getContext(),list);
-        eventsRecyclerView.setLayoutManager( new LinearLayoutManager(getContext()));
+        LinearLayoutManager llm = new LinearLayoutManager(getContext());
+        // Firebase uses ascending ordering on ids so we reverse the rendering
+        llm.setReverseLayout(true);
+        eventsRecyclerView.setLayoutManager(llm);
         eventsRecyclerView.setAdapter(ed);
-        eventsDb.addChildEventListener(new ChildEventListener() {
+
+        //Add database listeners
+        majorEventsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Event event = dataSnapshot.getValue(Event.class);
-                Log.d(TAG,"Event: "+event.getTitle());
-                uniqueEvents.add(event);
-                list.clear();
-                Log.d(TAG,"onResume(): uniqueEvents.size():  "+uniqueEvents.size());
-                list.addAll(uniqueEvents);
-                ed.notifyDataSetChanged();
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot data: dataSnapshot.getChildren()){
+                    Event event = data.getValue(Event.class);
+                    majorEvents.add(event);
+                    majorEventsCount = majorEvents.size();
+                    adapter.notifyDataSetChanged();
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.e(TAG, databaseError.getDetails());
+            }
+        });
+
+        eventsDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot data: dataSnapshot.getChildren()){
+                    Event event = data.getValue(Event.class);
+                    Log.d(TAG,"Event: "+event.getTitle());
+                    list.add(event);
+                    ed.notifyDataSetChanged();
+                }
                 progress.setVisibility(View.GONE);
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-            }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
             }
 
             @Override

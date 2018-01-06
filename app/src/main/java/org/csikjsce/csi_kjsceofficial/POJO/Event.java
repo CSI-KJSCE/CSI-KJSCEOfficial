@@ -79,6 +79,16 @@ public class Event implements Parcelable{
         return feedback;
     }
 
+    public void setCategory(String category) { this.category = category; }
+
+    public void setAudience(String audience) { this.audience = audience; }
+
+    public void setDesc(String desc) { this.desc = desc; }
+
+    public void setRegister(String register) { this.register = register; }
+
+    public void setFeedback(String feedback) { this.feedback = feedback; }
+
     @Override
     public boolean equals(Object o){
         if(this == o)

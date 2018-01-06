@@ -22,7 +22,10 @@ import java.util.ArrayList;
 public class NotificationActivity extends AppCompatActivity implements ChildEventListener {
 
     public static final String TAG = NotificationActivity.class.getSimpleName();
-    Query dbRef;
+    private final Query dbRef = FirebaseDatabase
+            .getInstance()
+            .getReference("notifications")
+            .orderByChild("id");
     ArrayList<Notification> notifications;
     NotificationAdapter notifAdapter;
 
@@ -34,19 +37,22 @@ public class NotificationActivity extends AppCompatActivity implements ChildEven
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        notifications = new ArrayList<>();
-        dbRef = FirebaseDatabase.getInstance().getReference("notifications").orderByChild("id");
-        dbRef.addChildEventListener(this);
-
         RecyclerView recyclerView = findViewById(R.id.notification_recycler_view);
+
+        notifications = new ArrayList<>();
+
         LinearLayoutManager llm = new LinearLayoutManager(this);
         // Firebase uses ascending ordering on ids so we reverse the rendering
         llm.setReverseLayout(true);
         recyclerView.setLayoutManager(llm);
-        //To preevent onBindViewHolder to be called twice on onClick
+
+        //To prevent onBindViewHolder to be called twice on onClick
         ((SimpleItemAnimator)recyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
+
         notifAdapter = new NotificationAdapter(this, notifications);
         recyclerView.setAdapter(notifAdapter);
+
+        dbRef.addChildEventListener(this);
     }
 
 

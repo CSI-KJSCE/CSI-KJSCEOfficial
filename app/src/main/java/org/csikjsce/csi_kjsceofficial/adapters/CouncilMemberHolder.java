@@ -22,7 +22,7 @@ import org.csikjsce.csi_kjsceofficial.R;
 public class CouncilMemberHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
     TextView nameTv;
     ImageView img;
-    TextView postTv;
+    TextView postTv, deptTv;
     Context context;
 
     public CouncilMemberHolder(Context context, View itemView) {
@@ -30,12 +30,14 @@ public class CouncilMemberHolder extends RecyclerView.ViewHolder implements View
         this.context = context;
         nameTv = (TextView)itemView.findViewById(R.id.member_name);
         postTv = (TextView)itemView.findViewById(R.id.member_post);
+        deptTv = itemView.findViewById(R.id.member_dept_name);
         img = (ImageView)itemView.findViewById(R.id.member_pic);
         img.setOnClickListener(this);
     }
     public void bindEvent(CouncilMember member){
         nameTv.setText(member.getName());
         postTv.setText(member.getPost());
+        deptTv.setText(member.getDept());
         Glide.with(context).load(member.getPic_url()).into(img);
         Toast.makeText(context,member.getPic_url(),Toast.LENGTH_SHORT);
     }

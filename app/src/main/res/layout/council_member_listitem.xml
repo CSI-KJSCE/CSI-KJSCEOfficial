@@ -49,7 +49,7 @@
             app:layout_constraintTop_toBottomOf="@+id/member_name" />
 
         <TextView
-            android:id="@+id/member_year"
+            android:id="@+id/member_dept_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Year"

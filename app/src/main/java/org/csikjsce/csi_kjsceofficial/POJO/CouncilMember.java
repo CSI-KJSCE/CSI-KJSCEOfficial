@@ -8,14 +8,15 @@ public class CouncilMember {
     private String name;
     private String post;
     private String pic_url;
-    private String acad_yr;
+    private String dept;
+    private int id;
 
     CouncilMember(){}
-    CouncilMember(String name, String post, String pic_url, String acad_yr){
+    CouncilMember(String name, String post, String pic_url, String dept){
         this.name = name;
         this.post = post;
         this.pic_url = pic_url;
-        this.acad_yr = acad_yr;
+        this.dept = dept;
     }
     public String getName() {
         return name;
@@ -41,13 +42,17 @@ public class CouncilMember {
         this.pic_url = pic_url;
     }
 
-    public String getAcad_yr() {
-        return acad_yr;
+    public String getDept() {
+        return dept;
     }
 
-    public void setAcad_yr(String acad_yr) {
-        this.acad_yr = acad_yr;
+    public void setDept(String dept) {
+        this.dept = dept;
     }
+
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
     @Override
     public boolean equals(Object o){
         if(this == o)
@@ -61,4 +66,5 @@ public class CouncilMember {
         }
         return false;
     }
+
 }

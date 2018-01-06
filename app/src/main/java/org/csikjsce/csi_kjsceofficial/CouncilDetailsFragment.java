@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import org.csikjsce.csi_kjsceofficial.POJO.CouncilMember;
@@ -29,8 +30,9 @@ public class CouncilDetailsFragment extends Fragment {
 
     private View view;
     private final String TAG = CouncilDetailsFragment.class.getSimpleName();
-    private final DatabaseReference dbRef = FirebaseDatabase.getInstance().getReference();
-    private final DatabaseReference cmDb = dbRef.child("councilmember");
+    private final Query cmDb = FirebaseDatabase.getInstance()
+            .getReference("councilmember")
+            .orderByChild("id");
     List<CouncilMember> list;
     RecyclerView listingsView;
     CouncilMemberAdapter adapter;
