@@ -32,11 +32,14 @@ import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Notification;
+import org.csikjsce.csi_kjsceofficial.adapters.NotificationAdapter;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class MainActivity extends AppCompatActivity
@@ -46,6 +49,13 @@ public class MainActivity extends AppCompatActivity
     private static final int REQUEST_CODE = 171;
     Context context;
     private GoogleApiClient mGoogleApiClient;
+    private final Query dbRef1 = FirebaseDatabase
+            .getInstance()
+            .getReference("notifications")
+            .orderByChild("id");
+    ArrayList<Notification> notifications;
+    NotificationAdapter notifAdapter;
+    private static int check = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,6 +76,20 @@ public class MainActivity extends AppCompatActivity
             GoogleApiAvailability
                     .getInstance()
                     .getErrorDialog(this, gAAResult, REQUEST_CODE);
+        }
+        notifications = new ArrayList<>();
+        notifAdapter = new NotificationAdapter(this, notifications);
+
+
+        SharedPreferences notifi = getApplicationContext().getSharedPreferences("CSI",MODE_PRIVATE);
+        SharedPreferences.Editor notifyedit = notifi.edit();
+
+        check = notifi.getInt("n_length",0);
+
+        if (check < notifications.size()){
+            //Change the icon here
+
+            //Toast.makeText(this,"Its working",Toast.LENGTH_SHORT).show();
         }
 
         Toolbar toolbar = findViewById(R.id.event_details_toolbar);
