@@ -22,58 +22,46 @@
             app:expandedTitleMarginEnd="16dp"
             app:expandedTitleTextAppearance="@style/ToolbarTextAppearance"
             android:fitsSystemWindows="true">
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_collapseMode="parallax">
                 <android.support.v4.view.ViewPager
                     android:id="@+id/View_pager"
                     android:layout_width="wrap_content"
                     android:layout_height="180dp"
-                    android:elevation="4dp"
-                    app:layout_collapseMode="parallax">
+                    android:elevation="4dp">
                 </android.support.v4.view.ViewPager>
+                <TextView
+                    android:id="@+id/upcoming_textview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/primary_gradient"
+                    android:elevation="4dp"
+                    android:gravity="center"
+                    android:paddingBottom="8dp"
+                    android:paddingTop="8dp"
+                    android:text="EVENTS"
+                    android:textAppearance="@style/TitleLightTextAppearance" />
+            </LinearLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
     </android.support.design.widget.AppBarLayout>
 
-    <android.support.v4.widget.NestedScrollView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/eventcard_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:nestedScrollingEnabled="true">
+    </android.support.v7.widget.RecyclerView>
 
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:id="@+id/contain">
-
-        <TextView
-            android:id="@+id/upcoming_textview"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/primary_gradient"
-            android:elevation="4dp"
-            android:gravity="center"
-            android:paddingBottom="8dp"
-            android:paddingTop="8dp"
-            android:text="EVENTS"
-            android:textAppearance="@style/TitleLightTextAppearance" />
-            <ProgressBar
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/center_progressbar"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/eventcard_listview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingBottom="16dp"
-                android:paddingTop="16dp"
-                android:nestedScrollingEnabled="false">
-
-            </android.support.v7.widget.RecyclerView>
-        </LinearLayout>
-
-    </android.support.v4.widget.NestedScrollView>
-
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/center_progressbar"
+        app:layout_anchor="@id/eventcard_listview"
+        app:layout_anchorGravity="center"/>
 </android.support.design.widget.CoordinatorLayout>
