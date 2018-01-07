@@ -6,7 +6,6 @@
     android:orientation="vertical"
     tools:context="org.csikjsce.csi_kjsceofficial.NotificationActivity">
     <include
-        android:id="@+id/notification_toolbar"
         layout="@layout/toolbar"/>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/notification_recycler_view"

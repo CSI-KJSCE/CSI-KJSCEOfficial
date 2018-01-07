@@ -30,10 +30,6 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
-import org.csikjsce.csi_kjsceofficial.POJO.Notification;
 
 import java.io.File;
 import java.io.IOException;
@@ -68,7 +64,7 @@ public class MainActivity extends AppCompatActivity
                     .getErrorDialog(this, gAAResult, REQUEST_CODE);
         }
 
-        Toolbar toolbar = findViewById(R.id.event_details_toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

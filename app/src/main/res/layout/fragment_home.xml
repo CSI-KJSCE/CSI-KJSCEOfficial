@@ -22,18 +22,14 @@
             app:expandedTitleMarginEnd="16dp"
             app:expandedTitleTextAppearance="@style/ToolbarTextAppearance"
             android:fitsSystemWindows="true">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="parallax">
+
                 <android.support.v4.view.ViewPager
                     android:id="@+id/View_pager"
                     android:layout_width="wrap_content"
                     android:layout_height="180dp"
-                    android:elevation="4dp">
+                    android:elevation="4dp"
+                    app:layout_collapseMode="parallax">
                 </android.support.v4.view.ViewPager>
-
-            </LinearLayout>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -41,8 +37,8 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:clipToPadding="true"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <LinearLayout

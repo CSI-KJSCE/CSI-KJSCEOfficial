@@ -1,97 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:id="@+id/event_card_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginBottom="8dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    app:cardElevation="8dp"
+    app:cardCornerRadius="8dp">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/event_card_view"
+    <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        app:cardElevation="8dp"
-        app:cardCornerRadius="8dp">
-        <LinearLayout
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/event_card1_imageview"
             android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/default_event_pic" />
+
+        <TextView
+            android:id="@+id/audience_tag"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <ImageView
-                android:id="@+id/event_card1_imageview"
-                android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:scaleType="centerCrop"
-                app:srcCompat="@drawable/default_event_pic" />
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="16dp" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp">
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/tag_background"
+            android:paddingBottom="1dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="1dp"
+            android:text="FE"
+            android:textAppearance="@style/TagSmallTextAppearance"
+            app:layout_constraintBottom_toBottomOf="@+id/category_tag"
+            app:layout_constraintStart_toStartOf="parent" />
 
-                <TextView
-                    android:id="@+id/audience_tag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:background="@drawable/tag_background"
-                    android:paddingBottom="1dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:paddingTop="1dp"
-                    android:text="FE"
-                    android:textAppearance="@style/TagSmallTextAppearance" />
-                <android.support.v4.widget.Space
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/event_date_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_marginTop="8dp"
+            android:gravity="end"
+            android:text="12/07/2017"
+            android:textAppearance="@style/SmallTextAppearance"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_card1_imageview" />
 
-                <TextView
-                    android:id="@+id/category_tag"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="left"
-                    android:background="@drawable/tag_background"
-                    android:paddingBottom="1dp"
-                    android:paddingLeft="4dp"
-                    android:paddingRight="4dp"
-                    android:paddingTop="1dp"
-                    android:text="workshop"
-                     android:textAppearance="@style/TagSmallTextAppearance"/>
-                <android.support.v4.widget.Space
-                    android:layout_width="16dp"
-                    android:layout_height="wrap_content" />
+        <TextView
+            android:id="@+id/category_tag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:background="@drawable/tag_background"
+            android:paddingBottom="1dp"
+            android:paddingLeft="4dp"
+            android:paddingRight="4dp"
+            android:paddingTop="1dp"
+            android:text="workshop"
+            android:textAppearance="@style/TagSmallTextAppearance"
+            app:layout_constraintBottom_toBottomOf="@+id/event_date_textview"
+            app:layout_constraintStart_toEndOf="@+id/audience_tag" />
 
-                <TextView
-                    android:id="@+id/event_date_textview"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:text="12/07/2017"
-                    android:textAppearance="@style/SmallTextAppearance"/>
-            </LinearLayout>
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
+        <TextView
+            android:id="@+id/eventname_textview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="Event Name"
+            android:gravity="left"
+            android:textAppearance="@style/TitleTextAppearance"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/event_date_textview" />
+    </android.support.constraint.ConstraintLayout>
 
-            <TextView
-                android:id="@+id/eventname_textview"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:paddingLeft="16dp"
-                android:paddingRight="16dp"
-                android:text="Event Name"
-                android:textAppearance="@style/TitleTextAppearance"/>
-            <android.support.v4.widget.Space
-                android:layout_width="match_parent"
-                android:layout_height="8dp" />
-        </LinearLayout>
     </android.support.v7.widget.CardView>
-
-</LinearLayout>

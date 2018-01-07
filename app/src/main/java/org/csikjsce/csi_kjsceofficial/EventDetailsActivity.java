@@ -38,7 +38,7 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_details);
-        toolbar = findViewById(R.id.event_details_toolbar);
+        toolbar = findViewById(R.id.toolbar);
         collapsingToolbar = findViewById(R.id.event_details_collapsing_toolbar);
         collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.fui_transparent));
         setSupportActionBar(toolbar);
@@ -48,10 +48,10 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        fbIcon = findViewById(R.id.facebook_share);
-        instaIcon = findViewById(R.id.instagram_share);
-        whatsappIcon = findViewById(R.id.whatsapp_share);
-        shareIcon = findViewById(R.id.general_share);
+        fbIcon = findViewById(R.id.facebook_iv);
+        instaIcon = findViewById(R.id.instagram_iv);
+        whatsappIcon = findViewById(R.id.whatsapp_iv);
+        shareIcon = findViewById(R.id.share_iv);
 
     }
 
@@ -114,19 +114,19 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
                 intent.putExtra("link",event.getRegister());
                 startActivity(intent);
                 break;
-            case R.id.facebook_share:
+            case R.id.facebook_iv:
                 shareAppName = "com.facebook.katana";
                 Utils.onShareClick(this, event.getDesc(), shareAppName);
                 break;
-            case R.id.instagram_share:
+            case R.id.instagram_iv:
                 shareAppName = "com.instagram.android";
                 Utils.onShareClick(this, event.getDesc(), shareAppName);
                 break;
-            case R.id.whatsapp_share:
+            case R.id.whatsapp_iv:
                 shareAppName = "com.whatsapp";
                 Utils.onShareClick(this, event.getDesc(), shareAppName);
                 break;
-            case R.id.general_share:
+            case R.id.share_iv:
                 intent = new Intent();
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, event.getDesc());

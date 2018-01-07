@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.constraint.ConstraintLayout;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 
@@ -45,7 +46,7 @@ public class LoginActivity extends AppCompatActivity implements
     private static final int RC_SIGNIN = 007;
     private GoogleApiClient mGoogleApiClient;
     private SignInButton btnSignin;
-    private LinearLayout parentLayout;
+    private ConstraintLayout parentLayout;
 
     private ProgressDialog mProgressDialog;
     Context context;
@@ -59,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements
         } catch (IOException e) {
             e.printStackTrace();
         }
-        parentLayout = (LinearLayout)findViewById(R.id.login_parent_layout);
+        parentLayout = findViewById(R.id.login_parent_layout);
         btnSignin = (SignInButton)findViewById(R.id.btn_sign_in);
         btnSignin.setOnClickListener(this);
 

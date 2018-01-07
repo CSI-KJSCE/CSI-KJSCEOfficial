@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:layout_editor_absoluteY="81dp">
+
+    <TextView
+        android:id="@+id/share_textview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="@string/share"
+        android:textAppearance="@style/FooterTextAppearance" />
+
+    <ImageView
+        android:id="@+id/whatsapp_iv"
+        android:layout_width="@dimen/large_icon"
+        android:layout_height="@dimen/large_icon"
+        android:src="@drawable/ic_whatsapp"
+        android:padding="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/facebook_iv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintTop_toBottomOf="@id/share_textview" />
+
+    <ImageView
+        android:id="@+id/instagram_iv"
+        android:layout_width="@dimen/large_icon"
+        android:layout_height="@dimen/large_icon"
+        android:src="@drawable/ic_instagram"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/facebook_iv"
+        app:layout_constraintEnd_toStartOf="@+id/share_iv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/facebook_iv" />
+
+    <ImageView
+        android:id="@+id/facebook_iv"
+        android:layout_width="@dimen/large_icon"
+        android:layout_height="@dimen/large_icon"
+        android:src="@drawable/ic_facebook"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/whatsapp_iv"
+        app:layout_constraintEnd_toStartOf="@+id/instagram_iv"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/whatsapp_iv" />
+
+    <ImageView
+        android:id="@+id/share_iv"
+        android:layout_width="@dimen/large_icon"
+        android:layout_height="@dimen/large_icon"
+        android:src="@drawable/ic_share"
+        android:padding="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/instagram_iv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/instagram_iv" />
+    <android.support.v4.widget.Space
+        app:layout_constraintTop_toBottomOf="@id/whatsapp_iv"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/regular_space" />
+
+</android.support.constraint.ConstraintLayout>

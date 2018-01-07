@@ -25,7 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 public class EurekaFragment extends android.support.v4.app.Fragment implements View.OnClickListener {
     private View view;
     TextView eureka_para_tv;
-    String shareAppName, eurekaDescp="desc", registerUrl="url";
+    String shareAppName, eurekaDescp="desc", registerUrl="url", posterUrl;
     ImageView fbIcon, instaIcon, whatsappIcon, shareIcon, posterImage;
     FloatingActionButton fab;
     Query query;
@@ -44,10 +44,10 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
 
         posterImage = view.findViewById(R.id.eureka_poster_iv);
         eureka_para_tv = view.findViewById(R.id.eureka_textview);
-        fbIcon = view.findViewById(R.id.facebook_share);
-        instaIcon = view.findViewById(R.id.instagram_share);
-        whatsappIcon = view.findViewById(R.id.whatsapp_share);
-        shareIcon = view.findViewById(R.id.general_share);
+        fbIcon = view.findViewById(R.id.facebook_iv);
+        instaIcon = view.findViewById(R.id.instagram_iv);
+        whatsappIcon = view.findViewById(R.id.whatsapp_iv);
+        shareIcon = view.findViewById(R.id.share_iv);
         fab = view.findViewById(R.id.eureka_fab);
 
         fbIcon.setOnClickListener(this);
@@ -55,10 +55,6 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
         whatsappIcon.setOnClickListener(this);
         shareIcon.setOnClickListener(this);
         fab.setOnClickListener(this);
-        Glide
-                .with(getContext())
-                .load(getContext().getResources().getDrawable(R.drawable.eureka_poster))
-                .into(posterImage);
 
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -66,6 +62,11 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
                 eurekaDescp = dataSnapshot.child("description").getValue(String.class);
                 eureka_para_tv.setText(Html.fromHtml(eurekaDescp));
                 registerUrl = dataSnapshot.child("registeration").getValue(String.class);
+                posterUrl = dataSnapshot.child("img_url").getValue(String.class);
+                Glide
+                        .with(getContext())
+                        .load(posterUrl)
+                        .into(posterImage);
             }
 
             @Override
@@ -81,19 +82,19 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
         String msg = eurekaDescp+"<br>Register: "+registerUrl;
         switch (v.getId()) {
 
-            case R.id.facebook_share:
+            case R.id.facebook_iv:
                 shareAppName = "com.facebook.katana";
                 Utils.onShareClick(getContext(), msg, shareAppName);
                 break;
-            case R.id.instagram_share:
+            case R.id.instagram_iv:
                 shareAppName = "com.instagram.android";
                 Utils.onShareClick(getContext(), msg, shareAppName);
                 break;
-            case R.id.whatsapp_share:
+            case R.id.whatsapp_iv:
                 shareAppName = "com.whatsapp";
                 Utils.onShareClick(getContext(), msg, shareAppName);
                 break;
-            case R.id.general_share:
+            case R.id.share_iv:
                 intent = new Intent();
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, msg);
