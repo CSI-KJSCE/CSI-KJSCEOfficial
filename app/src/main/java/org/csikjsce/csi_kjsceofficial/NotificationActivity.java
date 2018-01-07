@@ -1,5 +1,6 @@
 package org.csikjsce.csi_kjsceofficial;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -28,7 +29,6 @@ public class NotificationActivity extends AppCompatActivity implements ChildEven
             .orderByChild("id");
     ArrayList<Notification> notifications;
     NotificationAdapter notifAdapter;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +51,11 @@ public class NotificationActivity extends AppCompatActivity implements ChildEven
 
         notifAdapter = new NotificationAdapter(this, notifications);
         recyclerView.setAdapter(notifAdapter);
+        SharedPreferences notifi = getApplicationContext().getSharedPreferences("CSI",MODE_PRIVATE);
+
+        SharedPreferences.Editor notificationedit = notifi.edit();
+        notificationedit.putInt("n_length",notifications.size());
+        notificationedit.commit();
 
         dbRef.addChildEventListener(this);
     }
