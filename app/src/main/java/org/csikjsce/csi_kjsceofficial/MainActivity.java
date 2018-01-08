@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +19,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,9 +33,12 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.common.api.Status;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Notification;
 import org.csikjsce.csi_kjsceofficial.adapters.NotificationAdapter;
@@ -58,6 +63,7 @@ public class MainActivity extends AppCompatActivity
     ArrayList<Notification> notifications;
     NotificationAdapter notifAdapter;
     private static int check = 0;
+    MenuItem notifMenu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -139,6 +145,32 @@ public class MainActivity extends AppCompatActivity
                 .requestEmail()
                 .build();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Query listenNewNotif = FirebaseDatabase
+                .getInstance()
+                .getReference("_last-notif-id")
+                .child("id");
+        listenNewNotif.keepSynced(true);
+        final DatabaseHelper dbHelper = new DatabaseHelper(this);
+        listenNewNotif.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                if(dbHelper.getUnreadCount()>0){
+                    notifMenu.setIcon(getResources().getDrawable(R.drawable.ic_notification_new));
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG,databaseError.getMessage());
+            }
+        });
     }
 
     @Override
@@ -236,7 +268,10 @@ public class MainActivity extends AppCompatActivity
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_activity_menu,menu);
+        notifMenu = menu.findItem(R.id.notification_menu);
+
         return super.onCreateOptionsMenu(menu);
+
     }
 
     @Override

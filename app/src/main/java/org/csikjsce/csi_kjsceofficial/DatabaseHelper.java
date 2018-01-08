@@ -118,7 +118,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     public List<Notification> selectAllNotifications(){
         List<Notification> notifications = new ArrayList<>();
-        String SELECT_ALL_NOTIFICATION = "SELECT * FROM "+ TABLE_NOTIFICATION;
+        String SELECT_ALL_NOTIFICATION = "SELECT * FROM "+ TABLE_NOTIFICATION + " ORDER BY " + KEY_ID + " DESC";
 
         SQLiteDatabase db = getWritableDatabase();
 

@@ -14,6 +14,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Notification;
 import org.csikjsce.csi_kjsceofficial.adapters.NotificationAdapter;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 public class NotificationActivity extends AppCompatActivity  {
 
     public static final String TAG = NotificationActivity.class.getSimpleName();
-
+    RecyclerView recyclerView;
     ArrayList<Notification> notifications;
     NotificationAdapter notifAdapter;
     @Override
@@ -34,13 +35,13 @@ public class NotificationActivity extends AppCompatActivity  {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        RecyclerView recyclerView = findViewById(R.id.notification_recycler_view);
+        recyclerView = findViewById(R.id.notification_recycler_view);
 
         notifications = new ArrayList<>();
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
         // Database is ordered by ids in ascending so we reverse the rendering
-        llm.setReverseLayout(true);
+        //llm.setReverseLayout(true);
         recyclerView.setLayoutManager(llm);
 
         //To prevent onBindViewHolder to be called twice on onClick
@@ -59,10 +60,29 @@ public class NotificationActivity extends AppCompatActivity  {
     @Override
     protected void onResume() {
         super.onResume();
+        final DatabaseHelper dbHelper = new DatabaseHelper(this);
+        Query listenNewNotif = FirebaseDatabase
+                .getInstance()
+                .getReference("_last-notif-id")
+                .child("id");
+        listenNewNotif.keepSynced(true);
 
-        DatabaseHelper dbHelper = new DatabaseHelper(this);
-        notifications.clear();
-        notifications.addAll(dbHelper.selectAllNotifications());
-        notifAdapter.notifyDataSetChanged();
+        listenNewNotif.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+
+                notifications.clear();
+                notifications.addAll(dbHelper.selectAllNotifications());
+                notifAdapter.notifyDataSetChanged();
+                // Scroll to top
+                ((LinearLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(0,0);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG,databaseError.getMessage());
+            }
+        });
+
     }
 }

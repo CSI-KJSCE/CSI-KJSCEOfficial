@@ -1,7 +1,6 @@
 package org.csikjsce.csi_kjsceofficial.adapters;
 
 import android.content.Context;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
 import android.util.Log;
@@ -70,7 +69,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         public void expandView(){
             descTv.setVisibility(View.VISIBLE);
             extraTv.setVisibility(View.VISIBLE);
-
+            if(notifications.get(getAdapterPosition()).isRead() == Notification.NOT_READ){
+                DatabaseHelper dbHelper = new DatabaseHelper(context);
+                dbHelper.markRead(notifications.get(getAdapterPosition()).getId());
+                notifyDataSetChanged();
+            }
         }
         @Override
         public void onClick(View view){
@@ -83,11 +86,6 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
                 if(descTv.getVisibility()==View.GONE){
                     expandView();
-                    if(notifications.get(getAdapterPosition()).isRead() == Notification.NOT_READ){
-                        DatabaseHelper dbHelper = new DatabaseHelper(context);
-                        dbHelper.markRead(notifications.get(getAdapterPosition()).getId());
-                        notifyDataSetChanged();
-                    }
                 }
                 else collapseView();
                 notifyViewToggle(getAdapterPosition());
