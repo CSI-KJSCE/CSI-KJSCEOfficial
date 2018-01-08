@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -13,12 +14,15 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
+
+import java.net.URI;
 
 public class EventDetailsActivity extends AppCompatActivity implements View.OnClickListener{
     String TAG = EventDetailsActivity.class.getSimpleName();
@@ -97,10 +101,11 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         if(item.getItemId()==R.id.home)
             finish();
         else if(item.getItemId()==R.id.feedback){
-            Intent i = new Intent(this,WebViewActivity.class);
-            Log.d(TAG, "feedback: "+event.getFeedback());
-            i.putExtra("link",event.getFeedback());
-            startActivity(i);
+            String feedBackUrl = event.getFeedback();
+            if(URLUtil.isValidUrl(feedBackUrl)){
+                Utils.openLinkInCustomTab(this, feedBackUrl);
+            }
+
         }
         return super.onOptionsItemSelected(item);
     }
@@ -110,9 +115,9 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         Intent intent;
         switch(v.getId()){
             case R.id.fab:
-                intent = new Intent(this,WebViewActivity.class);
-                intent.putExtra("link",event.getRegister());
-                startActivity(intent);
+                String regUrl = event.getRegister();
+                if(URLUtil.isValidUrl(regUrl))
+                Utils.openLinkInCustomTab(this, regUrl);
                 break;
             case R.id.facebook_iv:
                 shareAppName = "com.facebook.katana";

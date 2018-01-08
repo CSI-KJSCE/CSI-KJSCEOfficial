@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -79,8 +80,10 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         public void onClick(View view){
 
             if(view.getId()==R.id.notification_extra_info_tv){
-
-                    Utils.openLinkInCustomTab(context, notifications.get(getAdapterPosition()).getExtraUrl());
+                    String url = notifications.get(getAdapterPosition()).getExtraUrl();
+                    if(URLUtil.isValidUrl(url)) {
+                        Utils.openLinkInCustomTab(context, url);
+                    }
 
             } else {
 

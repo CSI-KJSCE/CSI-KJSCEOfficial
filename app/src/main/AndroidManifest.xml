@@ -50,7 +50,6 @@
             android:label="@string/title_activity_event_details"
             android:parentActivityName=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".WebViewActivity" />
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" />

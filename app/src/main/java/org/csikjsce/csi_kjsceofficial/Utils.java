@@ -26,6 +26,7 @@ public class Utils {
         CustomTabsIntent.Builder chromeWebViewBuilder = new CustomTabsIntent.Builder();
         chromeWebViewBuilder.setToolbarColor(context.getResources().getColor(R.color.colorPrimary));
         chromeWebViewBuilder.setSecondaryToolbarColor(context.getResources().getColor(R.color.colorPrimaryDark));
+        chromeWebViewBuilder.setShowTitle(true);
 
         chromeWebViewBuilder.build().launchUrl(context, uri);
     }
