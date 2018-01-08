@@ -31,8 +31,8 @@ public class CouncilDetailsFragment extends Fragment {
     private View view;
     private final String TAG = CouncilDetailsFragment.class.getSimpleName();
     private final Query cmDb = FirebaseDatabase.getInstance()
-            .getReference("councilmember")
-            .orderByChild("id");
+            .getReference(getResources().getString(R.string.firebase_key_council_member))
+            .orderByChild(getResources().getString(R.string.firebase_key_member_id));
     List<CouncilMember> list;
     RecyclerView listingsView;
     CouncilMemberAdapter adapter;

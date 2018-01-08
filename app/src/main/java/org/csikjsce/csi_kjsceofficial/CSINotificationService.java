@@ -3,6 +3,7 @@ package org.csikjsce.csi_kjsceofficial;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
@@ -50,15 +51,15 @@ public class CSINotificationService extends FirebaseMessagingService {
     private Notification parseNotification(RemoteMessage message){
 
         Map<String, String> data = message.getData();
-        int eventId = Integer.parseInt(data.get("eventId"));
+        int eventId = Integer.parseInt(data.get(getResources().getString(R.string.notif_key_event_id)));
 
         Notification notification = new Notification(
-                Integer.parseInt(data.get("id")),
-                data.get("time"),
-                data.get("title"),
-                data.get("description"),
-                data.get("extraUrl"),
-                Integer.parseInt(data.get("type")),
+                Integer.parseInt(data.get(getResources().getString(R.string.notif_key_id))),
+                data.get(getResources().getString(R.string.notif_key_time)),
+                data.get(getResources().getString(R.string.notif_key_title)),
+                data.get(getResources().getString(R.string.notif_key_desc)),
+                data.get(getResources().getString(R.string.notif_key_extra_url)),
+                Integer.parseInt(data.get(getResources().getString(R.string.notif_key_type))),
                 eventId,
                 Notification.NOT_READ
         );

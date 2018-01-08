@@ -120,15 +120,15 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
                 Utils.openLinkInCustomTab(this, regUrl);
                 break;
             case R.id.facebook_iv:
-                shareAppName = "com.facebook.katana";
+                shareAppName = getString(R.string.package_facebook);
                 Utils.onShareClick(this, event.getDesc(), shareAppName);
                 break;
             case R.id.instagram_iv:
-                shareAppName = "com.instagram.android";
+                shareAppName = getString(R.string.package_instagram);
                 Utils.onShareClick(this, event.getDesc(), shareAppName);
                 break;
             case R.id.whatsapp_iv:
-                shareAppName = "com.whatsapp";
+                shareAppName = getString(R.string.package_whatsapp);
                 Utils.onShareClick(this, event.getDesc(), shareAppName);
                 break;
             case R.id.share_iv:

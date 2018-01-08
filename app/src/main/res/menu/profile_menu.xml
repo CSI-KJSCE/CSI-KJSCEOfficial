@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/profile_edit_menu"
-        android:title="Edit Profile"
+        android:title="@string/edit_profile"
         android:icon="@drawable/ic_edit_pen"
         app:showAsAction="always"/>
 </menu>

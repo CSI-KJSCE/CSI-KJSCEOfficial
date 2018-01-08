@@ -49,11 +49,6 @@ public class NotificationActivity extends AppCompatActivity  {
 
         notifAdapter = new NotificationAdapter(this, notifications);
         recyclerView.setAdapter(notifAdapter);
-        SharedPreferences notifi = getApplicationContext().getSharedPreferences("CSI",MODE_PRIVATE);
-
-        SharedPreferences.Editor notificationedit = notifi.edit();
-        notificationedit.putInt("n_length",notifications.size());
-        notificationedit.commit();
 
     }
 
@@ -63,8 +58,8 @@ public class NotificationActivity extends AppCompatActivity  {
         final DatabaseHelper dbHelper = new DatabaseHelper(this);
         Query listenNewNotif = FirebaseDatabase
                 .getInstance()
-                .getReference("_last-notif-id")
-                .child("id");
+                .getReference(getString(R.string.firebase_key_notif))
+                .child(getString(R.string.firebase_key_notif_id));
         listenNewNotif.keepSynced(true);
 
         listenNewNotif.addValueEventListener(new ValueEventListener() {

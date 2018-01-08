@@ -128,16 +128,16 @@ public class LoginActivity extends AppCompatActivity implements
             else pic_url = pic_uri.toString();
             SharedPreferences userInfo = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
             SharedPreferences.Editor editor = userInfo.edit();
-            editor.putString("name",pname);
-            if(emailid.contains("somaiya.edu")) {
-                editor.putString("svv_mail", emailid);
-                editor.putBoolean("signed_in_with_svv", true);
+            editor.putString(getString(R.string.pref_key_name),pname);
+            if(emailid.contains(getString(R.string.somaiya_edu))) {
+                editor.putString(getString(R.string.pref_key_svv_mail), emailid);
+                editor.putBoolean(getString(R.string.pref_key_signed_in_with_svv), true);
             }
-            if(!emailid.contains("somaiya.edu")) {
-                editor.putString("email", emailid);
-                editor.putBoolean("signed_in_with_svv", false);
+            if(!emailid.contains(getString(R.string.somaiya_edu))) {
+                editor.putString(getString(R.string.pref_key_email), emailid);
+                editor.putBoolean(getString(R.string.pref_key_signed_in_with_svv), false);
             }
-            editor.putString("pic_url",pic_url);
+            editor.putString(getString(R.string.pref_key_pic_url),pic_url);
 
 
             editor.commit();
@@ -197,21 +197,21 @@ public class LoginActivity extends AppCompatActivity implements
                 intent = new Intent(this, MainActivity.class);
             else {
                 intent = new Intent(this, ProfileActivity.class);
-                intent.putExtra("edit_mode",true);
+                intent.putExtra(getString(R.string.pref_key_edit_mode),true);
                 intent.setFlags(intent.getFlags() | Intent.FLAG_ACTIVITY_NO_HISTORY);
-                Toast.makeText(this,"Kindly complete your profile",Toast.LENGTH_SHORT)
+                Toast.makeText(this, R.string.kindly_complete_your_profile,Toast.LENGTH_SHORT)
                         .show();
             }
             startActivity(intent);
         } else {
-            Snackbar.make(parentLayout,"Not signed in",Snackbar.LENGTH_LONG)
+            Snackbar.make(parentLayout, R.string.not_signed_in,Snackbar.LENGTH_LONG)
                     .show();
         }
     }
     private void showProgressDialog() {
         if (mProgressDialog == null) {
             mProgressDialog = new ProgressDialog(this);
-            mProgressDialog.setMessage("Authenticating...");
+            mProgressDialog.setMessage(getString(R.string.authenticating_));
             mProgressDialog.setIndeterminate(true);
         }
 

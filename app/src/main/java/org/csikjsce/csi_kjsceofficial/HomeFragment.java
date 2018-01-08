@@ -48,8 +48,8 @@ public class HomeFragment extends Fragment {
     private int majorEventsCount;
     private final Query majorEventsDb = FirebaseDatabase
             .getInstance()
-            .getReference("major-events")
-            .orderByChild("eventid");
+            .getReference(getString(R.string.firebase_key_highlights))
+            .orderByChild(getString(R.string.firebase_key_event_id));
     private int currentPage;
     private final int SWIPE_DELAY = 2000;
     private final int SWIPE_PERIOD = 5000;
@@ -57,8 +57,8 @@ public class HomeFragment extends Fragment {
     EventRecycleViewAdapter ed;
     private final Query eventsDb = FirebaseDatabase
             .getInstance()
-            .getReference("event")
-            .orderByChild("eventid");
+            .getReference(getString(R.string.firebase_key_event))
+            .orderByChild(getString(R.string.firebase_key_event_id));
 
     ArrayList<Event> list;
 

@@ -19,6 +19,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -42,7 +43,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         //prevent keybaord from popping up
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
 
-        editMode = getIntent().getBooleanExtra("edit_mode",false);
+        editMode = getIntent().getBooleanExtra(getString(R.string.pref_key_edit_mode),false);
 
         rootLayout = findViewById(R.id.profile_root_layout);
         toolbar = findViewById(R.id.toolbar);
@@ -68,15 +69,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     protected void onResume() {
         super.onResume();
         sf = getSharedPreferences(getString(R.string.USER_INFO),MODE_PRIVATE);
-        String fullname = sf.getString("name","CSI Fan");
-        String sex = sf.getString("sex","NA");
-        String svvMail = sf.getString("svv_mail","NA");
-        String email = sf.getString("email","NA");
-        String phone = sf.getString("phone","NA");
-        String picUrl = sf.getString("pic_url","default");
-        boolean signedWithSvv = sf.getBoolean("signed_in_with_svv",false);
+        String fullname = sf.getString(getString(R.string.pref_key_name),"CSI Fan");
+        String sex = sf.getString(getString(R.string.pref_key_sex),"NA");
+        String svvMail = sf.getString(getString(R.string.pref_key_svv_mail),"NA");
+        String email = sf.getString(getString(R.string.pref_key_email),"NA");
+        String phone = sf.getString(getString(R.string.pref_key_phone),"NA");
+        String picUrl = sf.getString(getString(R.string.pref_key_pic_url),"default");
+        boolean signedWithSvv = sf.getBoolean(getString(R.string.pref_key_signed_in_with_svv),false);
 
-        if(!picUrl.contains("http")){
+        if(!URLUtil.isValidUrl(picUrl)){
             if(picUrl.equalsIgnoreCase("female"))
                 profileImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_default_female_avatar));
         }
@@ -103,7 +104,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
        // saveProfileBtn.setVisibility(View.GONE);
         saveProfileBtn.setBackground(getResources().getDrawable(R.drawable.button_light_gray));
         if(!Utils.isProfileComplete(this)){
-            Snackbar.make(rootLayout,"Complete your profile to continue",Snackbar.LENGTH_SHORT)
+            Snackbar.make(rootLayout,getString(R.string.kindly_complete_your_profile),Snackbar.LENGTH_SHORT)
                     .show();
             //saveProfileBtn.setVisibility(View.VISIBLE);
             saveProfileBtn.setBackground(getResources().getDrawable(R.drawable.button_primary_gradient));
@@ -177,7 +178,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             editMode = true;
             getWindow()
                     .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MODE_CHANGED);
-            if(sf.getBoolean("signed_in_with_svv",true)){
+            if(sf.getBoolean(getString(R.string.pref_key_signed_in_with_svv),true)){
                if(!emailText.getText().toString().contains("@"))
                     emailText.setText("");
                 Utils.enableEditText(emailText);

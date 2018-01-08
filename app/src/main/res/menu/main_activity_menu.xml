@@ -5,16 +5,16 @@
     <item
         android:id="@+id/logout_opt"
         android:icon="@drawable/ic_logout"
-        android:title="Logout"
+        android:title="@string/logout"
         app:showAsAction="never"/>
     <item
         android:id="@+id/disconnect_acc"
         android:icon="@drawable/ic_logout"
-        android:title="Disconnect Account"
+        android:title="@string/disconnect_account"
         app:showAsAction="never"/>
     <item
         android:id="@+id/notification_menu"
         android:icon="@drawable/ic_notification"
-        android:title="Notification"
+        android:title="@string/notification"
         app:showAsAction="always" />
 </menu>

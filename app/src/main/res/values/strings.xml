@@ -10,8 +10,36 @@
     <string name="title_council">Council</string>
     <string name="title_eureka">Eureka</string>
 
-    <!-- Strings related to login -->
+    <!-- Database keys -->
+    <string name="firebase_key_council_member">councilmember</string>
+    <string name="firebase_key_event">event</string>
+    <string name="firebase_key_eureka">eureka</string>
+    <string name="firebase_key_notif">_last-notif-id</string>
+    <string name="firebase_key_highlights">major-events</string>
+    <string name="firebase_key_member_id">id</string>
+    <string name="firebase_key_event_id">eventid</string>
+    <string name="firebase_key_notif_id">id</string>
+
+    <string name="notif_key_id">id</string>
+    <string name="notif_key_time">time</string>
+    <string name="notif_key_title">title</string>
+    <string name="notif_key_desc">description</string>
+    <string name="notif_key_extra_url">extraUrl</string>
+    <string name="notif_key_type">type</string>
+    <string name="notif_key_event_id">eventId</string>
+    <string name="notif_key_read">isRead</string>
+
+    <!-- Shread preference keys -->
     <string name="USER_INFO">org.csikjsce.csikjsceofficial.PREF_USER_INFO</string>
+    <string name="pref_key_name">name</string>
+    <string name="pref_key_svv_mail">svv_mail</string>
+    <string name="pref_key_signed_in_with_svv">signed_in_with_svv</string>
+    <string name="pref_key_email">email</string>
+    <string name="pref_key_pic_url">pic_url</string>
+    <string name="pref_key_edit_mode">edit_mode</string>
+    <string name="pref_key_sex">sex</string>
+    <string name="pref_key_phone">phone</string>
+
     <string name="msg_no_internet">No internet connection</string>
     <string name="msg_back_press">Press back again to exit</string>
     <string name="msg_sign_in_with">Sign in with SVV or G+</string>
@@ -28,4 +56,42 @@
     <string name="connect_with_us">Connect with us!</string>
     <string name="share">share</string>
     <string name="eureka_heading">A CSI-KJSCE initiative</string>
+    <string name="event_title">Event Title</string>
+    <string name="audience_tag">ALL</string>
+    <string name="workshop_tag">workshop</string>
+    <string name="default_date">31-07-2017</string>
+    <string name="council_member">Council Member</string>
+    <string name="post">Post</string>
+    <string name="department">Department</string>
+    <string name="event_name">Event Name</string>
+    <string name="events">EVENTS</string>
+    <string name="csi_fan">CSI FAN</string>
+    <string name="notification_subject">Notification_subject</string>
+    <string name="notification_body">Notification_body</string>
+    <string name="know_more">Know more</string>
+    <string name="feedback">Feedback</string>
+    <string name="home">Home</string>
+    <string name="eureka">Eureka</string>
+    <string name="council_17_18">Council 17-18</string>
+    <string name="about_us">About Us</string>
+    <string name="rate_this_app">Rate this app!</string>
+    <string name="share_this_app">Share this app</string>
+    <string name="logout">Logout</string>
+    <string name="logout_and_disconnect_account">Logout and Disconnect Account</string>
+    <string name="disconnect_account">Disconnect Account</string>
+    <string name="notification">Notification</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="package_facebook">com.facebook.katana</string>
+    <string name="package_whatsapp">com.whatsapp</string>
+    <string name="package_instagram">com.instagram.android</string>
+    <string name="somaiya_edu">somaiya.edu</string>
+    <string name="kindly_complete_your_profile">Kindly complete your profile</string>
+    <string name="not_signed_in">Not signed in</string>
+    <string name="authenticating_">Authenticating...</string>
+    <string name="csi_kjsce">CSI KJSCE</string>
+    <string name="the_council">The Council</string>
+    <string name="signed_out">Signed out</string>
+    <string name="account_disconnected">Account disconnected</string>
+
+
 </resources>

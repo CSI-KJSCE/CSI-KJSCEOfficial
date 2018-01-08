@@ -44,18 +44,18 @@ public class Utils {
            context.startActivity(sendIntent);
        } catch(ActivityNotFoundException e){
            Log.e("Social Share", "package does not exist");
-           Toast.makeText(context, "Action not supported",Toast.LENGTH_SHORT);
+           Toast.makeText(context, "Action not supported",Toast.LENGTH_SHORT).show();
        }
 
     }
     public static boolean isProfileComplete(Context context){
         SharedPreferences sf = context.getSharedPreferences(context.getString(R.string.USER_INFO),MODE_PRIVATE);
 
-        String fullname = sf.getString("name","NA");
-        String sex = sf.getString("sex","NA");
-        String svvMail = sf.getString("svv_mail","NA");
-        String email = sf.getString("email","NA");
-        String phone = sf.getString("phone","NA");
+        String fullname = sf.getString(context.getString(R.string.pref_key_name),"NA");
+        String sex = sf.getString(context.getString(R.string.pref_key_sex),"NA");
+        String svvMail = sf.getString(context.getString(R.string.pref_key_svv_mail),"NA");
+        String email = sf.getString(context.getString(R.string.pref_key_email),"NA");
+        String phone = sf.getString(context.getString(R.string.pref_key_phone),"NA");
 
         if(fullname.contentEquals("NA") ||
                 sex.equals("NA") ||

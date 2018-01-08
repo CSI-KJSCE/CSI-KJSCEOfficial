@@ -89,17 +89,6 @@ public class MainActivity extends AppCompatActivity
         notifAdapter = new NotificationAdapter(this, notifications);
 
 
-        SharedPreferences notifi = getApplicationContext().getSharedPreferences("CSI",MODE_PRIVATE);
-        SharedPreferences.Editor notifyedit = notifi.edit();
-
-        check = notifi.getInt("n_length",0);
-
-        if (check < notifications.size()){
-            //Change the icon here
-
-            //Toast.makeText(this,"Its working",Toast.LENGTH_SHORT).show();
-        }
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -221,19 +210,19 @@ public class MainActivity extends AppCompatActivity
         {
             case R.id.nav_home:
                 frag = new HomeFragment();
-                setActionBarTitle("CSI KJSCE");
+                setActionBarTitle(getString(R.string.csi_kjsce));
                 break;
             case R.id.nav_eureka:
                 frag=new EurekaFragment();
-                setActionBarTitle("Eureka");
+                setActionBarTitle(getString(R.string.eureka));
                 break;
             case R.id.nav_council:
                 frag =new CouncilDetailsFragment();
-                setActionBarTitle("The Council");
+                setActionBarTitle(getString(R.string.the_council));
                 break;
             case R.id.nav_aboutus:
                 frag= new AboutUsFragment();
-                setActionBarTitle("About Us");
+                setActionBarTitle(getString(R.string.about_us));
                 break;
             case R.id.rate_us_menu:
                 Utils.openLinkInCustomTab(context, getString(R.string.app_download_link));
@@ -297,7 +286,7 @@ public class MainActivity extends AppCompatActivity
                        SharedPreferences pref = context.getSharedPreferences(getString(R.string.USER_INFO),Context.MODE_PRIVATE);
                         pref.edit().clear().apply();
                         finishAffinity();
-                        Toast.makeText(getApplicationContext(),"Signed out",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.signed_out,Toast.LENGTH_SHORT).show();
                     }
                 }
         );
@@ -310,7 +299,7 @@ public class MainActivity extends AppCompatActivity
                         SharedPreferences pref = getSharedPreferences(getResources().getString(R.string.USER_INFO),0);
                         pref.edit().clear().apply();
                         finishAffinity();
-                        Toast.makeText(getApplicationContext(),"Account disconnected",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), R.string.account_disconnected,Toast.LENGTH_SHORT).show();
                     }
                 }
         );

@@ -85,15 +85,15 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
         switch (v.getId()) {
 
             case R.id.facebook_iv:
-                shareAppName = "com.facebook.katana";
+                shareAppName = getString(R.string.package_facebook);
                 Utils.onShareClick(getContext(), msg, shareAppName);
                 break;
             case R.id.instagram_iv:
-                shareAppName = "com.instagram.android";
+                shareAppName = getString(R.string.package_instagram);
                 Utils.onShareClick(getContext(), msg, shareAppName);
                 break;
             case R.id.whatsapp_iv:
-                shareAppName = "com.whatsapp";
+                shareAppName = getString(R.string.package_whatsapp);
                 Utils.onShareClick(getContext(), msg, shareAppName);
                 break;
             case R.id.share_iv:

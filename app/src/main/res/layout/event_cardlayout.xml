@@ -37,7 +37,7 @@
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:paddingTop="1dp"
-            android:text="FE"
+            android:text="@string/audience_tag"
             android:textAppearance="@style/TagSmallTextAppearance"
             app:layout_constraintBottom_toBottomOf="@+id/category_tag"
             app:layout_constraintStart_toStartOf="parent" />
@@ -50,7 +50,7 @@
             android:layout_marginRight="16dp"
             android:layout_marginTop="8dp"
             android:gravity="end"
-            android:text="12/07/2017"
+            android:text="@string/default_date"
             android:textAppearance="@style/SmallTextAppearance"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/event_card1_imageview" />
@@ -67,7 +67,7 @@
             android:paddingLeft="4dp"
             android:paddingRight="4dp"
             android:paddingTop="1dp"
-            android:text="workshop"
+            android:text="@string/workshop_tag"
             android:textAppearance="@style/TagSmallTextAppearance"
             app:layout_constraintBottom_toBottomOf="@+id/event_date_textview"
             app:layout_constraintStart_toEndOf="@+id/audience_tag" />
@@ -82,7 +82,7 @@
             android:layout_marginTop="8dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
-            android:text="Event Name"
+            android:text="@string/event_name"
             android:gravity="left"
             android:textAppearance="@style/TitleTextAppearance"
             app:layout_constraintBottom_toBottomOf="parent"
