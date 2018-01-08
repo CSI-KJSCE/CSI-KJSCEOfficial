@@ -54,6 +54,8 @@ public class CouncilDetailsFragment extends Fragment {
         listingsView = view.findViewById(R.id.council_members_listingsview);
         listingsView.setLayoutManager(new LinearLayoutManager(getContext()));
         listingsView.setAdapter(adapter);
+
+        cmDb.keepSynced(true);
         cmDb.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

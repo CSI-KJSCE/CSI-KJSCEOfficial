@@ -56,6 +56,7 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
         shareIcon.setOnClickListener(this);
         fab.setOnClickListener(this);
 
+        query.keepSynced(true);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

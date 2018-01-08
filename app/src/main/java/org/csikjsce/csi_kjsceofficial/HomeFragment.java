@@ -112,6 +112,7 @@ public class HomeFragment extends Fragment {
         eventsRecyclerView.setAdapter(ed);
 
         //Add database listeners
+        majorEventsDb.keepSynced(true);
         majorEventsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -129,6 +130,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        eventsDb.keepSynced(true);
         eventsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
