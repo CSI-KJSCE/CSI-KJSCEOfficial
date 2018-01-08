@@ -20,13 +20,10 @@ import org.csikjsce.csi_kjsceofficial.adapters.NotificationAdapter;
 
 import java.util.ArrayList;
 
-public class NotificationActivity extends AppCompatActivity implements ChildEventListener {
+public class NotificationActivity extends AppCompatActivity  {
 
     public static final String TAG = NotificationActivity.class.getSimpleName();
-    private final Query dbRef = FirebaseDatabase
-            .getInstance()
-            .getReference("notifications")
-            .orderByChild("id");
+
     ArrayList<Notification> notifications;
     NotificationAdapter notifAdapter;
     @Override
@@ -42,7 +39,7 @@ public class NotificationActivity extends AppCompatActivity implements ChildEven
         notifications = new ArrayList<>();
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        // Firebase uses ascending ordering on ids so we reverse the rendering
+        // Database is ordered by ids in ascending so we reverse the rendering
         llm.setReverseLayout(true);
         recyclerView.setLayoutManager(llm);
 
@@ -57,36 +54,15 @@ public class NotificationActivity extends AppCompatActivity implements ChildEven
         notificationedit.putInt("n_length",notifications.size());
         notificationedit.commit();
 
-        dbRef.addChildEventListener(this);
     }
 
-
     @Override
-    public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-        Notification notif = dataSnapshot.getValue(Notification.class);
-        notifications.add(notif);
+    protected void onResume() {
+        super.onResume();
+
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        notifications.clear();
+        notifications.addAll(dbHelper.selectAllNotifications());
         notifAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-
-    }
-
-    @Override
-    public void onChildRemoved(DataSnapshot dataSnapshot) {
-        Notification notif = dataSnapshot.getValue(Notification.class);
-        notifications.remove(notif);
-        notifAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-
-    }
-
-    @Override
-    public void onCancelled(DatabaseError databaseError) {
-        Log.d(TAG,"Database Error:"+databaseError.getDetails());
     }
 }

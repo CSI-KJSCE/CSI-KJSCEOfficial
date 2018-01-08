@@ -1,7 +1,9 @@
 package org.csikjsce.csi_kjsceofficial.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.csikjsce.csi_kjsceofficial.DatabaseHelper;
 import org.csikjsce.csi_kjsceofficial.POJO.Notification;
 import org.csikjsce.csi_kjsceofficial.R;
 import org.csikjsce.csi_kjsceofficial.Utils;
@@ -53,7 +56,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                 iconIv.setImageResource(R.drawable.ic_workshop_notification);
             else iconIv.setImageResource(R.drawable.ic_general_notification);
             titleTv.setText(notification.getTitle());
-            descTv.setText(notification.getDescription());
+            descTv.setText(Html.fromHtml(notification.getDescription()));
             timeTv.setText(notification.getTime());
             if(notification.getType()==Notification.GENERAL_TYPE)
                 extraTv.setText("Know more");
@@ -67,6 +70,7 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
         public void expandView(){
             descTv.setVisibility(View.VISIBLE);
             extraTv.setVisibility(View.VISIBLE);
+
         }
         @Override
         public void onClick(View view){
@@ -79,6 +83,11 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
 
                 if(descTv.getVisibility()==View.GONE){
                     expandView();
+                    if(notifications.get(getAdapterPosition()).isRead() == Notification.NOT_READ){
+                        DatabaseHelper dbHelper = new DatabaseHelper(context);
+                        dbHelper.markRead(notifications.get(getAdapterPosition()).getId());
+                        notifyDataSetChanged();
+                    }
                 }
                 else collapseView();
                 notifyViewToggle(getAdapterPosition());

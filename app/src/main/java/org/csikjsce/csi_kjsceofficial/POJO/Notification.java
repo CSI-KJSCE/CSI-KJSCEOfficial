@@ -8,23 +8,36 @@ public class Notification {
     private int id;
     private String title, description, time;
     private String extraUrl;
-    private int type;
+    private int type, isRead, eventId;
     public static final int GENERAL_TYPE = 0;
     public static final int WORKSHOP_TYPE = 1;
     public static final int SEMINAR_TYPE = 2;
+    public static final int IS_READ = 0, NOT_READ = 1;
 
-    Notification(){
+    public Notification(){
         id = -1;
         type = GENERAL_TYPE;
     }
 
-    public Notification(int id, String title, String description, String time, String extraUrl, int type) {
+    public Notification(int id, String time, String title, String description, String extraUrl, int type) {
         this.id = id;
         this.title = title;
         this.description = description;
         this.time = time;
         this.extraUrl = extraUrl;
         this.type = type;
+        isRead = NOT_READ;
+    }
+
+    public Notification(int id, String time, String title, String description, String extraUrl, int type, int eventId, int isRead) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.time = time;
+        this.extraUrl = extraUrl;
+        this.type = type;
+        this.isRead = isRead;
+        this.eventId = eventId;
     }
 
     public int getId(){
@@ -50,6 +63,10 @@ public class Notification {
     public int getType() {
         return type;
     }
+
+    public int isRead() { return isRead; }
+
+    public int getEventId() { return eventId; }
 
     @Override
     public boolean equals(Object obj) {
