@@ -5,6 +5,7 @@ package org.csikjsce.csi_kjsceofficial;
  */
 
 import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.v4.app.Fragment;
@@ -13,6 +14,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
 
 public class AboutUsFragment extends Fragment implements View.OnClickListener{
     public static final String TAG = AboutUsFragment.class.getSimpleName();
@@ -32,6 +35,11 @@ public class AboutUsFragment extends Fragment implements View.OnClickListener{
         ImageView fbPageIcon = view.findViewById(R.id.facebook_page);
         ImageView instaPageIcon = view.findViewById(R.id.instagram_page);
         ImageView githubPageIcon = view.findViewById(R.id.github_page);
+        ImageView headerImg = view.findViewById(R.id.aboutus_imageview);
+        Glide
+                .with(this)
+                .load(getResources().getDrawable(R.drawable.kjsce_and_csi_bg))
+                .into(headerImg);
 
         fbPageIcon.setOnClickListener(this);
         instaPageIcon.setOnClickListener(this);

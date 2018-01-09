@@ -21,6 +21,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.URLUtil;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -54,6 +55,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         emailText = findViewById(R.id.personal_email_text);
         phoneText = findViewById(R.id.phone_number_text);
         saveProfileBtn = findViewById(R.id.profile_save_btn);
+
+        Glide.with(this)
+                .load(getResources().getDrawable(R.drawable.bg_csi_poster))
+                .into((ImageView)findViewById(R.id.coverImageView));
 
         CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.profile_collapsing_toolbar);
         collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.fui_transparent));
