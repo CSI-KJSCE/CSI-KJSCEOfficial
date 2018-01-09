@@ -3,6 +3,14 @@ package org.csikjsce.csi_kjsceofficial.POJO;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import org.csikjsce.csi_kjsceofficial.Utils;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * Created by sziraqui on 31/7/17.
  */
@@ -46,7 +54,7 @@ public class Event implements Parcelable{
     }
 
     public String getEventdt() {
-        return eventdt;
+        return Utils.strToDate(eventdt);
     }
 
     public void setEventdt(String eventdt) {
@@ -88,6 +96,7 @@ public class Event implements Parcelable{
     public void setRegister(String register) { this.register = register; }
 
     public void setFeedback(String feedback) { this.feedback = feedback; }
+
 
     @Override
     public boolean equals(Object o){

@@ -1,5 +1,7 @@
 package org.csikjsce.csi_kjsceofficial.POJO;
 
+import org.csikjsce.csi_kjsceofficial.Utils;
+
 /**
  * Created by sziraqui on 22/12/17.
  */
@@ -53,7 +55,7 @@ public class Notification {
     }
 
     public String getTime() {
-        return time;
+        return Utils.strToDate(time);
     }
 
     public String getExtraUrl() {

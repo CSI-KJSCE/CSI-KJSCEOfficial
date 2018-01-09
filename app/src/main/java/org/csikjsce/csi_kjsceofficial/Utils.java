@@ -12,6 +12,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 import static android.content.Context.MODE_PRIVATE;
 
 
@@ -74,5 +79,17 @@ public class Utils {
         editText.setFocusable(true);
         editText.setEnabled(true);
         editText.setFocusableInTouchMode(true);
+    }
+    public static String strToDate(String eventdt){
+        Date date = new Date();
+        SimpleDateFormat sm = new SimpleDateFormat("dd-MM-yyyy", Locale.ENGLISH);
+        try {
+            date = sm.parse(eventdt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return eventdt;
+        }
+        SimpleDateFormat newFormat = new  SimpleDateFormat("EEE, d MMM ''yy",Locale.ENGLISH);
+        return newFormat.format(date).toString();
     }
 }
