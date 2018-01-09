@@ -7,6 +7,7 @@ import android.content.res.Resources;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
+import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
@@ -76,9 +77,10 @@ public class CSINotificationService extends FirebaseMessagingService {
     }
 
     private void updateNotifDB(Notification notification){
-
+        Log.d(TAG,"start updateNotifDB()");
         DatabaseHelper dbhelper = new DatabaseHelper(this);
         dbhelper.insertNotification(notification);
+        Log.d(TAG,"end updateNotifDB()");
     }
 
 }

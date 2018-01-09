@@ -28,6 +28,8 @@ import org.csikjsce.csi_kjsceofficial.adapters.SwipeCustomAdapter;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -44,7 +46,7 @@ public class HomeFragment extends Fragment {
 
     ViewPager viewPager;
     SwipeCustomAdapter adapter;
-    private ArrayList<Event> majorEvents;
+    private LinkedList<Event> majorEvents;
     private int majorEventsCount;
 
     private int currentPage;
@@ -53,7 +55,7 @@ public class HomeFragment extends Fragment {
 
     EventRecycleViewAdapter ed;
 
-    ArrayList<Event> list;
+    LinkedList<Event> list;
 
     public HomeFragment(){
 
@@ -73,8 +75,8 @@ public class HomeFragment extends Fragment {
         progress = view.findViewById(R.id.center_progressbar);
         eventsRecyclerView = view.findViewById(R.id.eventcard_listview);
 
-        majorEvents = new ArrayList<>();
-        list = new ArrayList<>();
+        majorEvents = new LinkedList<>();
+        list = new LinkedList<>();
 
         //Setup view pager
         adapter = new SwipeCustomAdapter(getActivity(), majorEvents);
@@ -99,8 +101,7 @@ public class HomeFragment extends Fragment {
         //Setup recycler view
         ed = new EventRecycleViewAdapter(getContext(),list);
         LinearLayoutManager llm = new LinearLayoutManager(getContext());
-        // Firebase uses ascending ordering on ids so we reverse the rendering
-        llm.setReverseLayout(true);
+
         eventsRecyclerView.setLayoutManager(llm);
         eventsRecyclerView.setAdapter(ed);
 
@@ -138,7 +139,7 @@ public class HomeFragment extends Fragment {
                 for(DataSnapshot data: dataSnapshot.getChildren()){
                     Event event = data.getValue(Event.class);
                     Log.d(TAG,"Event: "+event.getTitle());
-                    list.add(event);
+                    list.addFirst(event);
                     ed.notifyDataSetChanged();
                 }
                 progress.setVisibility(View.GONE);

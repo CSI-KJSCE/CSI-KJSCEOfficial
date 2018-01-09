@@ -18,12 +18,13 @@ import org.csikjsce.csi_kjsceofficial.POJO.Notification;
 import org.csikjsce.csi_kjsceofficial.adapters.NotificationAdapter;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 
 public class NotificationActivity extends AppCompatActivity  {
 
     public static final String TAG = NotificationActivity.class.getSimpleName();
     RecyclerView recyclerView;
-    ArrayList<Notification> notifications;
+    LinkedList<Notification> notifications;
     NotificationAdapter notifAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +36,10 @@ public class NotificationActivity extends AppCompatActivity  {
 
         recyclerView = findViewById(R.id.notification_recycler_view);
 
-        notifications = new ArrayList<>();
+        notifications = new LinkedList<>();
 
         LinearLayoutManager llm = new LinearLayoutManager(this);
-        // Database is ordered by ids in ascending so we reverse the rendering
-        //llm.setReverseLayout(true);
+
         recyclerView.setLayoutManager(llm);
 
         //To prevent onBindViewHolder to be called twice on onClick

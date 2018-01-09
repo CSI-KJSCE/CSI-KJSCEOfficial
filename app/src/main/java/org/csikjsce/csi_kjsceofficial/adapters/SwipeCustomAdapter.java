@@ -20,14 +20,15 @@ import org.csikjsce.csi_kjsceofficial.POJO.Event;
 import org.csikjsce.csi_kjsceofficial.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class SwipeCustomAdapter extends  PagerAdapter {
     public static final String TAG = SwipeCustomAdapter.class.getSimpleName();
     private Context context;
     private LayoutInflater inflater;
-    private ArrayList<Event> events;
+    private List<Event> events;
 
-    public SwipeCustomAdapter(Context context, ArrayList<Event> majorEvents){
+    public SwipeCustomAdapter(Context context, List<Event> majorEvents){
 
         this.context = context;
         events = majorEvents;
