@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,7 +18,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.animation.Animation;
+import android.webkit.URLUtil;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -35,7 +34,6 @@ import com.google.android.gms.common.api.Status;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
@@ -56,10 +54,7 @@ public class MainActivity extends AppCompatActivity
     private static final int REQUEST_CODE = 171;
     Context context;
     private GoogleApiClient mGoogleApiClient;
-    private final Query dbRef1 = FirebaseDatabase
-            .getInstance()
-            .getReference("notifications")
-            .orderByChild("id");
+
     ArrayList<Notification> notifications;
     NotificationAdapter notifAdapter;
     private static int check = 0;
@@ -104,18 +99,18 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //Load profile picture and name of signed in use
+        //Load profile picture and name of signed in user
         View navHeader = navigationView.getHeaderView(0);
         ImageView profilePic = navHeader.findViewById(R.id.user_dp_iv);
         TextView nameTv = navHeader.findViewById(R.id.user_name_tv);
 
         SharedPreferences sf = getSharedPreferences(getString(R.string.USER_INFO),MODE_PRIVATE);
-        String name = sf.getString("name","CSI Fan");
-        String picUrl = sf.getString("pic_url","default");
+        String name = sf.getString(getString(R.string.pref_key_name),getString(R.string.csi_fan));
+        String picUrl = sf.getString(getString(R.string.pref_key_pic_url),getString(R.string.pref_default_pic));
 
         nameTv.setText(name);
         profilePic.setOnClickListener(this);
-        if(!picUrl.contains("http")){
+        if(!URLUtil.isValidUrl(picUrl)){
             if(picUrl.equalsIgnoreCase("female"))
                 profilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_default_female_avatar));
         }
@@ -125,7 +120,7 @@ public class MainActivity extends AppCompatActivity
                     .load(picUrl)
                     .into(profilePic);
         }
-        //Fetching events node from database;
+
         HomeFragment homeFragment = new HomeFragment();
         getSupportFragmentManager().beginTransaction().add(R.id.frames,homeFragment).commit();
 
@@ -142,8 +137,8 @@ public class MainActivity extends AppCompatActivity
 
         Query listenNewNotif = FirebaseDatabase
                 .getInstance()
-                .getReference("_last-notif-id")
-                .child("id");
+                .getReference(getString(R.string.firebase_key_last_notif))
+                .child(getString(R.string.firebase_key_notif_id));
         listenNewNotif.keepSynced(true);
         final DatabaseHelper dbHelper = new DatabaseHelper(this);
         listenNewNotif.addValueEventListener(new ValueEventListener() {

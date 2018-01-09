@@ -1,6 +1,5 @@
 package org.csikjsce.csi_kjsceofficial;
 
-import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,7 +8,6 @@ import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -58,7 +56,7 @@ public class NotificationActivity extends AppCompatActivity  {
         final DatabaseHelper dbHelper = new DatabaseHelper(this);
         Query listenNewNotif = FirebaseDatabase
                 .getInstance()
-                .getReference(getString(R.string.firebase_key_notif))
+                .getReference(getString(R.string.firebase_key_last_notif))
                 .child(getString(R.string.firebase_key_notif_id));
         listenNewNotif.keepSynced(true);
 

@@ -14,7 +14,7 @@
     <string name="firebase_key_council_member">councilmember</string>
     <string name="firebase_key_event">event</string>
     <string name="firebase_key_eureka">eureka</string>
-    <string name="firebase_key_notif">_last-notif-id</string>
+    <string name="firebase_key_last_notif">_last-notif-id</string>
     <string name="firebase_key_highlights">major-events</string>
     <string name="firebase_key_member_id">id</string>
     <string name="firebase_key_event_id">eventid</string>
@@ -39,6 +39,7 @@
     <string name="pref_key_edit_mode">edit_mode</string>
     <string name="pref_key_sex">sex</string>
     <string name="pref_key_phone">phone</string>
+    <string name="pref_default_pic">default</string>
 
     <string name="msg_no_internet">No internet connection</string>
     <string name="msg_back_press">Press back again to exit</string>
@@ -92,6 +93,5 @@
     <string name="the_council">The Council</string>
     <string name="signed_out">Signed out</string>
     <string name="account_disconnected">Account disconnected</string>
-
 
 </resources>

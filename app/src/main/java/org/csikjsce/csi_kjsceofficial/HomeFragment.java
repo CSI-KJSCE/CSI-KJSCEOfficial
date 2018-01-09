@@ -46,19 +46,12 @@ public class HomeFragment extends Fragment {
     SwipeCustomAdapter adapter;
     private ArrayList<Event> majorEvents;
     private int majorEventsCount;
-    private final Query majorEventsDb = FirebaseDatabase
-            .getInstance()
-            .getReference(getString(R.string.firebase_key_highlights))
-            .orderByChild(getString(R.string.firebase_key_event_id));
+
     private int currentPage;
     private final int SWIPE_DELAY = 2000;
     private final int SWIPE_PERIOD = 5000;
 
     EventRecycleViewAdapter ed;
-    private final Query eventsDb = FirebaseDatabase
-            .getInstance()
-            .getReference(getString(R.string.firebase_key_event))
-            .orderByChild(getString(R.string.firebase_key_event_id));
 
     ArrayList<Event> list;
 
@@ -112,6 +105,10 @@ public class HomeFragment extends Fragment {
         eventsRecyclerView.setAdapter(ed);
 
         //Add database listeners
+        final Query majorEventsDb = FirebaseDatabase
+                .getInstance()
+                .getReference(getActivity().getString(R.string.firebase_key_highlights))
+                .orderByChild(getActivity().getString(R.string.firebase_key_event_id));
         majorEventsDb.keepSynced(true);
         majorEventsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -130,6 +127,10 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        final Query eventsDb = FirebaseDatabase
+                .getInstance()
+                .getReference(getActivity().getString(R.string.firebase_key_event))
+                .orderByChild(getActivity().getString(R.string.firebase_key_event_id));
         eventsDb.keepSynced(true);
         eventsDb.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

@@ -42,13 +42,13 @@ public class AboutUsFragment extends Fragment implements View.OnClickListener{
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.facebook_page:
-                pageUrl = getResources().getString(R.string.facebook_page_link);
+                pageUrl = getString(R.string.facebook_page_link);
                 break;
             case R.id.instagram_page:
-                pageUrl = getResources().getString(R.string.instagram_page_link);
+                pageUrl = getString(R.string.instagram_page_link);
                 break;
             case R.id.github_page:
-                pageUrl = getResources().getString(R.string.github_page_link);
+                pageUrl = getString(R.string.github_page_link);
                 break;
         }
         Utils.openLinkInCustomTab(getContext(),pageUrl);

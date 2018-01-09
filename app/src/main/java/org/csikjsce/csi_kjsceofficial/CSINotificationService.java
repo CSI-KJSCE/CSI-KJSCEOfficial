@@ -51,15 +51,24 @@ public class CSINotificationService extends FirebaseMessagingService {
     private Notification parseNotification(RemoteMessage message){
 
         Map<String, String> data = message.getData();
-        int eventId = Integer.parseInt(data.get(getResources().getString(R.string.notif_key_event_id)));
-
+        int eventId, eventType;
+        try {
+            eventId = Integer.parseInt(data.get(getResources().getString(R.string.notif_key_event_id)));
+        } catch (NumberFormatException nfe) {
+            eventId = -1;
+        }
+        try {
+            eventType = Integer.parseInt(data.get(getString(R.string.notif_key_type)));
+        } catch (NumberFormatException nfe){
+            eventType = 0;
+        }
         Notification notification = new Notification(
-                Integer.parseInt(data.get(getResources().getString(R.string.notif_key_id))),
-                data.get(getResources().getString(R.string.notif_key_time)),
-                data.get(getResources().getString(R.string.notif_key_title)),
-                data.get(getResources().getString(R.string.notif_key_desc)),
-                data.get(getResources().getString(R.string.notif_key_extra_url)),
-                Integer.parseInt(data.get(getResources().getString(R.string.notif_key_type))),
+                Integer.parseInt(data.get(getString(R.string.notif_key_id))),
+                data.get(getString(R.string.notif_key_time)),
+                data.get(getString(R.string.notif_key_title)),
+                data.get(getString(R.string.notif_key_desc)),
+                data.get(getString(R.string.notif_key_extra_url)),
+                eventType,
                 eventId,
                 Notification.NOT_READ
         );

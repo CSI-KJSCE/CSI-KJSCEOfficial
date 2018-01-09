@@ -159,7 +159,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(SUM_OF_UNREADS_QUERY, null);
         if(cursor != null){
             cursor.moveToFirst();
-            unReadCount = Integer.parseInt(cursor.getString(0));
+            try{
+                unReadCount = Integer.parseInt(cursor.getString(0));
+            } catch (NumberFormatException nfe) {
+                unReadCount = 0;
+            }
+
         }
         return unReadCount;
     }

@@ -30,9 +30,7 @@ public class CouncilDetailsFragment extends Fragment {
 
     private View view;
     private final String TAG = CouncilDetailsFragment.class.getSimpleName();
-    private final Query cmDb = FirebaseDatabase.getInstance()
-            .getReference(getResources().getString(R.string.firebase_key_council_member))
-            .orderByChild(getResources().getString(R.string.firebase_key_member_id));
+
     List<CouncilMember> list;
     RecyclerView listingsView;
     CouncilMemberAdapter adapter;
@@ -55,6 +53,9 @@ public class CouncilDetailsFragment extends Fragment {
         listingsView.setLayoutManager(new LinearLayoutManager(getContext()));
         listingsView.setAdapter(adapter);
 
+        final Query cmDb = FirebaseDatabase.getInstance()
+                .getReference(getString(R.string.firebase_key_council_member))
+                .orderByChild(getString(R.string.firebase_key_member_id));
         cmDb.keepSynced(true);
         cmDb.addValueEventListener(new ValueEventListener() {
             @Override
