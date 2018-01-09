@@ -5,11 +5,9 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -21,8 +19,6 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
-
-import java.net.URI;
 
 public class EventDetailsActivity extends AppCompatActivity implements View.OnClickListener{
     String TAG = EventDetailsActivity.class.getSimpleName();
@@ -70,7 +66,9 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         Intent intent = getIntent();
         event = intent.getParcelableExtra("Event");
         FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(this);
+        if(!URLUtil.isValidUrl(event.getRegister())){
+            fab.setVisibility(View.GONE);
+        } else fab.setOnClickListener(this);
 
         eventDate = findViewById(R.id.event_date_textview);
         eventDescrip = findViewById(R.id.eventdetails_textview);
@@ -93,6 +91,10 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.activity_eventdetail_menu, menu);
+
+        MenuItem feedbackMenuItem = menu.findItem(R.id.feedback_menu);
+        if(!URLUtil.isValidUrl(event.getFeedback()))
+            feedbackMenuItem.setVisible(false);
         return true;
     }
 
@@ -100,7 +102,7 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
     public boolean onOptionsItemSelected(MenuItem item) {
         if(item.getItemId()==R.id.home)
             finish();
-        else if(item.getItemId()==R.id.feedback){
+        else if(item.getItemId()==R.id.feedback_menu){
             String feedBackUrl = event.getFeedback();
             if(URLUtil.isValidUrl(feedBackUrl)){
                 Utils.openLinkInCustomTab(this, feedBackUrl);

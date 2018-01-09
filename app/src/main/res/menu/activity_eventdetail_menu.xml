@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/feedback"
+        android:id="@+id/feedback_menu"
         android:icon="@drawable/ic_feedback"
         android:title="@string/feedback"
         app:showAsAction="always"/>
