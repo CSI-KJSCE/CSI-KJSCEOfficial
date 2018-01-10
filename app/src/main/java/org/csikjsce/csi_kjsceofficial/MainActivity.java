@@ -145,7 +145,7 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-                if(dbHelper.getUnreadCount()>0){
+                if(dbHelper.getUnreadCount()>0 && notifMenu!=null){
                     notifMenu.setIcon(getResources().getDrawable(R.drawable.ic_notification_new));
                 }
             }
