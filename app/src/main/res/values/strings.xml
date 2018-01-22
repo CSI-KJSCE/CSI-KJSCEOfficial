@@ -13,7 +13,6 @@
     <!-- Database keys -->
     <string name="firebase_key_council_member">councilmember</string>
     <string name="firebase_key_event">event</string>
-    <string name="firebase_key_eureka">eureka</string>
     <string name="firebase_key_last_notif">_last-notif-id</string>
     <string name="firebase_key_highlights">major-events</string>
     <string name="firebase_key_member_id">id</string>
@@ -27,7 +26,6 @@
     <string name="notif_key_extra_url">extraUrl</string>
     <string name="notif_key_type">type</string>
     <string name="notif_key_event_id">eventId</string>
-    <string name="notif_key_read">isRead</string>
 
     <!-- Shread preference keys -->
     <string name="USER_INFO">org.csikjsce.csikjsceofficial.PREF_USER_INFO</string>
