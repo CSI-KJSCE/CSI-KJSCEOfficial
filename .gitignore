@@ -9,6 +9,9 @@ local.properties
 
 # Gradle generated files
 .gradle/
+*.apk
+*.zip
+*.aar
 
 # Signing files
 .signing/
@@ -26,6 +29,9 @@ local.properties
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 *.iml
+
+# app private files
+google-services.json
 
 # OS-specific files
 .DS_Store

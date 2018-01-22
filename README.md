@@ -25,7 +25,6 @@
 
 - Fork this repo
 - A sample json of firebase database can be found [here](https://drive.google.com/open?id=1SbVfv8MY51kGb4OJt1k8G5jGHlFJjf24)
-- We have also included google-services.json that we use for testing. This isn't the one used in release builds
 - You can contribute by fixing "Known issues" or implementing any "Features to be added"
 
 ### Contributers:
