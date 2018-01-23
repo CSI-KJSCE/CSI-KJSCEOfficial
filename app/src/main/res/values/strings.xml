@@ -91,5 +91,7 @@
     <string name="the_council">The Council</string>
     <string name="signed_out">Signed out</string>
     <string name="account_disconnected">Account disconnected</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
 
 </resources>

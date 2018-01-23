@@ -12,6 +12,7 @@ import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatRadioButton;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -22,6 +23,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.webkit.URLUtil;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -31,8 +33,9 @@ import com.bumptech.glide.request.transition.Transition;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener {
     ViewGroup rootLayout;
     FloatingActionButton profileImage;
-    TextInputEditText nameText, sexText, svvText,emailText, phoneText;
+    TextInputEditText nameText, svvText, emailText, phoneText;
     Button saveProfileBtn;
+    RadioGroup genderSelector;
     SharedPreferences sf;
     Toolbar toolbar;
     private boolean editMode;
@@ -50,7 +53,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         toolbar = findViewById(R.id.toolbar);
         profileImage = findViewById(R.id.profile_pic_fab);
         nameText = findViewById(R.id.full_name_text);
-        sexText = findViewById(R.id.sex_text);
+        genderSelector = findViewById(R.id.person_gender_radio_grp);
         svvText = findViewById(R.id.svv_email_text);
         emailText = findViewById(R.id.personal_email_text);
         phoneText = findViewById(R.id.phone_number_text);
@@ -75,15 +78,15 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         super.onResume();
         sf = getSharedPreferences(getString(R.string.USER_INFO),MODE_PRIVATE);
         String fullname = sf.getString(getString(R.string.pref_key_name),"CSI Fan");
-        String sex = sf.getString(getString(R.string.pref_key_sex),"NA");
-        String svvMail = sf.getString(getString(R.string.pref_key_svv_mail),"NA");
-        String email = sf.getString(getString(R.string.pref_key_email),"NA");
-        String phone = sf.getString(getString(R.string.pref_key_phone),"NA");
+        String sex = sf.getString(getString(R.string.pref_key_sex),"");
+        String svvMail = sf.getString(getString(R.string.pref_key_svv_mail),"");
+        String email = sf.getString(getString(R.string.pref_key_email),"");
+        String phone = sf.getString(getString(R.string.pref_key_phone),"");
         String picUrl = sf.getString(getString(R.string.pref_key_pic_url),"default");
         boolean signedWithSvv = sf.getBoolean(getString(R.string.pref_key_signed_in_with_svv),false);
 
         if(!URLUtil.isValidUrl(picUrl)){
-            if(picUrl.equalsIgnoreCase("female"))
+            if(picUrl.equalsIgnoreCase(getString(R.string.female)))
                 profileImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_default_female_avatar));
         }
         else {
@@ -102,7 +105,9 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     });
         }
         nameText.setText(fullname);
-        sexText.setText(sex);
+        if(sex.equalsIgnoreCase(getString(R.string.female)))
+            ((AppCompatRadioButton)findViewById(R.id.sex_female_radio_btn)).setChecked(true);
+        else ((AppCompatRadioButton)findViewById(R.id.sex_male_radio_btn)).setChecked(true);
         svvText.setText(svvMail);
         emailText.setText(email);
         phoneText.setText(phone);
@@ -125,7 +130,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         if(editMode==false){
             Utils.disableEditText(emailText);
             Utils.disableEditText(svvText);
-            Utils.disableEditText(sexText);
             Utils.disableEditText(phoneText);
         }
 
@@ -142,10 +146,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     missing.append(" name |");
                 }
                 editor.putString("name",nameText.getText().toString());
-                if(sexText.getText().toString().length()<3) {
-                    missing.append(" sex |");
+                if(genderSelector.getCheckedRadioButtonId() == R.id.sex_female_radio_btn) {
+                    editor.putString("sex",getString(R.string.female));
                 }
-                editor.putString("sex",sexText.getText().toString());
+                else {
+                    editor.putString("sex", getString(R.string.male));
+                }
                 if(!svvText.getText().toString().contains("@somaiya.edu")) {
                     missing.append(" svv mail |");
                 }
@@ -192,9 +198,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     svvText.setText("");
                 Utils.enableEditText(svvText);
             }
-            if(sexText.getText().toString().equals("NA"))
-                sexText.setText("");
-            Utils.enableEditText(sexText);
+
             if(phoneText.getText().toString().equals("NA"))
                 phoneText.setText("");
             Utils.enableEditText(phoneText);
@@ -203,7 +207,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             saveProfileBtn.setOnClickListener(this);
             getWindow()
                     .setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_MODE_CHANGED);
-            sexText.requestFocus();
+
             // show keyboard
             InputMethodManager inputManager = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
             inputManager.toggleSoftInput(InputMethodManager.SHOW_FORCED,InputMethodManager.HIDE_IMPLICIT_ONLY);
