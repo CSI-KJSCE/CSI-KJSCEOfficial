@@ -9,6 +9,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.CouncilMember;
@@ -38,7 +39,14 @@ public class CouncilMemberHolder extends RecyclerView.ViewHolder implements View
         nameTv.setText(member.getName());
         postTv.setText(member.getPost());
         deptTv.setText(member.getDept());
-        Glide.with(context).load(member.getPic_url()).into(img);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.ic_default_male_avatar);
+        requestOptions.error(R.drawable.ic_default_male_avatar);
+        Glide
+                .with(context)
+                .setDefaultRequestOptions(requestOptions)
+                .load(member.getPic_url())
+                .into(img);
         Toast.makeText(context,member.getPic_url(),Toast.LENGTH_SHORT);
     }
 

@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
@@ -44,7 +45,14 @@ public class EventHolder extends RecyclerView.ViewHolder implements View.OnClick
         eventdtTv.setText(event.getEventdt());
         eventCategoryTv.setText(event.getCategory());
         eventAudienceTv.setText(event.getAudience());
-        Glide.with(context).load(event.getImg_url()).into(img);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.default_event_pic);
+        requestOptions.error(R.drawable.default_event_pic);
+        Glide
+                .with(context)
+                .setDefaultRequestOptions(requestOptions)
+                .load(event.getImg_url())
+                .into(img);
         Log.d(TAG,"bindEvent(): imgurl = "+event.getImg_url());
     }
 

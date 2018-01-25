@@ -32,7 +32,7 @@ local.properties
 
 # app private files
 google-services.json
-
+app/release/
 # OS-specific files
 .DS_Store
 .DS_Store?

@@ -27,6 +27,7 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.transition.Transition;
 
@@ -90,9 +91,12 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 profileImage.setImageDrawable(getResources().getDrawable(R.drawable.ic_default_female_avatar));
         }
         else {
-
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions.placeholder(R.drawable.ic_default_male_avatar);
+            requestOptions.error(R.drawable.ic_default_male_avatar);
             Glide
                     .with(this)
+                    .setDefaultRequestOptions(requestOptions)
                     .asBitmap()
                     .load(picUrl)
                     .into(new SimpleTarget<Bitmap>() {

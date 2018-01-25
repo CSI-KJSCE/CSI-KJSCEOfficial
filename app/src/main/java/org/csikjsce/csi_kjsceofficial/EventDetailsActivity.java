@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
 
@@ -82,7 +83,11 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         eventDescrip.setText(Html.fromHtml(event.getDesc()));
         eventCategory.setText(event.getCategory());
         eventAudience.setText(event.getAudience());
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.default_event_pic);
+        requestOptions.error(R.drawable.default_event_pic);
         Glide.with(this)
+                .setDefaultRequestOptions(requestOptions)
                 .load(event.getImg_url())
                 .into(eventImage);
     }

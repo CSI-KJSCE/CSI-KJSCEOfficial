@@ -24,6 +24,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.ConnectionResult;
@@ -115,8 +116,12 @@ public class MainActivity extends AppCompatActivity
                 profilePic.setImageDrawable(getResources().getDrawable(R.drawable.ic_default_female_avatar));
         }
         else {
+            RequestOptions requestOptions = new RequestOptions();
+            requestOptions.placeholder(R.drawable.ic_default_male_avatar);
+            requestOptions.error(R.drawable.ic_default_male_avatar);
             Glide
                     .with(this)
+                    .setDefaultRequestOptions(requestOptions)
                     .load(picUrl)
                     .into(profilePic);
         }

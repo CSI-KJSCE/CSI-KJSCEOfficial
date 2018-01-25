@@ -14,6 +14,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.csikjsce.csi_kjsceofficial.EventDetailsActivity;
 import org.csikjsce.csi_kjsceofficial.POJO.Event;
@@ -51,8 +52,12 @@ public class SwipeCustomAdapter extends  PagerAdapter {
         inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View swiper_view = inflater.inflate(R.layout.swiper_layout,container ,false);
         ImageView sliderimage = swiper_view.findViewById(R.id.swiper_imageview);
+        RequestOptions requestOptions = new RequestOptions();
+        requestOptions.placeholder(R.drawable.default_event_pic);
+        requestOptions.error(R.drawable.default_event_pic);
         Glide
                 .with(context)
+                .setDefaultRequestOptions(requestOptions)
                 .load(events.get(position).getImg_url())
                 .into(sliderimage);
 

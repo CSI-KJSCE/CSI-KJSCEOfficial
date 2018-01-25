@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -65,8 +66,12 @@ public class EurekaFragment extends android.support.v4.app.Fragment implements V
                 eureka_para_tv.setText(Html.fromHtml(eurekaDescp));
                 registerUrl = dataSnapshot.child("registeration").getValue(String.class);
                 posterUrl = dataSnapshot.child("img_url").getValue(String.class);
+                RequestOptions requestOptions = new RequestOptions();
+                requestOptions.placeholder(R.drawable.default_event_pic);
+                requestOptions.error(R.drawable.default_event_pic);
                 Glide
                         .with(getContext())
+                        .setDefaultRequestOptions(requestOptions)
                         .load(posterUrl)
                         .into(posterImage);
             }
