@@ -228,7 +228,7 @@ public class MainActivity extends AppCompatActivity
                 Utils.openLinkInCustomTab(context, getString(R.string.app_download_link));
                 break;
             case R.id.share_app_menu:
-                String msg = getString(R.string.app_share_msg);
+                String msg = getString(R.string.app_share_msg)+"<br>"+getString(R.string.app_download_link);
                 Utils.onShareClick(context, msg,"");
                 break;
             case R.id.logout_drawer_opt:
