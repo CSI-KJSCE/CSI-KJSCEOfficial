@@ -212,6 +212,9 @@ public class MainActivity extends AppCompatActivity
                 frag = new HomeFragment();
                 setActionBarTitle(getString(R.string.csi_kjsce));
                 break;
+            case R.id.nav_profile:
+                startActivity(new Intent(this, ProfileActivity.class));
+                break;
             case R.id.nav_eureka:
                 frag=new EurekaFragment();
                 setActionBarTitle(getString(R.string.eureka));
@@ -230,14 +233,6 @@ public class MainActivity extends AppCompatActivity
             case R.id.share_app_menu:
                 String msg = getString(R.string.app_share_msg)+"<br>"+getString(R.string.app_download_link);
                 Utils.onShareClick(context, msg,"");
-                break;
-            case R.id.logout_drawer_opt:
-                signOut();
-                finish();
-                break;
-            case R.id.disconnect_acc_drawer_opt:
-                revokeAccess();
-                finish();
                 break;
         }
 

@@ -7,6 +7,10 @@
             android:icon="@drawable/ic_csi_home"
             android:title="@string/home" />
         <item
+            android:id="@+id/nav_profile"
+            android:icon="@drawable/ic_profile"
+            android:title="@string/profile"/>
+        <item
             android:id="@+id/nav_eureka"
             android:icon="@drawable/ic_eureka"
             android:title="@string/eureka" />
@@ -28,16 +32,6 @@
             android:id="@+id/share_app_menu"
             android:icon="@drawable/ic_share_app"
             android:title="@string/share_this_app"/>
-    </group>
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/logout_drawer_opt"
-            android:icon="@drawable/ic_logout"
-            android:title="@string/logout" />
-        <item
-            android:id="@+id/disconnect_acc_drawer_opt"
-            android:icon="@drawable/ic_disconnect_acc"
-            android:title="@string/logout_and_disconnect_account"/>
     </group>
 
 </menu>
