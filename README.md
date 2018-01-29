@@ -1,5 +1,5 @@
 # CSI-KJSCE's Official Andriod App!
-
+[Download](https://play.google.com/store/apps/details?id=org.csikjsce.csi_kjsceofficial) it from from playstore
 ### Basic features:
  - Shows all events conducted by CSI-KJSCE
  - Allows signed in users to register as well provide feedback for active events
@@ -16,7 +16,7 @@
 
 ### Known issues:
 - Too much memory consumption (Upto 130MB)
-- Firebase notification drops when device is in background
+- ~~Firebase notification drops when device is in background~~ fixed in v0.1.3
 - NotificationActivity: Clicking ith notification item affects (n-i)th item as well
 
 ### How to contribute:
@@ -37,7 +37,7 @@
 
 A maintainer is anyone who helps us to:
 - keep the app dependencies upto date (support libraries, 3rd party libraries, etc)
-- support currently unsupported devices (API <19 and  tablets)
+- support currently unsupported devices (API <16 and  tablets)
 - improve app performance (especially memory consumption)
 
 ### Distribution restriction
@@ -46,5 +46,5 @@ Only CSI-KJSCE team can distribute compiled app.
 Other contributers are **NOT PERMITTED** to distribute or publish COMPILED APK.
 
 ### Credits for svg icons: [To be updated with per icon link]
-- Social media icons : [Icons8](https://icons8.com/)]
+- Social media icons : [Icons8](https://icons8.com/)
 - Notification and drawer icons: [FLATICON](https://www.flaticon.com/)
