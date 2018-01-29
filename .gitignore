@@ -33,6 +33,8 @@ local.properties
 # app private files
 google-services.json
 app/release/
+*.bak
+
 # OS-specific files
 .DS_Store
 .DS_Store?
