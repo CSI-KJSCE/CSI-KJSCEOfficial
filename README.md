@@ -27,7 +27,7 @@
 - A sample json of firebase database can be found [here](https://drive.google.com/open?id=1SbVfv8MY51kGb4OJt1k8G5jGHlFJjf24)
 - You can contribute by fixing "Known issues" or implementing any "Features to be added"
 
-### Contributers:
+### Contributors:
 - [Sarfaraz Iraqui](https://github.com/sziraqui) and [Sumit Poojary](https://github.com/Sumit1797) (primary developers)
 - Hitansh Shah (Beta tester)
 - Myron Carvalho (Beta tester)
@@ -48,3 +48,13 @@ Other contributers are **NOT PERMITTED** to distribute or publish COMPILED APK.
 ### Credits for svg icons: [To be updated with per icon link]
 - Social media icons : [Icons8](https://icons8.com/)
 - Notification and drawer icons: [FLATICON](https://www.flaticon.com/)
+All icons licensed by [Creative Commons BY 3.0](http://creativecommons.org/licenses/by/3.0/)
+	- ic_default_male_avatar by [Icon pond](https://www.flaticon.com/authors/popcorns-arts)
+	- ic_default_female_avatar by [Icon pond](https://www.flaticon.com/authors/popcorns-arts)
+	- ic_general_notification by [Freepik](http://www.freepik.com)
+	- ic_seminar_notification by [Freepik](http://www.freepik.com)
+	- ic_workshop_notification by [Freepik](http://www.freepik.com)
+	- ic_genders by [Freepik](http://www.freepik.com)
+	- ic_eureka by [Icons8]("https://icons8.com/")
+	- ic_group by [Chanut is Industires](https://www.flaticon.com/authors/chanut-is-industries")
+	
