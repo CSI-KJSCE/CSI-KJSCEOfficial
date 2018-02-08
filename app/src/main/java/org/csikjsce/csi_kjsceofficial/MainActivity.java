@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity
         }
 
         HomeFragment homeFragment = new HomeFragment();
-        getSupportFragmentManager().beginTransaction().add(R.id.frames,homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.fragment_container,homeFragment).commit();
 
         GoogleSignInOptions gso = new GoogleSignInOptions
                 .Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -178,6 +178,14 @@ public class MainActivity extends AppCompatActivity
     boolean doubleBackToExitPressedOnce=false;
     @Override
     public void onBackPressed() {
+        Fragment fragment = getSupportFragmentManager().findFragmentById(R.id.fragment_container);
+        if(!(fragment instanceof HomeFragment)){
+            getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_container, new HomeFragment())
+                    .commit();
+            return;
+        }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
@@ -237,8 +245,8 @@ public class MainActivity extends AppCompatActivity
         }
 
         if (frag != null){
-            android.support.v4.app.FragmentTransaction ft= getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.frames,frag);
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.fragment_container,frag);
             ft.commit();
 
         }
