@@ -12,7 +12,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -69,7 +72,32 @@ public class CouncilDetailsFragment extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG,databaseError.getDetails());
+            }
+        });
+        final Query metaDb = FirebaseDatabase.getInstance()
+                .getReference(getString(R.string.firebase_key_meta))
+                .child(getString(R.string.firebase_key_coucil_pic_url));
+        metaDb.keepSynced(true);
+        metaDb.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String councilPicUrl = dataSnapshot.getValue(String.class);
+                ImageView councilImageView = view.findViewById(R.id.council_imageview);
+                RequestOptions requestOptions = new RequestOptions();
+                requestOptions.placeholder(R.drawable.kjsce_and_csi_bg);
+                requestOptions.error(R.drawable.default_event_pic);
 
+                Glide
+                        .with(getActivity())
+                        .setDefaultRequestOptions(requestOptions)
+                        .load(councilPicUrl)
+                        .into(councilImageView);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.d(TAG,databaseError.getDetails());
             }
         });
     }

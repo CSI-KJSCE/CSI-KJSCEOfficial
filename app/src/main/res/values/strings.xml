@@ -18,6 +18,8 @@
     <string name="firebase_key_member_id">id</string>
     <string name="firebase_key_event_id">eventid</string>
     <string name="firebase_key_notif_id">id</string>
+    <string name="firebase_key_meta">meta</string>
+    <string name="firebase_key_coucil_pic_url">council_pic_url</string>
 
     <string name="notif_key_id">id</string>
     <string name="notif_key_time">time</string>
