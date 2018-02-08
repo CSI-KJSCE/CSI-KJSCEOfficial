@@ -184,6 +184,7 @@ public class MainActivity extends AppCompatActivity
                     .beginTransaction()
                     .replace(R.id.fragment_container, new HomeFragment())
                     .commit();
+            setActionBarTitle(getString(R.string.csi_kjsce));
             return;
         }
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
