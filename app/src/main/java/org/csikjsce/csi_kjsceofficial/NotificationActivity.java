@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SimpleItemAnimator;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -66,9 +68,15 @@ public class NotificationActivity extends AppCompatActivity  {
 
                 notifications.clear();
                 notifications.addAll(dbHelper.selectAllNotifications());
-                notifAdapter.notifyDataSetChanged();
-                // Scroll to top
-                ((LinearLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(0,0);
+                if(notifications.isEmpty()){
+                    TextView notifTv = findViewById(R.id.no_notif_tv);
+                    notifTv.setVisibility(View.VISIBLE);
+                } else {
+                    notifAdapter.notifyDataSetChanged();
+                    // Scroll to top
+                    ((LinearLayoutManager)recyclerView.getLayoutManager()).scrollToPositionWithOffset(0,0);
+                }
+
             }
 
             @Override

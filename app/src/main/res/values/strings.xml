@@ -96,5 +96,6 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="profile">Profile</string>
+    <string name="no_notif_msg">No new notification</string>
 
 </resources>

@@ -13,4 +13,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
     </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/no_notif_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/no_notif_msg"
+        android:gravity="center"
+        android:textAppearance="@style/LargeTitleTextAppearance"
+        android:visibility="gone"/>
 </LinearLayout>
