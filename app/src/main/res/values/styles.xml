@@ -10,7 +10,7 @@
         <!-- android:textColorSecondary is the color of the menu overflow icon (three vertical dots) -->
         <item name="android:textColorSecondary">@android:color/white</item>
         <!-- custom font for the entire app -->
-        <item name="fontFamily">@font/saira_condensed_regular</item>
+        <item name="fontFamily">@font/titilium_regular</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -27,64 +27,64 @@
     <style name="TitleTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/titleText</item>
         <item name="android:textColor">@color/colorRegularText</item>
-        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:fontFamily">@font/titilium_regular_semi_bold</item>
         <item name="android:textIsSelectable">true</item>
     </style>
 
     <style name="LargeTitleTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/titleLargeText</item>
         <item name="android:textColor">@color/colorRegularText</item>
-        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+        <item name="android:fontFamily">@font/titilium_regular</item>
     </style>
 
     <style name="BodyTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/bodyText</item>
         <item name="android:textColor">@color/colorRegularText</item>
-        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+        <item name="android:fontFamily">@font/titilium_regular</item>
         <item name="android:textIsSelectable">true</item>
     </style>
 
     <style name="FooterTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/titleLargeText</item>
         <item name="android:textColor">@color/colorLightText</item>
-        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:fontFamily">@font/titilium_regular_semi_bold</item>
         <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="SmallTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/smallText</item>
         <item name="android:textColor">@color/colorRegularText</item>
-        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+        <item name="android:fontFamily">@font/titilium_regular</item>
     </style>
 
     <style name="TinyTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/tinyText</item>
         <item name="android:textColor">@color/colorRegularText</item>
-        <item name="android:fontFamily">@font/saira_condensed_light</item>
+        <item name="android:fontFamily">@font/titilium_regular_light</item>
     </style>
 
     <style name="ToolbarTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/titleText</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">@font/saira_condensed_regular</item>
+        <item name="android:fontFamily">@font/titilium_regular</item>
     </style>
 
     <style name="TagSmallTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/tinyText</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:fontFamily">@font/titilium_regular_semi_bold</item>
     </style>
 
     <style name="TagBigTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/regularText</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:fontFamily">@font/titilium_regular_semi_bold</item>
     </style>
 
     <style name="TitleLightTextAppearance" parent="TextAppearance.AppCompat">
         <item name="android:textSize">@dimen/titleText</item>
         <item name="android:textColor">@android:color/white</item>
-        <item name="android:fontFamily">@font/saira_condensed_semibold</item>
+        <item name="android:fontFamily">@font/titilium_regular_semi_bold</item>
     </style>
 
 </resources>

@@ -5,6 +5,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
@@ -42,6 +43,8 @@ public class EventDetailsActivity extends AppCompatActivity implements View.OnCl
         toolbar = findViewById(R.id.toolbar);
         collapsingToolbar = findViewById(R.id.event_details_collapsing_toolbar);
         collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.fui_transparent));
+        collapsingToolbar.setCollapsedTitleTypeface(ResourcesCompat
+                .getFont(this, R.font.titilium_regular));
         setSupportActionBar(toolbar);
 
         final Drawable uparrow = getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp);

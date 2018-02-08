@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity
 
         //toggle.setHomeAsUpIndicator(R.drawable.csi_ic_actionbar);
         toggle.syncState();
-
+        toolbar.setNavigationIcon(R.drawable.ic_csi_triangle_logo);
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 

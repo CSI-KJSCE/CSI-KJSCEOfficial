@@ -3,11 +3,14 @@ package org.csikjsce.csi_kjsceofficial;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v4.graphics.TypefaceCompatUtil;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.v7.app.AppCompatActivity;
@@ -66,6 +69,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         CollapsingToolbarLayout collapsingToolbar = findViewById(R.id.profile_collapsing_toolbar);
         collapsingToolbar.setExpandedTitleColor(getResources().getColor(R.color.fui_transparent));
+        collapsingToolbar.setCollapsedTitleTypeface(ResourcesCompat
+                .getFont(this, R.font.titilium_regular));
         setSupportActionBar(toolbar);
 
         final Drawable uparrow = getResources().getDrawable(R.drawable.ic_arrow_back_white_24dp);

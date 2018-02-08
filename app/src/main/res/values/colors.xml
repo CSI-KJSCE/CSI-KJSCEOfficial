@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#000e55</color>
     <color name="colorAccent">#673AB7</color>
     <color name="primary_gradient_end">#673AB7</color>
-    <color name="primary_gradient_start">#1A237E</color>
+    <color name="primary_gradient_start">#000e55</color>
 
     <!-- text colors -->
     <color name="colorRegularText">#263238</color>

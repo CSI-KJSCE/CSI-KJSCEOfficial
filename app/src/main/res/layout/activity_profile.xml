@@ -85,7 +85,7 @@
                     android:id="@+id/full_name_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/saira_condensed_regular"
+                    android:fontFamily="@font/titilium_regular"
                     android:hint="Full name"
                     android:inputType="textPersonName"
                     android:textSize="@dimen/regularText" />
@@ -172,7 +172,7 @@
                     android:id="@+id/svv_email_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/saira_condensed_regular"
+                    android:fontFamily="@font/titilium_regular"
                     android:hint="Somaiya Email"
                     android:inputType="textEmailAddress"
                     android:textSize="@dimen/regularText" />
@@ -212,7 +212,7 @@
                     android:id="@+id/personal_email_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/saira_condensed_regular"
+                    android:fontFamily="@font/titilium_regular"
                     android:hint="Personal Email"
                     android:inputType="textEmailAddress"
                     android:textSize="@dimen/regularText" />
@@ -252,7 +252,7 @@
                     android:id="@+id/phone_number_text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="@font/saira_condensed_regular"
+                    android:fontFamily="@font/titilium_regular"
                     android:hint="Phone number"
                     android:inputType="phone"
                     android:textSize="@dimen/regularText">
@@ -270,7 +270,7 @@
                 android:layout_marginTop="16dp"
                 android:background="@drawable/button_primary_gradient"
                 android:elevation="8dp"
-                android:fontFamily="@font/saira_condensed_semibold"
+                android:fontFamily="@font/titilium_regular_semi_bold"
                 android:gravity="center"
                 android:text="SAVE"
                 android:textColor="@android:color/white"
