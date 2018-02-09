@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.support.customtabs.CustomTabsIntent;
 import android.text.Html;
 import android.util.Log;
+import android.webkit.URLUtil;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,15 +26,20 @@ import static android.content.Context.MODE_PRIVATE;
  */
 
 public class Utils {
+    final static String TAG = Utils.class.getSimpleName();
     public static void openLinkInCustomTab(Context context, String url){
-        Uri uri = Uri.parse(url);
+        if(URLUtil.isValidUrl(url)) {
+            Uri uri = Uri.parse(url);
 
-        CustomTabsIntent.Builder chromeWebViewBuilder = new CustomTabsIntent.Builder();
-        chromeWebViewBuilder.setToolbarColor(context.getResources().getColor(R.color.colorPrimary));
-        chromeWebViewBuilder.setSecondaryToolbarColor(context.getResources().getColor(R.color.colorPrimaryDark));
-        chromeWebViewBuilder.setShowTitle(true);
+            CustomTabsIntent.Builder chromeWebViewBuilder = new CustomTabsIntent.Builder();
+            chromeWebViewBuilder.setToolbarColor(context.getResources().getColor(R.color.colorPrimary));
+            chromeWebViewBuilder.setSecondaryToolbarColor(context.getResources().getColor(R.color.colorPrimaryDark));
+            chromeWebViewBuilder.setShowTitle(true);
 
-        chromeWebViewBuilder.build().launchUrl(context, uri);
+            chromeWebViewBuilder.build().launchUrl(context, uri);
+        }
+        else
+            Log.e(TAG,"Invalid url");
     }
     public static void onShareClick(Context context, String message, String appName) {
 
