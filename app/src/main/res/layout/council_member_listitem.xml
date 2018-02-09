@@ -9,6 +9,7 @@
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
     app:cardElevation="8dp">
+
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,25 +19,25 @@
             android:id="@+id/member_pic"
             android:layout_width="72dp"
             android:layout_height="72dp"
+            android:layout_marginBottom="8dp"
             android:layout_marginLeft="16dp"
+            android:layout_marginTop="8dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_default_male_avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="8dp"
             app:layout_constraintVertical_bias="0.0"
-            android:scaleType="centerCrop"
-            tools:layout_editor_absoluteY="36dp"
-            android:src="@drawable/ic_default_male_avatar"/>
+            tools:layout_editor_absoluteY="36dp" />
 
         <TextView
             android:id="@+id/member_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="16dp"
-            android:text="@string/council_member"
             android:ems="10"
-            android:paddingTop="10dp"
+            android:paddingTop="8dp"
+            android:text="@string/council_member"
             android:textAppearance="@style/TitleTextAppearance"
             app:layout_constraintLeft_toRightOf="@+id/member_pic" />
 
@@ -57,6 +58,14 @@
             android:textAppearance="@style/BodyTextAppearance"
             app:layout_constraintLeft_toLeftOf="@+id/member_name"
             app:layout_constraintTop_toBottomOf="@+id/member_post" />
+
+        <ImageView
+            android:id="@+id/linkedin_profile_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_linkedin_circular"
+            app:layout_constraintBottom_toBottomOf="@+id/member_pic"
+            app:layout_constraintRight_toRightOf="@id/member_pic" />
     </android.support.constraint.ConstraintLayout>
 </android.support.v7.widget.CardView>
 

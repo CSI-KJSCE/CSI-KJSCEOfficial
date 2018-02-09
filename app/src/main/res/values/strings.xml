@@ -35,7 +35,7 @@
     <string name="pref_key_svv_mail">svv_mail</string>
     <string name="pref_key_signed_in_with_svv">signed_in_with_svv</string>
     <string name="pref_key_email">email</string>
-    <string name="pref_key_pic_url">pic_url</string>
+    <string name="pref_key_pic_url">picUrl</string>
     <string name="pref_key_edit_mode">edit_mode</string>
     <string name="pref_key_sex">sex</string>
     <string name="pref_key_phone">phone</string>

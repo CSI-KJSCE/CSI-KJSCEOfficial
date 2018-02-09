@@ -7,16 +7,19 @@ package org.csikjsce.csi_kjsceofficial.POJO;
 public class CouncilMember {
     private String name;
     private String post;
-    private String pic_url;
+    private String picUrl;
     private String dept;
+    private String profileUrl;
     private int id;
 
     CouncilMember(){}
-    CouncilMember(String name, String post, String pic_url, String dept){
+    CouncilMember(int id, String name, String post, String pic_url, String dept, String profileUrl){
+        this.id = id;
         this.name = name;
         this.post = post;
-        this.pic_url = pic_url;
+        this.picUrl = pic_url;
         this.dept = dept;
+        this.profileUrl = profileUrl;
     }
     public String getName() {
         return name;
@@ -34,16 +37,24 @@ public class CouncilMember {
         this.post = post;
     }
 
-    public String getPic_url() {
-        return pic_url;
+    public String getPicUrl() {
+        return picUrl;
     }
 
-    public void setPic_url(String pic_url) {
-        this.pic_url = pic_url;
+    public void setPicUrl(String picUrl) {
+        this.picUrl = picUrl;
     }
 
     public String getDept() {
         return dept;
+    }
+
+    public String getProfileUrl() {
+        return profileUrl;
+    }
+
+    public void setProfileUrl(String profileUrl) {
+        this.profileUrl = profileUrl;
     }
 
     public void setDept(String dept) {
