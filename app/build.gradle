@@ -7,22 +7,11 @@ android {
         applicationId "org.csikjsce.csi_kjsceofficial"
         minSdkVersion 16
         targetSdkVersion 27
-        versionCode 5
-        versionName "0.1.6"
+        versionCode 6
+        versionName "0.2.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            applicationVariants.all { variant ->
-                variant.outputs.all { output ->
-                    outputFileName = new File(
-                            defaultConfig.applicationId + "-release-v" + defaultConfig.versionName + ".apk"
-                    )
-                }
-            }
-        }
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -34,6 +23,18 @@ android {
                 }
             }
         }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.all { output ->
+                    outputFileName = new File(
+                            defaultConfig.applicationId + "-release-v" + defaultConfig.versionName + ".apk"
+                    )
+                }
+            }
+        }
+
     }
 }
 
