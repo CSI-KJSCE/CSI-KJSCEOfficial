@@ -1,4 +1,4 @@
-## CSI-KJSCE's Official Andriod App!
+## CSI-KJSCE's Official Android App!
 <div style="display:flex;" >
 <a href="https://play.google.com/store/apps/details?id=org.csikjsce.csi_kjsceofficial">
     <img src="https://drive.google.com/uc?export=download&id=16GjsY7tDWFPhK576lCvDVhy7mOPLo_WE"
@@ -18,7 +18,7 @@
  - Receive official announcements via push notifications
  - Eureka - a platform for seeking expert assistance for your projects
  - Share any events on social media
-
+ - View the LinkedIn profile of our council members
 #### Features to be added:
 View in [TODOs](https://github.com/CSI-KJSCE/CSI-KJSCEOfficial/blob/master/TODOs.md)
 
